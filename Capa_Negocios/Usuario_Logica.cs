@@ -23,7 +23,7 @@ namespace Capa_Negocios
         //metodo para verificar las credenciales 
         public static bool Autentificar(string nombre, string pass)
         {
-            var auto = dc.tbl_Usuario.Any(usu => usu.usu_estado == 'A' & usu.usu_usuario.Equals(nombre) &&
+            var auto = dc.tbl_Usuario.Any(usu => usu.usu_estado == 'A' & usu.usu_email.Equals(nombre) &&
 
                                             usu.usu_pass.Equals(pass));
             return auto;
@@ -67,7 +67,7 @@ namespace Capa_Negocios
             {
                 usuario.usu_estado = 'A';
                 //usuario.usu_add = DateTime.Now;
-                usuario.rol_id = '2';
+                usuario.rol_id = 2;
                 
                 dc.tbl_Usuario.InsertOnSubmit(usuario);
                 dc.SubmitChanges();

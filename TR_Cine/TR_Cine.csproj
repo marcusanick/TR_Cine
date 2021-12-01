@@ -71,6 +71,7 @@
     <Content Include="Agregarimg.aspx" />
     <Content Include="css\estilos.css" />
     <Content Include="css\estilosp.css" />
+    <Content Include="dar.aspx" />
     <Content Include="img\banner-img.jpg" />
     <Content Include="img\banner2.png" />
     <Content Include="img\banner3.png" />
@@ -95,12 +96,26 @@
     <Compile Include="Agregarimg.aspx.designer.cs">
       <DependentUpon>Agregarimg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="dar.aspx.cs">
+      <DependentUpon>dar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dar.aspx.designer.cs">
+      <DependentUpon>dar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IndexPaginaM.Master.cs">
+      <DependentUpon>IndexPaginaM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndexPaginaM.Master.designer.cs">
+      <DependentUpon>IndexPaginaM.Master</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -119,6 +134,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IndexPaginaM.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

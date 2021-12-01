@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/estilosp.css">
     <!-- Iconos -->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <form class="formulario" id="form1" runat="server">
@@ -26,9 +27,7 @@
     <section>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
             <div class="container">
-                <asp:LinkButton ID="lnk_home" class="navbar-brand"  runat="server" OnClick="lnk_home_Click">Cineplanet</asp:LinkButton>
-               
-                
+                <asp:LinkButton ID="lnk_home" class="navbar-brand"  runat="server" OnClick="lnk_home_Click">Cineplanet</asp:LinkButton>        
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -51,8 +50,6 @@
                         <div class="link">
                             <asp:LinkButton ID="lnk_olvido" runat="server" OnClick="lnk_olvido_Click" class="link">Olvidaste tu Contraseña</asp:LinkButton>
                         </div>
-
-
                         <div class="control">
                             <asp:Button ID="btn_ingresar" class="button" runat="server" Text="Ingresar" OnClick="btn_ingresar_Click" />
                             <asp:Button ID="btn_desbloquear" class="button" Visible="false" runat="server" Text="Desbloquear Contraseña" OnClick="btn_desbloquear_Click" />
@@ -61,9 +58,7 @@
                             <asp:LinkButton ID="lnk_registrar" class="link" runat="server" OnClick="lnk_registrar_Click">Registrate</asp:LinkButton></p>
                         <asp:LinkButton ID="lnk_regresar" visible="false" runat="server" OnClick="lnk_regresar_Click">Regresar</asp:LinkButton>
 
-                    </div>
-                    <br />
-                    <br />
+                    </div>                                   
                     <center>
                         <asp:Label ID="lbl_intentos" runat="server" Text="Intentos " Visible="false"></asp:Label>
                         <asp:Label ID="lbl_conteo" runat="server" Text="0" ForeColor="Red" Visible="false"></asp:Label>
@@ -71,10 +66,13 @@
                         <asp:Label ID="lbl_mensaje" runat="server" Text=""></asp:Label>
 
                     </center>
+        </section>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </form>
-    </section>
+    
+    <br />
+    <br />
     <section>
         <footer class="pie-pagina">
             <div class="grupo-1">
