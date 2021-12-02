@@ -74,6 +74,7 @@
     <Content Include="Agregarimg.aspx" />
     <Content Include="css\estilos.css" />
     <Content Include="css\estilosp.css" />
+    <Content Include="dar.aspx" />
     <Content Include="img\banner-img.jpg" />
     <Content Include="img\banner2.png" />
     <Content Include="img\banner3.png" />
@@ -87,6 +88,28 @@
     <Content Include="img\portadasoho.png" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Opcion2\boletos.aspx" />
+    <Content Include="Opcion2\butacas.aspx" />
+    <Content Include="Opcion2\css\contenido.css" />
+    <Content Include="Opcion2\css\estilos.css" />
+    <Content Include="Opcion2\funciones.aspx" />
+    <Content Include="Opcion2\img\banner-img.jpg" />
+    <Content Include="Opcion2\img\banner2.png" />
+    <Content Include="Opcion2\img\banner3.png" />
+    <Content Include="Opcion2\img\bannersp.png" />
+    <Content Include="Opcion2\img\cineplanetlogo5.png" />
+    <Content Include="Opcion2\img\combo.png" />
+    <Content Include="Opcion2\img\combo2.jpg" />
+    <Content Include="Opcion2\img\combo3.jpg" />
+    <Content Include="Opcion2\img\ghost.jpg" />
+    <Content Include="Opcion2\img\logotipo-sleedw.svg" />
+    <Content Include="Opcion2\img\portada.png" />
+    <Content Include="Opcion2\img\portadaeternasl.png" />
+    <Content Include="Opcion2\img\portadaghost.png" />
+    <Content Include="Opcion2\img\portadasoho.png" />
+    <Content Include="Opcion2\paginaPrincipal.aspx" />
+    <Content Include="Opcion2\pago.aspx" />
+    <Content Include="Opcion2\snack.aspx" />
     <Content Include="Registrar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -105,6 +128,13 @@
     <Compile Include="Agregarimg.aspx.designer.cs">
       <DependentUpon>Agregarimg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="dar.aspx.cs">
+      <DependentUpon>dar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dar.aspx.designer.cs">
+      <DependentUpon>dar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -112,12 +142,61 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IndexPaginaM.Master.cs">
+      <DependentUpon>IndexPaginaM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndexPaginaM.Master.designer.cs">
+      <DependentUpon>IndexPaginaM.Master</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\boletos.aspx.cs">
+      <DependentUpon>boletos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\boletos.aspx.designer.cs">
+      <DependentUpon>boletos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\butacas.aspx.cs">
+      <DependentUpon>butacas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\butacas.aspx.designer.cs">
+      <DependentUpon>butacas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\funciones.aspx.cs">
+      <DependentUpon>funciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\funciones.aspx.designer.cs">
+      <DependentUpon>funciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\paginaPrincipal.aspx.cs">
+      <DependentUpon>paginaPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\paginaPrincipal.aspx.designer.cs">
+      <DependentUpon>paginaPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\pago.aspx.cs">
+      <DependentUpon>pago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\pago.aspx.designer.cs">
+      <DependentUpon>pago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\snack.aspx.cs">
+      <DependentUpon>snack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\snack.aspx.designer.cs">
+      <DependentUpon>snack.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrar.aspx.cs">
@@ -129,6 +208,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IndexPaginaM.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

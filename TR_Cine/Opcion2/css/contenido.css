@@ -1,0 +1,245 @@
+:root{
+    --bgNav-color: #2F2F2F;
+    --bgAlt-color: #6A040F;
+    --hover-color: #D00000;
+    --bg-font: #F5F3F4;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.pie-pagina{
+    margin-top: auto;
+}
+
+.container-movies{
+    padding: 6.5em 0 5em;
+    display: flex;
+}
+.info-movie{
+    width: 30%;
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+}
+.img-movie{
+    width: 80%;
+    align-self: center;
+    margin-bottom: 3em;
+}
+.steps-movie{
+    flex-wrap: wrap;
+}
+.info{
+    font-size: 16px;
+    padding: 5px 0;
+}
+.video{
+    width: 100%;
+    height: 350px;
+    background-color: black;
+    margin-bottom: 2.5rem;
+}
+.aside{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 35px;
+    border-left: var(--bgAlt-color) 1px solid;
+}
+.funciones{
+    padding: 10px;
+    margin: 20px;
+    border-top: var(--bgAlt-color) 1px solid;
+}
+.boletos{
+    margin: 20px;
+}
+.input-num{
+    margin-left: 40px;
+    width: 50px;
+}
+.aside-bottom{
+    margin-top: auto;
+    align-self: flex-end;
+}
+.button-step{
+    padding: 5px 15px;
+    margin-left: 20px;
+    background-color: var(--bgAlt-color);
+    border-radius: 5px;
+}
+.button-step:hover{
+    background-color: var(--hover-color);
+}
+.button-step a{
+    text-decoration: none;
+    color: var(--bg-font);
+}
+.butacas-movie{
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.filtro{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.filtro select{
+    width: 150px;
+}
+.boletosCompra{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    border: var(--bgNav-color) 2px solid;
+}
+.aside .info{
+    font-weight: bold;
+    font-size: 18px;
+}
+.boletosCompra .info{
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    padding: 0.5rem 0;
+    margin-bottom: 0;
+    background-color: var(--bgNav-color);
+    color: var(--bg-font);
+}
+.infoBoleto{
+    display: flex;
+    justify-content: space-between;
+    border-top: var(--bgNav-color) 1px solid;
+    margin: 0 10px;
+    padding: 5px 0;
+}
+.infoBoleto p{
+    text-align: start;
+}
+.cantidadBoleto{
+    display: flex;
+    align-items: center;
+}
+
+/* Asiento del cine */
+.auto-style2 {
+    text-align: center;
+}
+.auto-style3 {
+    background-color: var(--bgNav-color);
+    color: var(--bg-font);
+    text-align: center;
+    width: 10px;
+}
+.butaca{
+    border-bottom: 2px;
+}
+.auto-style5 {
+    width: 36px;
+}
+.auto-style11 {
+    width: 32px;
+    height: 34px;
+}
+.auto-style13 {
+    width: 34px;
+    height: 34px;
+}
+.auto-style15 {
+    width: 35px;
+    text-align: center;
+}
+.asiento{
+    height: 30px;
+    width: 30px;
+    margin: 3px;
+    background-color: #7AFF56;
+    border: none;
+}
+.screen{
+    height: 25px;
+    width: 100%;
+    background-color: black;
+    border: none;
+    color: white;
+}
+.tipoButacas{
+    margin: 30px;
+}
+.tipoButacas button{
+    margin: 10px;
+    width: 25px;
+    height: 25px;
+    border: none;
+}
+.ocupado{
+    background-color: red;
+}
+.disponible{
+    background-color: #7AFF56;
+}
+.seleccionado{
+    background-color: blue;
+}
+
+/* Adicionar Snacks a la venta */
+
+.snack{
+    margin-bottom: 10px;
+}
+
+/* Informacion final para realizar la compra */
+
+.inputFinal{
+    border: var(--bgNav-color) 2px solid;
+}
+.lastStep{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.infoCompra{
+    border: var(--bgNav-color) 1px solid;
+    margin-bottom: 40px;
+}
+.infoCompra h2{
+    background-color: var(--bgNav-color);
+    color: var(--bg-font);
+    padding: 10px 10px;
+}
+.infoCompra h4{
+    font-size: 14px;
+    padding: 5px;
+}
+.infoPersonal{
+    border: var(--bgNav-color) 1px solid;
+    margin-bottom: 20px;
+}
+.infoPersonal h3{
+    padding: 15px 10px;
+}
+.infoPersonal .inputFinal{
+    padding: 10px;
+    width: 95%;
+    font-size: 16px;
+    border: var(--bgNav-color) solid 1px;
+    margin: 10px;
+}
+.input-container{
+    display: flex;
+}

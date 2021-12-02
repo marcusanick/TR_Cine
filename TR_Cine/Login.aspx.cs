@@ -45,7 +45,7 @@ namespace TR_Cine
             }
             else if (string.IsNullOrEmpty(txt_password.Text))
             {
-                lbl_mensaje.Text = "Ingrese su nombre de Contrasenia";
+                lbl_mensaje.Text = "Ingrese su  Contrasenia";
                 lbl_mensaje.ForeColor = Color.Red;
             }
             else

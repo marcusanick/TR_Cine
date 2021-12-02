@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root{
+    --bgNav-color: #2F2F2F;
+    --bgAlt-color: #6A040F;
+    --hover-color: #D00000;
+    --bg-font: #F5F3F4;
+}
+
+body {
+    margin: 0;
+   background: url(imagen.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+.contenedor{
+    width: 100%;
+    padding: 15px;
+}
+.formulario{
+    background: rgb(110, 109, 109);
+    margin-top: 150px;
+    padding: 3px;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+input[type="text"],
+input[type="password"]{
+    font-size: 20px;
+    width: 82%;
+    padding: 10px;
+    border: none;
+}
+.input-contenedor{
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+}
+.icon{
+    min-width: 50px;
+    text-align: center;
+}
+
+.icon2{
+    min-width: 50px;
+    text-align: center;
+    color: var(--bg-font);
+    padding-right: 0;
+}
+
+.button{
+    border: none;
+    width: 100%;
+
+    font-size: 20px;
+    background:  #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover{
+    background: var(--hover-color);
+}
+
+p{
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.link{
+    text-decoration: none;
+      color: #1a2537;
+    font-weight: 600;
+}
+
+.link:hover{
+     color: var(--hover-color);
+}
+
+/*----Tabs style-------------*/
+
+.dimension {
+    width: 300px;
+    height: 500px;
+}
+
+.navbar{
+    background-color: var(--bgNav-color);
+}
+
+.nav-tabs .nav-link.active {
+    background-color: var(--bgNav-color);
+    color: var(--bg-font);
+    border: 4px solid var(--bgNav-color);
+}
+
+.nav-tabs .nav-link {
+    background-color: var(--bg-font);
+    color: var(--bgNav-color);
+    border: 5px solid var(--bgNav-color);
+    margin-right: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.nav-tabs .nav-link:hover {
+    border: 3px solid var(--bgNav-color);
+}
+
+.nav-tabs {
+    border-bottom: 3px solid var(--bgNav-color);
+    }
+
+.tab-content {
+    border: 1px solid var(--bgNav-color);
+    padding: 50px;
+}
+
+/*----Peliculas style-------*/
+.box {
+    width: 175px;
+    height: 263px;
+    display: flex;
+    text-align: flex-start;
+    overflow: hidden;
+    position: relative;
+    margin: 1.5%;
+    border-radius: 10px;
+}
+
+.box .hover {
+    width: 0%;
+    height: 50vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: .4s all;
+}
+
+.hover h1 {
+    color:var(--bg-font);
+    text-shadow: 1px 1px 1px black;
+    font-size: 2.5em;
+    text-transform: lowercase;
+}
+
+.box:hover .hover {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+/*:::::Pie de Pagina*/
+
+.pie-pagina{
+    width: 100%;
+    background-color: var(--bgNav-color);
+}
+
+.pie-pagina .grupo-1{
+    width: 65%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap:50px;
+    padding: 45px 0px;
+}
+
+.pie-pagina .grupo-1 .caja figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-pagina .grupo-1 .caja figure img{
+    width: 250px;
+}
+
+.pie-pagina .grupo-1 .caja h2{
+    color: var(--bg-font);
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.pie-pagina .grupo-1 .caja p{
+    color: var(--bg-font);
+    margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: var(--bg-font);
+    margin-right: 10px;
+    background-color: var(--bgAlt-color);
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover{
+    color: var(--hover-color);
+}
+
+.pie-pagina .grupo-2{
+    background-color: var(--bgAlt-color);
+    padding: 15px 10px;
+    text-align: center;
+    color: var(--bg-font);
+}
+
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+
+/* Responsive */
+
+@media(min-width:768px)
+{
+    .formulario{
+        margin: auto;
+        width: 500px;
+        margin-top: 150px;
+        border-radius: 2%;
+    }
+}
+
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+}
