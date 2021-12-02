@@ -18,7 +18,7 @@
     <!-- Navbar  Bootstrap-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Cinema</a>
+            <a class="navbar-brand" href="paginaPrincipal.aspx">Cinema</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -91,7 +91,7 @@
             </div>
         <div class="aside-bottom">
             <button class="button-step"><a href="butacas.aspx">Anterior</a></button>
-            <button class="button-step"><a href="pago.html">Siguiente</a></button>
+            <button class="button-step"><a href="pago.aspx">Siguiente</a></button>
         </div>
     </div>
     </div>

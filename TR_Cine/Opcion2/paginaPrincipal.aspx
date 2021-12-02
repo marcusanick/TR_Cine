@@ -16,7 +16,7 @@
     <!-- Navbar  Bootstrap-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Cinema</a>
+            <a class="navbar-brand" href="paginaPrincipal.aspx">Cinema</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -91,7 +91,7 @@
                 <div class="row border g-0 rounded shadow-sm">
                     <div class="col p-4">
                         <%--mateo--%>
-                        <a href="">
+                        <a href="funciones.aspx">
                         <div class="box">
                             <img src="img/portadaeternasl.png">
                             <div class="hover">
