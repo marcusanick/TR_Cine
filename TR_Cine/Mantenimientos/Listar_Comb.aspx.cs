@@ -5,19 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace TR_Cine.Opcion2
+namespace TR_Cine.Mantenimientos
 {
-    public partial class paginaPrincipal : System.Web.UI.Page
+    public partial class Listar_Comb : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void lnk_login_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Login.aspx");
-            
         }
     }
 }

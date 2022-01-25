@@ -65,9 +65,10 @@ namespace TR_Cine
                             int tusu = Convert.ToInt32(usuari.rol_id);
                             if (tusu == 1)
                             {
-                                Session["Admin"] = usuari.tbl_Rol.rol_descripcion.ToString();
-
-                                Response.Redirect("/Agregarimg.aspx");
+                                Session["Admin"] = usuari.usu_nombre.ToString();
+                                Session["Admin1"] = usuari.tbl_Rol.rol_descripcion.ToString();
+                                Response.Redirect("~/Mantenimientos/VistaPrincipal.aspx");
+                                //Response.Redirect("/Agregarimg.aspx");
                             }
                             if (tusu == 2)
                             {
@@ -171,7 +172,7 @@ namespace TR_Cine
 
         protected void lnk_home_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Index.aspx");
+            Response.Redirect("~/Opcion2/PaginaPrincipal.aspx");
         }
 
         protected void lnk_registrar_Click(object sender, EventArgs e)

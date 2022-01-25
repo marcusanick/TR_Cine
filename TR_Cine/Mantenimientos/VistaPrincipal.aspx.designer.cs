@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace TR_Cine
+namespace TR_Cine.Mantenimientos
 {
 
 
-    public partial class Admin
+    public partial class VistaPrincipal
     {
     }
 }

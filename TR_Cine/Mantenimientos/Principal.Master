@@ -1,0 +1,162 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.master.cs" Inherits="TR_Cine.Mantenimientos.Principal" %>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Administracion</title>
+    <link rel="stylesheet" href="estilos/styleP.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form action="" runat="server">
+
+    <!--wrapper start-->
+    <div class="wrapper">
+        <!--header menu start-->
+        <div class="header">
+            <div class="header-menu">
+                <div class="title">Cineman <span>r</span></div>
+                <div class="sidebar-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="#"><i class="fas fa-search"></i></a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i></a></li>
+                    <li><a href="#"><i class="fas fa-power-off"></i></a></li>
+                    <asp:LinkButton ID="lnk_salir" runat="server" OnClick="lnk_salir_Click" class="submit">Salir</asp:LinkButton>
+                </ul>
+            </div>
+        </div>
+        <!--header menu end-->
+        <!--sidebar start-->
+        <div class="sidebar">
+            <div class="sidebar-menu">
+                <center class="profile">
+                    <img src="img/bsae.jpg" alt="">
+                    <p>Bienvenido</p>
+                    <asp:Label ID="lblSesion" runat="server"  ForeColor="White"></asp:Label>
+                </center>
+                 <asp:Panel ID="Panel1" Visible="false" runat="server">
+                <li class="item" id="profile1"> 
+                    <a href="#" class="menu-btn">
+                        
+                    <asp:LinkButton ID="lnk_admin" runat="server" OnClick="lnk_admin_Click" ForeColor="White"><i class="fas fa-desktop"></i><span> Dashboard</span></asp:LinkButton>                      
+                    </a>
+                </li>
+                <li class="item" id="profile">
+                   
+                        <a href="#profile" class="menu-btn">
+                        <i class="fas fa-user-circle"></i><span>Pelicula <i
+                                class="fas fa-chevron-down drop-down"></i></span>
+                    </a>
+                    <div class="sub-menu">
+                        
+                        
+                        <asp:LinkButton ID="lnk_Nuevo" runat="server" OnClick="lnk_Nuevo_Click" ><i class="fas fa-image"></i><span>Nueva Pelicula</span></asp:LinkButton>
+                        <asp:LinkButton ID="lnk_listape" runat="server" OnClick="lnk_listape_Click"><i class="fas fa-address-card"></i><span>Listar Pelicula</span></asp:LinkButton>
+
+
+                    </div>
+                        <li class="item" id="messages">
+                    <a href="#messages" class="menu-btn">
+                        <i class="fas fa-cog"></i><span>Usuarios <i
+                                class="fas fa-chevron-down drop-down"></i></span>
+                    </a>
+                    <div class="sub-menu">
+                    <asp:LinkButton ID="lnk_nusu" runat="server" OnClick="lnk_nusu_Click"  ><i class="fas fa-image"></i><span>Nuevo Usuario</span></asp:LinkButton>
+                    <asp:LinkButton ID="lnk_nlisusu" runat="server" OnClick="lnk_nlisusu_Click"  ><i class="fas fa-image"></i><span>Listar Usuario</span></asp:LinkButton>
+
+                    </div>
+                </li>
+                     </li>
+
+                     <li class="item" id="settings">
+                    <a href="#settings" class="menu-btn">
+                        <i class="fas fa-user-circle"></i><span>Genero de Peliculas <i
+                                class="fas fa-chevron-down drop-down"></i></span>
+                    </a>
+                    <div class="sub-menu">
+                     
+                        <asp:LinkButton ID="lnk_ngen" runat="server" OnClick="lnk_ngen_Click"  ><i class="fas fa-image"></i><span>Nuevo Genero</span></asp:LinkButton>
+                        <asp:LinkButton ID="lnk_lisgen" runat="server" OnClick="lnk_lisgen_Click" ><i class="fas fa-address-card"></i><span>Listar Genero</span></asp:LinkButton>
+
+                    </div>
+                       
+                     </li>
+
+                      <li class="item" id="settings1">
+                    <a href="#settings1" class="menu-btn">
+                        <i class="fas fa-user-circle"></i><span>Combos <i
+                                class="fas fa-chevron-down drop-down"></i></span>
+                    </a>
+                    <div class="sub-menu">
+                        
+                        
+                        <asp:LinkButton ID="lnk_ncomb" runat="server" OnClick="lnk_ncomb_Click"   ><i class="fas fa-image"></i><span>Nuevo  Combo</span></asp:LinkButton>
+                        <asp:LinkButton ID="lnk_listcomb" runat="server" OnClick="lnk_listcomb_Click"  ><i class="fas fa-address-card"></i><span>Listar Combos</span></asp:LinkButton>
+
+
+                    </div>
+                       
+                     </li>
+
+                        
+                    </asp:Panel>
+                    
+                
+                <asp:Panel ID="Panel2" Visible="false" runat="server">
+                    <<li class="item" id="comunidad">
+                    <a href="#comunidad" class="menu-btn">
+                        <i class="fas fa-info-circle"></i><span>Comunidad </span>
+                    </a>
+                </li>
+                </asp:Panel>
+                
+                
+            </div>
+        </div>
+        <!--sidebar end-->
+        <!--main container start-->
+        <div class="main-container">
+            <div class="card ">
+                <h2>Tu sistema </h2>
+                <center>
+            <table style="width :80%">
+                <tr>
+                    <td>
+                        <asp:ContentPlaceHolder ID="cph_mensaje" runat="server"></asp:ContentPlaceHolder>
+                        <asp:Label ID="lbl_nomU" runat="server" Font-Size="30px"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:ContentPlaceHolder ID="cph_contenido" runat="server"></asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+              
+            </table>
+        </center>
+            </div>
+
+        </div>
+        <!--main container end-->
+    </div>
+    <!--wrapper end-->
+        </form>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".sidebar-btn").click(function() {
+                $(".wrapper").toggleClass("collapse");
+            });
+        });
+    </script>
+</body>
+
+</html>

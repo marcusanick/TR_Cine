@@ -30,9 +30,6 @@ namespace Capa_Datos
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
-    partial void Inserttbl_Rol(tbl_Rol instance);
-    partial void Updatetbl_Rol(tbl_Rol instance);
-    partial void Deletetbl_Rol(tbl_Rol instance);
     partial void Inserttbl_Bebida(tbl_Bebida instance);
     partial void Updatetbl_Bebida(tbl_Bebida instance);
     partial void Deletetbl_Bebida(tbl_Bebida instance);
@@ -63,9 +60,9 @@ namespace Capa_Datos
     partial void Inserttbl_Persona(tbl_Persona instance);
     partial void Updatetbl_Persona(tbl_Persona instance);
     partial void Deletetbl_Persona(tbl_Persona instance);
-    partial void Inserttbl_Rol1(tbl_Rol1 instance);
-    partial void Updatetbl_Rol1(tbl_Rol1 instance);
-    partial void Deletetbl_Rol1(tbl_Rol1 instance);
+    partial void Inserttbl_Rol(tbl_Rol instance);
+    partial void Updatetbl_Rol(tbl_Rol instance);
+    partial void Deletetbl_Rol(tbl_Rol instance);
     partial void Inserttbl_Sala(tbl_Sala instance);
     partial void Updatetbl_Sala(tbl_Sala instance);
     partial void Deletetbl_Sala(tbl_Sala instance);
@@ -105,14 +102,6 @@ namespace Capa_Datos
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<tbl_Rol> tbl_Rol
-		{
-			get
-			{
-				return this.GetTable<tbl_Rol>();
-			}
 		}
 		
 		public System.Data.Linq.Table<tbl_Bebida> tbl_Bebida
@@ -195,11 +184,11 @@ namespace Capa_Datos
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_Rol1> tbl_Rol1
+		public System.Data.Linq.Table<tbl_Rol> tbl_Rol
 		{
 			get
 			{
-				return this.GetTable<tbl_Rol1>();
+				return this.GetTable<tbl_Rol>();
 			}
 		}
 		
@@ -225,144 +214,6 @@ namespace Capa_Datos
 			{
 				return this.GetTable<tbl_Sucursal>();
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Rol")]
-	public partial class tbl_Rol : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _rol_id;
-		
-		private string _rol_descripcion;
-		
-		private System.Nullable<char> _rol_estado;
-		
-		private EntitySet<tbl_Usuario> _tbl_Usuario;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onrol_idChanging(int value);
-    partial void Onrol_idChanged();
-    partial void Onrol_descripcionChanging(string value);
-    partial void Onrol_descripcionChanged();
-    partial void Onrol_estadoChanging(System.Nullable<char> value);
-    partial void Onrol_estadoChanged();
-    #endregion
-		
-		public tbl_Rol()
-		{
-			this._tbl_Usuario = new EntitySet<tbl_Usuario>(new Action<tbl_Usuario>(this.attach_tbl_Usuario), new Action<tbl_Usuario>(this.detach_tbl_Usuario));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rol_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int rol_id
-		{
-			get
-			{
-				return this._rol_id;
-			}
-			set
-			{
-				if ((this._rol_id != value))
-				{
-					this.Onrol_idChanging(value);
-					this.SendPropertyChanging();
-					this._rol_id = value;
-					this.SendPropertyChanged("rol_id");
-					this.Onrol_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rol_descripcion", DbType="VarChar(100)")]
-		public string rol_descripcion
-		{
-			get
-			{
-				return this._rol_descripcion;
-			}
-			set
-			{
-				if ((this._rol_descripcion != value))
-				{
-					this.Onrol_descripcionChanging(value);
-					this.SendPropertyChanging();
-					this._rol_descripcion = value;
-					this.SendPropertyChanged("rol_descripcion");
-					this.Onrol_descripcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rol_estado", DbType="Char(1)")]
-		public System.Nullable<char> rol_estado
-		{
-			get
-			{
-				return this._rol_estado;
-			}
-			set
-			{
-				if ((this._rol_estado != value))
-				{
-					this.Onrol_estadoChanging(value);
-					this.SendPropertyChanging();
-					this._rol_estado = value;
-					this.SendPropertyChanged("rol_estado");
-					this.Onrol_estadoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Rol_tbl_Usuario", Storage="_tbl_Usuario", ThisKey="rol_id", OtherKey="rol_id")]
-		public EntitySet<tbl_Usuario> tbl_Usuario
-		{
-			get
-			{
-				return this._tbl_Usuario;
-			}
-			set
-			{
-				this._tbl_Usuario.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tbl_Usuario(tbl_Usuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_Rol = this;
-		}
-		
-		private void detach_tbl_Usuario(tbl_Usuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_Rol = null;
 		}
 	}
 	
@@ -608,8 +459,6 @@ namespace Capa_Datos
 		
 		private EntityRef<tbl_Rol> _tbl_Rol;
 		
-		private EntityRef<tbl_Rol1> _tbl_Rol1;
-		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -642,7 +491,6 @@ namespace Capa_Datos
 		{
 			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
 			this._tbl_Rol = default(EntityRef<tbl_Rol>);
-			this._tbl_Rol1 = default(EntityRef<tbl_Rol1>);
 			OnCreated();
 		}
 		
@@ -757,7 +605,7 @@ namespace Capa_Datos
 			{
 				if ((this._rol_id != value))
 				{
-					if ((this._tbl_Rol.HasLoadedOrAssignedValue || this._tbl_Rol1.HasLoadedOrAssignedValue))
+					if (this._tbl_Rol.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -913,40 +761,6 @@ namespace Capa_Datos
 						this._rol_id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("tbl_Rol");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Rol1_tbl_Usuario", Storage="_tbl_Rol1", ThisKey="rol_id", OtherKey="rol_id", IsForeignKey=true)]
-		public tbl_Rol1 tbl_Rol1
-		{
-			get
-			{
-				return this._tbl_Rol1.Entity;
-			}
-			set
-			{
-				tbl_Rol1 previousValue = this._tbl_Rol1.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_Rol1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_Rol1.Entity = null;
-						previousValue.tbl_Usuario.Remove(this);
-					}
-					this._tbl_Rol1.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_Usuario.Add(this);
-						this._rol_id = value.rol_id;
-					}
-					else
-					{
-						this._rol_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tbl_Rol1");
 				}
 			}
 		}
@@ -2940,7 +2754,7 @@ namespace Capa_Datos
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Rol")]
-	public partial class tbl_Rol1 : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class tbl_Rol : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -2965,7 +2779,7 @@ namespace Capa_Datos
     partial void Onrol_estadoChanged();
     #endregion
 		
-		public tbl_Rol1()
+		public tbl_Rol()
 		{
 			this._tbl_Usuario = new EntitySet<tbl_Usuario>(new Action<tbl_Usuario>(this.attach_tbl_Usuario), new Action<tbl_Usuario>(this.detach_tbl_Usuario));
 			OnCreated();
@@ -3031,7 +2845,7 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Rol1_tbl_Usuario", Storage="_tbl_Usuario", ThisKey="rol_id", OtherKey="rol_id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Rol_tbl_Usuario", Storage="_tbl_Usuario", ThisKey="rol_id", OtherKey="rol_id")]
 		public EntitySet<tbl_Usuario> tbl_Usuario
 		{
 			get
@@ -3067,13 +2881,13 @@ namespace Capa_Datos
 		private void attach_tbl_Usuario(tbl_Usuario entity)
 		{
 			this.SendPropertyChanging();
-			entity.tbl_Rol1 = this;
+			entity.tbl_Rol = this;
 		}
 		
 		private void detach_tbl_Usuario(tbl_Usuario entity)
 		{
 			this.SendPropertyChanging();
-			entity.tbl_Rol1 = null;
+			entity.tbl_Rol = null;
 		}
 	}
 	

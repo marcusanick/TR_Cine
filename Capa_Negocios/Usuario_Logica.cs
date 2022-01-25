@@ -78,5 +78,65 @@ namespace Capa_Negocios
                 throw new ArgumentException("Los datos no han sido guardados <br/> " + ex.Message);
             }
         }
+
+        //metodos para el crud
+        public static void Guardar1(tbl_Usuario pro)
+        {
+            try
+            {
+                pro.usu_estado = 'A';
+               
+                dc.tbl_Usuario.InsertOnSubmit(pro);
+                dc.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Los datos no han sido guardados</br>" + ex.Message);
+
+            }
+        }
+        //metodo para 
+        public static void Editar(tbl_Usuario pro)
+        {
+            try
+            {
+                
+                dc.tbl_Usuario.InsertOnSubmit(pro);
+                dc.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Los datos no han sido modificados</br>" + ex.Message);
+            }
+        }
+        public static void Eliminar(tbl_Usuario pro)
+        {
+            try
+            {
+                pro.usu_estado = 'I';
+                // dc.Tbl_Producto.DeleteOnSubmit(pro);
+                dc.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Los datos no han sido borrados</br>" + ex.Message);
+            }
+        }
+
+        //metodo para traer departamento x id
+        public static tbl_Usuario Obtener_UsuXid(int id)
+        {
+            var proid = dc.tbl_Usuario.FirstOrDefault(pro => pro.usu_id.Equals(id) && pro.usu_estado == 'A');
+            return proid;
+        }
+
+        //metodo para traer departamento x nombre
+        public static tbl_Usuario Obtener_DepaXnombre(string nombre)
+        {
+            var proid = dc.tbl_Usuario.FirstOrDefault(pro => pro.usu_nombre.Equals(nombre) && pro.usu_estado == 'A');
+            return proid;
+        }
     }
 }

@@ -70,7 +70,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin.aspx" />
     <Content Include="Agregarimg.aspx" />
     <Content Include="css\estilos.css" />
     <Content Include="css\estilosp.css" />
@@ -88,6 +87,20 @@
     <Content Include="img\portadasoho.png" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Mantenimientos\estilos\styleP.css" />
+    <Content Include="Mantenimientos\img\bsae.jpg" />
+    <Content Include="Mantenimientos\img\editar10.gif" />
+    <Content Include="Mantenimientos\img\eliminar.gif" />
+    <Content Include="Mantenimientos\img\search.png" />
+    <Content Include="Mantenimientos\Listar_Comb.aspx" />
+    <Content Include="Mantenimientos\Listar_GenPel.aspx" />
+    <Content Include="Mantenimientos\Listar_Pel.aspx" />
+    <Content Include="Mantenimientos\Listar_Usu.aspx" />
+    <Content Include="Mantenimientos\Nuevo_Comb.aspx" />
+    <Content Include="Mantenimientos\Nuevo_GenPel.aspx" />
+    <Content Include="Mantenimientos\Nuevo_Pel.aspx" />
+    <Content Include="Mantenimientos\Nuevo_Usu.aspx" />
+    <Content Include="Mantenimientos\VistaPrincipal.aspx" />
     <Content Include="Opcion2\boletos.aspx" />
     <Content Include="Opcion2\butacas.aspx" />
     <Content Include="Opcion2\css\contenido.css" />
@@ -114,13 +127,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Agregarimg.aspx.cs">
       <DependentUpon>Agregarimg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -142,19 +148,82 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="IndexPaginaM.Master.cs">
-      <DependentUpon>IndexPaginaM.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IndexPaginaM.Master.designer.cs">
-      <DependentUpon>IndexPaginaM.Master</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Listar_Comb.aspx.cs">
+      <DependentUpon>Listar_Comb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Listar_Comb.aspx.designer.cs">
+      <DependentUpon>Listar_Comb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Listar_GenPel.aspx.cs">
+      <DependentUpon>Listar_GenPel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Listar_GenPel.aspx.designer.cs">
+      <DependentUpon>Listar_GenPel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Listar_Pel.aspx.cs">
+      <DependentUpon>Listar_Pel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Listar_Pel.aspx.designer.cs">
+      <DependentUpon>Listar_Pel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Listar_Usu.aspx.cs">
+      <DependentUpon>Listar_Usu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Listar_Usu.aspx.designer.cs">
+      <DependentUpon>Listar_Usu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_Comb.aspx.cs">
+      <DependentUpon>Nuevo_Comb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_Comb.aspx.designer.cs">
+      <DependentUpon>Nuevo_Comb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_GenPel.aspx.cs">
+      <DependentUpon>Nuevo_GenPel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_GenPel.aspx.designer.cs">
+      <DependentUpon>Nuevo_GenPel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_Pel.aspx.cs">
+      <DependentUpon>Nuevo_Pel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_Pel.aspx.designer.cs">
+      <DependentUpon>Nuevo_Pel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_Usu.aspx.cs">
+      <DependentUpon>Nuevo_Usu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_Usu.aspx.designer.cs">
+      <DependentUpon>Nuevo_Usu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Principal.Master.cs">
+      <DependentUpon>Principal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Principal.Master.designer.cs">
+      <DependentUpon>Principal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\VistaPrincipal.aspx.cs">
+      <DependentUpon>VistaPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\VistaPrincipal.aspx.designer.cs">
+      <DependentUpon>VistaPrincipal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Opcion2\boletos.aspx.cs">
       <DependentUpon>boletos.aspx</DependentUpon>
@@ -208,7 +277,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="IndexPaginaM.Master" />
+    <Content Include="Mantenimientos\Principal.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -227,10 +296,7 @@
       <Name>Capa_Negocios</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="mantenimientos\css\" />
-    <Folder Include="mantenimientos\img\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>

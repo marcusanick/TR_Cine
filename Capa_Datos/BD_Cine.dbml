@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_BoleteriaCine" Class="BD_CineDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=MARCUS;Initial Catalog=BD_BoleteriaCine;Integrated Security=True" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="BD_BoleteriaCineConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tbl_Rol" Member="tbl_Rol">
-    <Type Name="tbl_Rol">
-      <Column Name="rol_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="rol_descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="rol_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Association Name="tbl_Rol_tbl_Usuario" Member="tbl_Usuario" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Usuario" />
-    </Type>
-  </Table>
   <Table Name="dbo.tbl_Bebida" Member="tbl_Bebida">
     <Type Name="tbl_Bebida">
       <Column Name="beb_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -34,7 +26,6 @@
       <Column Name="usu_cel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="tbl_Usuario_tbl_Factura" Member="tbl_Factura" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_Factura" />
       <Association Name="tbl_Rol_tbl_Usuario" Member="tbl_Rol" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Rol" IsForeignKey="true" />
-      <Association Name="tbl_Rol1_tbl_Usuario" Member="tbl_Rol1" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Rol1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Ciudad" Member="tbl_Ciudad">
@@ -129,12 +120,12 @@
       <Column Name="per_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_Rol" Member="tbl_Rol1">
-    <Type Name="tbl_Rol1">
+  <Table Name="dbo.tbl_Rol" Member="tbl_Rol">
+    <Type Name="tbl_Rol">
       <Column Name="rol_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="rol_descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="rol_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Association Name="tbl_Rol1_tbl_Usuario" Member="tbl_Usuario" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Usuario" />
+      <Association Name="tbl_Rol_tbl_Usuario" Member="tbl_Usuario" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Usuario" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Sala" Member="tbl_Sala">

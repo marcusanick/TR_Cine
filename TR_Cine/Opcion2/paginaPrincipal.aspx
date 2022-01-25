@@ -13,10 +13,13 @@
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 </head>
 <body>
+     <form runat="server">
+          <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <!-- Navbar  Bootstrap-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
         <div class="container">
             <a class="navbar-brand" href="paginaPrincipal.aspx">Cinema</a>
+             <asp:LinkButton ID="lnk_Home" runat="server" class="navbar-brand" >Cinema</asp:LinkButton>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,8 +34,10 @@
                     <li class="nav-item">                               
                         <a class="nav-link text-white" href="#" background >Promociones</a>
                     </li>
-                    <li class="nav-item">                               
-                        <a class="nav-link text-white" href="login.html" background ><i class="fas fa-user icon2"></i>Iniciar Sesión</a>
+                    <li class="nav-item">    
+                   <asp:LinkButton ID="lnk_login" runat="server" class="nav-link text-white" OnClick="lnk_login_Click"><i class="fas fa-user icon2"> Iniciar Sesión</i></asp:LinkButton>
+
+                        
                     </li>
                 </ul>
             </div>
@@ -194,6 +199,7 @@
             </div>
         </div>
     </div>
+          </form>
     <br></br>
     <br></br>
     <br></br>
