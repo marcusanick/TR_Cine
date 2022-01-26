@@ -11,7 +11,7 @@ namespace TR_Cine.Mantenimientos
 {
 
 
-    public partial class Listar_GenPel
+    public partial class Nuevo_Promo
     {
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace TR_Cine.Mantenimientos
         protected global::System.Web.UI.Timer Timer1;
 
         /// <summary>
-        /// Control lbl_nombre.
+        /// Control lblnsession.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_nombre;
+        protected global::System.Web.UI.WebControls.Label lblnsession;
 
         /// <summary>
         /// Control lbl_mensaje.
@@ -69,48 +69,57 @@ namespace TR_Cine.Mantenimientos
         protected global::System.Web.UI.WebControls.LinkButton lnk_nuevo;
 
         /// <summary>
-        /// Control ddl_criterio.
+        /// Control lnk_guardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_criterio;
+        protected global::System.Web.UI.WebControls.LinkButton lnk_guardar;
 
         /// <summary>
-        /// Control txt_buscar.
+        /// Control lnk_modificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_buscar;
+        protected global::System.Web.UI.WebControls.LinkButton lnk_modificar;
 
         /// <summary>
-        /// Control img_lupa.
+        /// Control lnk_regresar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton img_lupa;
+        protected global::System.Web.UI.WebControls.LinkButton lnk_regresar;
 
         /// <summary>
-        /// Control grv_pro.
+        /// Control img_s.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grv_pro;
+        protected global::System.Web.UI.WebControls.Image img_s;
 
         /// <summary>
-        /// Control lbl_mensajes.
+        /// Control FuploadImage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_mensajes;
+        protected global::System.Web.UI.WebControls.FileUpload FuploadImage;
+
+        /// <summary>
+        /// Control txt_descripcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_descripcion;
     }
 }

@@ -9,9 +9,10 @@ using Capa_Negocios;
 
 namespace TR_Cine.Mantenimientos
 {
-    public partial class Nuevo_Pel : System.Web.UI.Page
+   
+    public partial class Nuevo_Promo : System.Web.UI.Page
     {
-        private tbl_Pelicula usuarioin = new tbl_Pelicula();
+        private tbl_promocion usuarioin = new tbl_promocion();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,61 +22,45 @@ namespace TR_Cine.Mantenimientos
 
                     lnk_modificar.Visible = true;
                     int codigo = Convert.ToInt32(Request["cod"]);
-                    usuarioin = Pelicula_Logica.Obtner_perXId(codigo);
+                    usuarioin = Promocion_Logica.Obtner_proXId(codigo);
                     if (usuarioin != null)
                     {
-                        txt_titulo.Text = usuarioin.pel_Titulo.ToString();
-                        txt_idioma.Text = usuarioin.pel_Idioma.ToString();
-                        ddl_gen.SelectedValue = usuarioin.gen_id.ToString();
-                       // img_s.ImageUrl= usuarioin.gen_id.ToString();
-                        txt_sinop.Text = usuarioin.pel_sinopsis.ToString();
-                        txt_url.Text = usuarioin.pel_url.ToString();
+                        txt_descripcion.Text = usuarioin.pro_descripcion.ToString();
+                        
                         lnk_guardar.Visible = false;
                         lnk_nuevo.Visible = false;
                     }
                 }
-                cargarGenero();
-               
-            }
-        }
+                
 
-        private void cargarGenero()
-        {
-            List<tbl_Genero> listarper = new List<tbl_Genero>();
-            listarper = Capa_Negocios.Genero_Logica.Obtner_generos();
-            listarper.Insert(0, new tbl_Genero() { gen_descripcion = "Seleccione" });
-            ddl_gen.DataSource = listarper;
-            ddl_gen.DataTextField = "gen_descripcion";
-            ddl_gen.DataValueField = "gen_id";
-            ddl_gen.DataBind();
+            }
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            Response.Redirect("~/Mantenimientos/Listar_Pel.aspx");
+            Response.Redirect("~/Mantenimientos/Listar_promo.aspx");
         }
 
         protected void lnk_nuevo_Click(object sender, EventArgs e)
         {
-            Nuev_Pelicula();
+            Nuev_Promo();
         }
-
-        private void Nuev_Pelicula()
+        private void Nuev_Promo()
         {
-            txt_idioma.Text = txt_sinop.Text = txt_titulo.Text = txt_url.Text = "";
+            txt_descripcion.Text =  "";
+
            
-            ddl_gen.ClearSelection();
         }
 
         protected void lnk_guardar_Click(object sender, EventArgs e)
         {
             //verificar si existe datos
-            bool existe = Usuario_Logica.AutentificarNombre(txt_titulo.Text);
+            bool existe = Promocion_Logica.autentificar_pro(txt_descripcion.Text);
             {
                 if (existe)
                 {
-                    tbl_Pelicula dep = new tbl_Pelicula();
-                    dep = Pelicula_Logica.Obtener_perXnombre(txt_titulo.Text);
+                    tbl_promocion dep = new tbl_promocion();
+                    dep = Promocion_Logica.Obtener_perXnombre(txt_descripcion.Text);
                     if (dep != null)
                     {
                         lbl_mensaje.Visible = true;
@@ -98,27 +83,25 @@ namespace TR_Cine.Mantenimientos
             }
             else
             {
-                usuarioin = Pelicula_Logica.Obtner_perXId(id);
+                usuarioin = Promocion_Logica.Obtner_proXId(id);
                 if (usuarioin != null)
                 {
                     Modificar(usuarioin);
                 }
             }
         }
+
         private void Guardar()
         {
             try
             {
-                usuarioin = new tbl_Pelicula();
-                usuarioin.pel_Titulo = txt_titulo.Text;
-                usuarioin.pel_Idioma = txt_idioma.Text;
-            //    usuarioin.pel_img = img_s.ImageAlig;
-                usuarioin.pel_sinopsis = txt_sinop.Text;
-                usuarioin.pel_url = txt_url.Text;
+                usuarioin = new tbl_promocion();
+                usuarioin.pro_descripcion = txt_descripcion.Text;
+                //usuarioin.pel_Idioma = txt_idioma.Text;
+                //    usuarioin.pel_img = img_s.ImageAlig;
+               
 
-                usuarioin.gen_id = Convert.ToInt32(ddl_gen.SelectedValue);
-
-                Pelicula_Logica.Guardar(usuarioin);
+                Promocion_Logica.Guardar(usuarioin);
                 lbl_mensaje.Visible = true;
                 lbl_mensaje.Text = "Los datos han sido guardados";
                 if (lbl_mensaje.Text == "Los datos han sido guardados")
@@ -134,22 +117,21 @@ namespace TR_Cine.Mantenimientos
             }
         }
 
+
         protected void lnk_modificar_Click(object sender, EventArgs e)
         {
             Guardar_Modificar(Convert.ToInt32(Request["cod"]));
         }
-        private void Modificar(tbl_Pelicula usuarioin)
+
+        private void Modificar(tbl_promocion usuarioin)
         {
             try
             {
-                usuarioin.pel_Titulo = txt_titulo.Text;
-                usuarioin.pel_Idioma = txt_idioma.Text;
-                usuarioin.pel_sinopsis = txt_sinop.Text;
-                usuarioin.pel_url = txt_url.Text;
-                
-                usuarioin.gen_id = Convert.ToInt32(ddl_gen.SelectedValue);
+                usuarioin.pro_descripcion = txt_descripcion.Text;
+               
+               
 
-                Pelicula_Logica.Editar(usuarioin);
+                Promocion_Logica.Editar(usuarioin);
                 lbl_mensaje.Visible = true;
                 lbl_mensaje.Text = "Los datos han sido modificados";
                 if (lbl_mensaje.Text == "Los datos han sido modificados")
@@ -164,9 +146,10 @@ namespace TR_Cine.Mantenimientos
                 throw;
             }
         }
+
         protected void lnk_regresar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Mantenimientos/Listar_Pel.aspx");
+            Response.Redirect("~/Mantenimientos/Listar_promo.aspx");
         }
     }
 }

@@ -1,14 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Mantenimientos/Principal.Master" AutoEventWireup="true" CodeBehind="Listar_GenPel.aspx.cs" Inherits="TR_Cine.Mantenimientos.Listar_GenPel" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Mantenimientos/Principal.Master" AutoEventWireup="true" CodeBehind="Listar_promo.aspx.cs" Inherits="TR_Cine.Mantenimientos.Listar_promo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_mensaje" runat="server">
-     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_contenido" runat="server">
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-                        <asp:Timer ID="Timer1" runat="server" Interval="3000" Enabled="False" OnTick="Timer1_Tick" ></asp:Timer>
-              <table style="width:80% ">
+            <asp:Timer ID="Timer1" runat="server" Interval="3000" Enabled="False" OnTick="Timer1_Tick" ></asp:Timer>
+            <table style="width:80% ">
                 <tr>
                     <td align="center">Bienvenido al sistema:
                          <asp:Label ID="lbl_nombre" runat="server" Text=""></asp:Label>
@@ -21,14 +21,14 @@
                 </tr>
                 <tr>
                     <td align="center">
-                        <h2> Generos de Peliculas </h2>
+                        <h2> Promociones </h2>
                     </td>
                 </tr>
             </table>
-                        <table style="width:100%">
+            <table style="width:100%">
             <tr>
                 <td  align="center">
-                    <asp:LinkButton ID="lnk_nuevo" runat="server" OnClick="lnk_nuevo_Click"  >Nuevo Genero de Peliculas</asp:LinkButton>
+                    <asp:LinkButton ID="lnk_nuevo" runat="server" OnClick="lnk_nuevo_Click"  > Nueva Promocion</asp:LinkButton>
                 </td>
                 
             </tr>
@@ -36,18 +36,18 @@
                 <td align="center">
                     <table >
                         <tr>
-                            <td>Buscar por :</td>
-                            <td>
+                            <td class="auto-style1">Buscar por :</td>
+                            <td class="auto-style1">
                                 <asp:DropDownList ID="ddl_criterio" runat="server" Width="150px" Height="25px">
-                                     <asp:ListItem Text="Seleccione" Value="S"></asp:ListItem>
-                                    <asp:ListItem Text="Genero" Value="N"></asp:ListItem>
+                                    <asp:ListItem Text="Seleccione" Value="S"></asp:ListItem>
+                                    <asp:ListItem Text="Por promocion" Value="N"></asp:ListItem>
                                 </asp:DropDownList>                        
                             </td>
-                            <td>
+                            <td class="auto-style1">
                                 <asp:TextBox ID="txt_buscar" runat="server" Width="350px" Height="20px"></asp:TextBox>
                             </td>
-                            <td>
-                                <asp:ImageButton ID="img_lupa" runat="server" ImageUrl="~/Mantenimientos/img/search.png" OnClick="img_lupa_Click"/>
+                            <td class="auto-style1">
+                                <asp:ImageButton ID="img_lupa" runat="server" ImageUrl="~/Mantenimientos/img/search.png" OnClick="img_lupa_Click" />
                             </td>
                         </tr>
                         <tr>
@@ -57,29 +57,32 @@
                                         <asp:TemplateField HeaderText="▒">
                                             <ItemTemplate>
                                                 <asp:ImageButton ID="img_editar" runat="server" ImageUrl="~/Mantenimientos/img/editar10.gif"
-                                                    CommandArgument='<%#Eval("gen_id")%>' CommandName="Editar"/>
+                                                    CommandArgument='<%#Eval("pro_id")%>' CommandName="Editar"/>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="▒">
                                             <ItemTemplate>
                                                 <asp:ImageButton ID="img_eliminar" runat="server" ImageUrl="~/Mantenimientos/img/eliminar.gif"
-                                                    CommandArgument='<%#Eval("gen_id")%>' CommandName="Eliminar" OnClientClick="return confirm('Esta seguro de eliminar el registro..')"/>
+                                                    CommandArgument='<%#Eval("pro_id")%>' CommandName="Eliminar" OnClientClick="return confirm('Esta seguro de eliminar el registro..')"/>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Descripcion">
+                                         <asp:TemplateField HeaderText="Descripcion">
                                             <ItemTemplate>
-                                                <asp:Label ID="gen_descripcion" runat="server" Text='<%#Eval("gen_descripcion")%>'></asp:Label>
+                                                <asp:Label ID="pro_descripcion" runat="server" Text='<%#Eval("pro_descripcion")%>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                       
+                                        <asp:TemplateField HeaderText="Imagen">
+                                            <ItemTemplate>
+                                                <asp:Label ID="pro_imagen" runat="server" Text='<%#Eval("pro_imagen")%>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Estado">
                                             <ItemTemplate>
-                                                <asp:Label ID="gen_estado" runat="server" Text='<%#Eval("gen_estado")%>'></asp:Label>
+                                                <asp:Label ID="pro_estado" runat="server" Text='<%#Eval("pro_estado")%>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         
-                                        
-                                        
+                                     
                                     </Columns>
                                     <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
                                     <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
@@ -104,10 +107,6 @@
                             </td>
                         </tr>
                     </table>
-                </td>
-            </tr>
-
-        </table>
-             </ContentTemplate>
+            </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

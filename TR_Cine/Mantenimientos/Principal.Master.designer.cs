@@ -141,6 +141,24 @@ namespace TR_Cine.Mantenimientos
         protected global::System.Web.UI.WebControls.Panel Panel2;
 
         /// <summary>
+        /// Control lnk_nprom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_nprom;
+
+        /// <summary>
+        /// Control lnk_listprom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_listprom;
+
+        /// <summary>
         /// Control cph_mensaje.
         /// </summary>
         /// <remarks>

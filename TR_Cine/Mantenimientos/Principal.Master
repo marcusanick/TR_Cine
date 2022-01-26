@@ -117,6 +117,21 @@
                         <i class="fas fa-info-circle"></i><span>Comunidad </span>
                     </a>
                 </li>
+                    <li class="item" id="promociones">
+                    <a href="#promociones" class="menu-btn">
+                        <i class="fas fa-user-circle"></i><span>Promociones <i
+                                class="fas fa-chevron-down drop-down"></i></span>
+                    </a>
+                    <div class="sub-menu">
+                        
+                        
+                        <asp:LinkButton ID="lnk_nprom" runat="server" OnClick="lnk_nprom_Click"   ><i class="fas fa-image"></i><span>Nuevo  Promocion</span></asp:LinkButton>
+                        <asp:LinkButton ID="lnk_listprom" runat="server" OnClick="lnk_listprom_Click"  ><i class="fas fa-address-card"></i><span>Listar Promocion</span></asp:LinkButton>
+
+
+                    </div>
+                       
+                     </li>
                 </asp:Panel>
                 
                 

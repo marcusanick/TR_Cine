@@ -1,52 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="paginaPrincipal.aspx.cs" Inherits="TR_Cine.Opcion2.paginaPrincipal" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Opcion2/PagInicio.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="TR_Cine.Opcion2.Index" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph_contenido" runat="server">
 
-<!DOCTYPE html>
-<html lang="en">
+    
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cinema</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/estilos.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-</head>
-<body>
-     <form runat="server">
-          <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <!-- Navbar  Bootstrap-->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
-        <div class="container">
-            
-             <asp:LinkButton ID="lnk_Home" runat="server" class="navbar-brand" >Cinema</asp:LinkButton>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="mx-auto"></div>
-                <ul class="navbar-nav">                        
-                    <li class="nav-item">                               
-                        <a class="nav-link text-white" href="#" background >Dulcería</a>
-                    </li>
-                    <li class="nav-item">                               
-                        <a class="nav-link text-white" href="#" background >Promociones</a>
-                    </li>
-                    <li class="nav-item">    
-                   <asp:LinkButton ID="lnk_login" runat="server" class="nav-link text-white" OnClick="lnk_login_Click"><i class="fas fa-user icon2"> Iniciar Sesión</i></asp:LinkButton>
-
-                        
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <br></br><br>
-
-    <!-- Carrusel de Imagenes Bootstrap -->
+     <!-- Carrusel de Imagenes Bootstrap -->
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -68,8 +27,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-    <br></br>
 
     <!-- Peliculas style-->
     <div class="container mt-2 flex-start">
@@ -96,7 +53,7 @@
                 <div class="row border g-0 rounded shadow-sm">
                     <div class="col p-4">
                         <%--mateo--%>
-                        <a href="funciones.aspx">
+                        <a href="FuncionesC.aspx">
                         <div class="box">
                             <img src="img/portadaeternasl.png">
                             <div class="hover">
@@ -199,38 +156,6 @@
             </div>
         </div>
     </div>
-          </form>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <!--::::Pie de Pagina estilosp.css::::::-->
-    <footer class="pie-pagina">
-        <div class="grupo-1">
-            <div class="caja">
-                <h2>SOBRE NOSOTROS</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
-            </div>
-            <div class="caja">
-                <h2>SIGUENOS</h2>
-                <div class="red-social">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-youtube"></a>
-                </div>
-            </div>
-        </div>
-        <div class="grupo-2">
-            <small>&copy; 2021 <b>CinePlanet</b> - Todos los Derechos Reservados.</small>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cph_footer" runat="server">
+</asp:Content>

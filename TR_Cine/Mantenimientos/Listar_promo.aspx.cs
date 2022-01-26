@@ -9,7 +9,7 @@ using Capa_Negocios;
 
 namespace TR_Cine.Mantenimientos
 {
-    public partial class Listar_Pel : System.Web.UI.Page
+    public partial class Listar_promo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,22 +25,21 @@ namespace TR_Cine.Mantenimientos
             {
                 lbl_nombre.Text = Session["gere"].ToString();
             }
-           
+
             else
             {
                 Response.Redirect("~/Login.aspx");
             }
             if (!IsPostBack)
             {
-                cargar_peliculas();
+                cargar_promo();
             }
-
         }
 
-        private void cargar_peliculas()
+        private void cargar_promo()
         {
-            List<tbl_Pelicula> listapro = new List<tbl_Pelicula>();
-            listapro = Pelicula_Logica.Obtner_peliculas();
+            List<tbl_promocion> listapro = new List<tbl_promocion>();
+            listapro = Promocion_Logica.Obtner_promociones();
             if (listapro != null)
             {
                 grv_pro.DataSource = listapro;
@@ -57,13 +56,13 @@ namespace TR_Cine.Mantenimientos
 
         protected void lnk_nuevo_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Mantenimientos/Nuevo_Pel.aspx");
+            Response.Redirect("~/Mantenimientos/Nuevo_Promo.aspx");
         }
 
         protected void img_lupa_Click(object sender, ImageClickEventArgs e)
         {
-            List<tbl_Pelicula> listd = new List<tbl_Pelicula>();
-            tbl_Pelicula pro = new tbl_Pelicula();
+            List<tbl_promocion> listd = new List<tbl_promocion>();
+            tbl_promocion pro = new tbl_promocion();
             string op = ddl_criterio.SelectedValue;
             if (op != "0")
             {
@@ -75,7 +74,7 @@ namespace TR_Cine.Mantenimientos
                         lbl_mensajes.Text = "Elija un metodo de busqueda";
                         break;
                     case "N":
-                        pro = Pelicula_Logica.Obtener_perXnombre(txt_buscar.Text);
+                        pro = Promocion_Logica.Obtener_perXnombre(txt_buscar.Text);
                         if (pro != null)
                         {
                             listd.Add(pro);
@@ -87,7 +86,7 @@ namespace TR_Cine.Mantenimientos
                             Timer1.Enabled = true;
                             lbl_mensajes.Visible = true;
                             lbl_mensajes.Text = "No hay datos ";
-                            cargar_peliculas();
+                            cargar_promo();
                         }
                         break;
                     default:
@@ -101,16 +100,16 @@ namespace TR_Cine.Mantenimientos
             int codigo = Convert.ToInt32(e.CommandArgument);
             if (e.CommandName == "Editar")
             {
-                Response.Redirect("~/Mantenimientos/Nuevo_Pel.aspx?cod=" + codigo, true);
+                Response.Redirect("~/Mantenimientos/Nuevo_Promo.aspx?cod=" + codigo, true);
             }
             else if (e.CommandName == "Eliminar")
             {
-                tbl_Pelicula proe = new tbl_Pelicula();
-                proe = Pelicula_Logica.Obtner_perXId(codigo);
+                tbl_promocion proe = new tbl_promocion();
+                proe = Promocion_Logica.Obtner_proXId(codigo);
                 if (proe != null)
                 {
-                    Pelicula_Logica.Eliminar(proe);
-                    cargar_peliculas();
+                    Promocion_Logica.Eliminar(proe);
+                    cargar_promo();
                 }
             }
         }

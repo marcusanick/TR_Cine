@@ -95,17 +95,22 @@
     <Content Include="Mantenimientos\Listar_Comb.aspx" />
     <Content Include="Mantenimientos\Listar_GenPel.aspx" />
     <Content Include="Mantenimientos\Listar_Pel.aspx" />
+    <Content Include="Mantenimientos\Listar_promo.aspx" />
     <Content Include="Mantenimientos\Listar_Usu.aspx" />
     <Content Include="Mantenimientos\Nuevo_Comb.aspx" />
     <Content Include="Mantenimientos\Nuevo_GenPel.aspx" />
     <Content Include="Mantenimientos\Nuevo_Pel.aspx" />
+    <Content Include="Mantenimientos\Nuevo_Promo.aspx" />
     <Content Include="Mantenimientos\Nuevo_Usu.aspx" />
     <Content Include="Mantenimientos\VistaPrincipal.aspx" />
     <Content Include="Opcion2\boletos.aspx" />
+    <Content Include="Opcion2\BoletosC.aspx" />
+    <Content Include="Opcion2\ButacaC.aspx" />
     <Content Include="Opcion2\butacas.aspx" />
     <Content Include="Opcion2\css\contenido.css" />
     <Content Include="Opcion2\css\estilos.css" />
     <Content Include="Opcion2\funciones.aspx" />
+    <Content Include="Opcion2\FuncionesC.aspx" />
     <Content Include="Opcion2\img\banner-img.jpg" />
     <Content Include="Opcion2\img\banner2.png" />
     <Content Include="Opcion2\img\banner3.png" />
@@ -120,9 +125,12 @@
     <Content Include="Opcion2\img\portadaeternasl.png" />
     <Content Include="Opcion2\img\portadaghost.png" />
     <Content Include="Opcion2\img\portadasoho.png" />
+    <Content Include="Opcion2\Index.aspx" />
     <Content Include="Opcion2\paginaPrincipal.aspx" />
     <Content Include="Opcion2\pago.aspx" />
+    <Content Include="Opcion2\PagosC.aspx" />
     <Content Include="Opcion2\snack.aspx" />
+    <Content Include="Opcion2\SnackC.aspx" />
     <Content Include="Registrar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -176,6 +184,13 @@
     <Compile Include="Mantenimientos\Listar_Pel.aspx.designer.cs">
       <DependentUpon>Listar_Pel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\Listar_promo.aspx.cs">
+      <DependentUpon>Listar_promo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Listar_promo.aspx.designer.cs">
+      <DependentUpon>Listar_promo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\Listar_Usu.aspx.cs">
       <DependentUpon>Listar_Usu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +218,13 @@
     </Compile>
     <Compile Include="Mantenimientos\Nuevo_Pel.aspx.designer.cs">
       <DependentUpon>Nuevo_Pel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_Promo.aspx.cs">
+      <DependentUpon>Nuevo_Promo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Nuevo_Promo.aspx.designer.cs">
+      <DependentUpon>Nuevo_Promo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\Nuevo_Usu.aspx.cs">
       <DependentUpon>Nuevo_Usu.aspx</DependentUpon>
@@ -232,6 +254,20 @@
     <Compile Include="Opcion2\boletos.aspx.designer.cs">
       <DependentUpon>boletos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Opcion2\BoletosC.aspx.cs">
+      <DependentUpon>BoletosC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\BoletosC.aspx.designer.cs">
+      <DependentUpon>BoletosC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\ButacaC.aspx.cs">
+      <DependentUpon>ButacaC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\ButacaC.aspx.designer.cs">
+      <DependentUpon>ButacaC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Opcion2\butacas.aspx.cs">
       <DependentUpon>butacas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,12 +282,33 @@
     <Compile Include="Opcion2\funciones.aspx.designer.cs">
       <DependentUpon>funciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Opcion2\FuncionesC.aspx.cs">
+      <DependentUpon>FuncionesC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\FuncionesC.aspx.designer.cs">
+      <DependentUpon>FuncionesC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Opcion2\paginaPrincipal.aspx.cs">
       <DependentUpon>paginaPrincipal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Opcion2\paginaPrincipal.aspx.designer.cs">
       <DependentUpon>paginaPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\PagInicio.Master.cs">
+      <DependentUpon>PagInicio.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\PagInicio.Master.designer.cs">
+      <DependentUpon>PagInicio.Master</DependentUpon>
     </Compile>
     <Compile Include="Opcion2\pago.aspx.cs">
       <DependentUpon>pago.aspx</DependentUpon>
@@ -260,12 +317,26 @@
     <Compile Include="Opcion2\pago.aspx.designer.cs">
       <DependentUpon>pago.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Opcion2\PagosC.aspx.cs">
+      <DependentUpon>PagosC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\PagosC.aspx.designer.cs">
+      <DependentUpon>PagosC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Opcion2\snack.aspx.cs">
       <DependentUpon>snack.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Opcion2\snack.aspx.designer.cs">
       <DependentUpon>snack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Opcion2\SnackC.aspx.cs">
+      <DependentUpon>SnackC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Opcion2\SnackC.aspx.designer.cs">
+      <DependentUpon>SnackC.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrar.aspx.cs">
@@ -278,6 +349,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Mantenimientos\Principal.Master" />
+    <Content Include="Opcion2\PagInicio.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

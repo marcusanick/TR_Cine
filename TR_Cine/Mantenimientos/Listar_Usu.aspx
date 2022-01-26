@@ -77,11 +77,7 @@
                                                 <asp:Label ID="usu_login" runat="server" Text='<%#Eval("usu_nombre")%>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Contrasenia">
-                                            <ItemTemplate>
-                                                <asp:Label ID="usu_password" runat="server" Text='<%#Eval("usu_pass")%>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                        
                                         
                                         <asp:TemplateField HeaderText="Correo">
                                             <ItemTemplate>

@@ -22,6 +22,11 @@ namespace TR_Cine.Mantenimientos
                 Panel2.Visible = true;
                 lblSesion.Text = Session["Admin1"].ToString();
             }
+            else if (Session["gere"] != null)
+            {
+                Panel2.Visible = true;
+                lblSesion.Text = Session["Admin1"].ToString();
+            }
             else
             {
                 Response.Redirect("~/Login.aspx");
@@ -81,6 +86,18 @@ namespace TR_Cine.Mantenimientos
         protected void lnk_listcomb_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Mantenimientos/Listar_Comb.aspx");
+        }
+
+        protected void lnk_nprom_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Mantenimientos/Nuevo_Promo.aspx");
+
+        }
+
+        protected void lnk_listprom_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Mantenimientos/Listar_promo.aspx");
+
         }
     }
 }

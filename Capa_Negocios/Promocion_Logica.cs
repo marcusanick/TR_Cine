@@ -7,18 +7,17 @@ using Capa_Datos;
 
 namespace Capa_Negocios
 {
-    public class Pelicula_Logica
+    public class Promocion_Logica
     {
-
         //INSTANCIAR EL DBML
         private static BD_CineDataContext dc = new BD_CineDataContext();
 
         //crear metodo para traer una lista de personas
-        public static List<tbl_Pelicula> Obtner_peliculas()
+        public static List<tbl_promocion> Obtner_promociones()
         {
             try
             {
-                var personas = dc.tbl_Pelicula.Where(per => per.per_estado == 'A');
+                var personas = dc.tbl_promocion.Where(per => per.pro_estado == 'A');
                 return personas.ToList();
             }
             catch (Exception ex)
@@ -30,12 +29,12 @@ namespace Capa_Negocios
         }
 
         //crear metodo para traer una pelicula  escpecifica
-        public static tbl_Pelicula Obtner_perXId(int codigoPer)
+        public static tbl_promocion Obtner_proXId(int codigoPer)
         {
             try
             {
-                var personas = dc.tbl_Pelicula.FirstOrDefault(rol => rol.per_estado == 'A'
-                                        && rol.pel_id.Equals(codigoPer));
+                var personas = dc.tbl_promocion.FirstOrDefault(rol => rol.pro_estado == 'A'
+                                        && rol.pro_id.Equals(codigoPer));
                 return personas;
             }
             catch (Exception ex)
@@ -46,27 +45,27 @@ namespace Capa_Negocios
 
         }
         //metodo para traer persona x nombre
-        public static tbl_Pelicula Obtener_perXnombre(string nombre)
+        public static tbl_promocion Obtener_perXnombre(string nombre)
         {
-            var proid = dc.tbl_Pelicula.FirstOrDefault(pro => pro.pel_Titulo.Equals(nombre) && pro.per_estado == 'A');
+            var proid = dc.tbl_promocion.FirstOrDefault(pro => pro.pro_descripcion.Equals(nombre) && pro.pro_estado == 'A');
             return proid;
         }
         //METODOS CRUD
 
         //metodo para autenticar que no sean duplicados
-        public static bool autentificar_per(string nombre)
+        public static bool autentificar_pro(string nombre)
         {
-            var auto = dc.tbl_Pelicula.Any(pro => pro.pel_Titulo.Equals(nombre));
+            var auto = dc.tbl_promocion.Any(pro => pro.pro_descripcion.Equals(nombre));
             return auto;
         }
         //metodo para Guardar
-        public static void Guardar(tbl_Pelicula pro)
+        public static void Guardar(tbl_promocion pro)
         {
             try
             {
-                pro.per_estado = 'A';
-                
-                dc.tbl_Pelicula.InsertOnSubmit(pro);
+                pro.pro_estado = 'A';
+
+                dc.tbl_promocion.InsertOnSubmit(pro);
                 dc.SubmitChanges();
             }
             catch (Exception ex)
@@ -76,11 +75,11 @@ namespace Capa_Negocios
             }
         }
         //metodo para Editar
-        public static void Editar(tbl_Pelicula pro)
+        public static void Editar(tbl_promocion pro)
         {
             try
             {
-              
+
                 dc.SubmitChanges();
             }
             catch (Exception ex)
@@ -89,11 +88,11 @@ namespace Capa_Negocios
                 throw new ArgumentException("Los datos no han sido modificados</br>" + ex.Message);
             }
         }
-        public static void Eliminar(tbl_Pelicula pro)
+        public static void Eliminar(tbl_promocion pro)
         {
             try
             {
-                pro.per_estado = 'I';
+                pro.pro_estado = 'I';
                 // dc.Tbl_Producto.DeleteOnSubmit(pro);
                 dc.SubmitChanges();
             }
@@ -107,3 +106,4 @@ namespace Capa_Negocios
 
     }
 }
+

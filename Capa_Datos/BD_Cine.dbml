@@ -155,4 +155,12 @@
       <Association Name="tbl_Sucursal_tbl_Ciudad" Member="tbl_Ciudad" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Ciudad" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_promocion" Member="tbl_promocion">
+    <Type Name="tbl_promocion">
+      <Column Name="pro_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pro_descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pro_imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pro_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

@@ -70,12 +70,21 @@ namespace TR_Cine
                                 Response.Redirect("~/Mantenimientos/VistaPrincipal.aspx");
                                 //Response.Redirect("/Agregarimg.aspx");
                             }
-                            if (tusu == 2)
+                             if (tusu == 2)
                             {
-                                Session["Usuario"] = usuari;
+                                Session["usu"] = usuari;
 
                                 //Response.Redirect("/Us.aspx");
                             }
+                            if (tusu == 3)
+                            {
+                                Session["gere"] = usuari;
+
+                                Session["gere"] = usuari.usu_nombre.ToString();
+                                Session["Admin1"] = usuari.tbl_Rol.rol_descripcion.ToString();
+                                Response.Redirect("~/Mantenimientos/VistaPrincipal.aspx");
+                            }
+
                         }
                         else
                         {
@@ -172,7 +181,7 @@ namespace TR_Cine
 
         protected void lnk_home_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Opcion2/PaginaPrincipal.aspx");
+            Response.Redirect("~/Opcion2/Index.aspx");
         }
 
         protected void lnk_registrar_Click(object sender, EventArgs e)

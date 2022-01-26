@@ -11,7 +11,7 @@ namespace TR_Cine.Mantenimientos
 {
 
 
-    public partial class Listar_GenPel
+    public partial class Listar_promo
     {
 
         /// <summary>

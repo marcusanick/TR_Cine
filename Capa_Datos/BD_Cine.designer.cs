@@ -72,6 +72,9 @@ namespace Capa_Datos
     partial void Inserttbl_Sucursal(tbl_Sucursal instance);
     partial void Updatetbl_Sucursal(tbl_Sucursal instance);
     partial void Deletetbl_Sucursal(tbl_Sucursal instance);
+    partial void Inserttbl_promocion(tbl_promocion instance);
+    partial void Updatetbl_promocion(tbl_promocion instance);
+    partial void Deletetbl_promocion(tbl_promocion instance);
     #endregion
 		
 		public BD_CineDataContext() : 
@@ -213,6 +216,14 @@ namespace Capa_Datos
 			get
 			{
 				return this.GetTable<tbl_Sucursal>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_promocion> tbl_promocion
+		{
+			get
+			{
+				return this.GetTable<tbl_promocion>();
 			}
 		}
 	}
@@ -3374,6 +3385,140 @@ namespace Capa_Datos
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Sucursal = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_promocion")]
+	public partial class tbl_promocion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _pro_id;
+		
+		private string _pro_descripcion;
+		
+		private System.Data.Linq.Binary _pro_imagen;
+		
+		private System.Nullable<char> _pro_estado;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onpro_idChanging(int value);
+    partial void Onpro_idChanged();
+    partial void Onpro_descripcionChanging(string value);
+    partial void Onpro_descripcionChanged();
+    partial void Onpro_imagenChanging(System.Data.Linq.Binary value);
+    partial void Onpro_imagenChanged();
+    partial void Onpro_estadoChanging(System.Nullable<char> value);
+    partial void Onpro_estadoChanged();
+    #endregion
+		
+		public tbl_promocion()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pro_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int pro_id
+		{
+			get
+			{
+				return this._pro_id;
+			}
+			set
+			{
+				if ((this._pro_id != value))
+				{
+					this.Onpro_idChanging(value);
+					this.SendPropertyChanging();
+					this._pro_id = value;
+					this.SendPropertyChanged("pro_id");
+					this.Onpro_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pro_descripcion", DbType="VarChar(50)")]
+		public string pro_descripcion
+		{
+			get
+			{
+				return this._pro_descripcion;
+			}
+			set
+			{
+				if ((this._pro_descripcion != value))
+				{
+					this.Onpro_descripcionChanging(value);
+					this.SendPropertyChanging();
+					this._pro_descripcion = value;
+					this.SendPropertyChanged("pro_descripcion");
+					this.Onpro_descripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pro_imagen", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary pro_imagen
+		{
+			get
+			{
+				return this._pro_imagen;
+			}
+			set
+			{
+				if ((this._pro_imagen != value))
+				{
+					this.Onpro_imagenChanging(value);
+					this.SendPropertyChanging();
+					this._pro_imagen = value;
+					this.SendPropertyChanged("pro_imagen");
+					this.Onpro_imagenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pro_estado", DbType="Char(1)")]
+		public System.Nullable<char> pro_estado
+		{
+			get
+			{
+				return this._pro_estado;
+			}
+			set
+			{
+				if ((this._pro_estado != value))
+				{
+					this.Onpro_estadoChanging(value);
+					this.SendPropertyChanging();
+					this._pro_estado = value;
+					this.SendPropertyChanged("pro_estado");
+					this.Onpro_estadoChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
