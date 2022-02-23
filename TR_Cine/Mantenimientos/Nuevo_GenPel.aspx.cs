@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Capa_Datos;
+﻿using Capa_Datos;
 using Capa_Negocios;
+using System;
 
 namespace TR_Cine.Mantenimientos
 {
@@ -77,25 +72,34 @@ namespace TR_Cine.Mantenimientos
         }
         protected void lnk_guardar_Click(object sender, EventArgs e)
         {
-            //verificar si existe datos
-            bool existe = Genero_Logica.autentificar_gen(txt_gen.Text);
+            if (txt_gen.Text==String.Empty)
             {
-                if (existe)
+                lbl_mensaje.Visible = true;
+                lbl_mensaje.Text = "Hay campos vacios";
+            }
+            else
+            {
+                //verificar si existe datos
+                bool existe = Genero_Logica.autentificar_gen(txt_gen.Text);
                 {
-                    tbl_Genero dep = new tbl_Genero();
-                    dep = Genero_Logica.Obtener_GenXnombre(txt_gen.Text);
-                    if (dep != null)
+                    if (existe)
                     {
-                        lbl_mensaje.Visible = true;
-                        lbl_mensaje.Text = "Producto Ya existente";
+                        tbl_Genero dep = new tbl_Genero();
+                        dep = Genero_Logica.Obtener_GenXnombre(txt_gen.Text);
+                        if (dep != null)
+                        {
+                            lbl_mensaje.Visible = true;
+                            lbl_mensaje.Text = "Genero Ya existente";
+                        }
+                    }
+                    else
+                    {
+                        lbl_mensaje.Visible = false;
+                        Guardar_Modificar(Convert.ToInt32(Request["cod"]));
                     }
                 }
-                else
-                {
-                    lbl_mensaje.Visible = false;
-                    Guardar_Modificar(Convert.ToInt32(Request["cod"]));
-                }
             }
+            
         }
 
         private void Guardar()

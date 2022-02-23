@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Capa_Datos;
+﻿using Capa_Datos;
 using Capa_Negocios;
+using System;
 
 namespace TR_Cine.Mantenimientos
 {
-   
+
     public partial class Nuevo_Promo : System.Web.UI.Page
     {
         private tbl_promocion usuarioin = new tbl_promocion();
@@ -26,12 +21,12 @@ namespace TR_Cine.Mantenimientos
                     if (usuarioin != null)
                     {
                         txt_descripcion.Text = usuarioin.pro_descripcion.ToString();
-                        
+
                         lnk_guardar.Visible = false;
                         lnk_nuevo.Visible = false;
                     }
                 }
-                
+
 
             }
         }
@@ -47,9 +42,9 @@ namespace TR_Cine.Mantenimientos
         }
         private void Nuev_Promo()
         {
-            txt_descripcion.Text =  "";
+            txt_descripcion.Text = "";
 
-           
+
         }
 
         protected void lnk_guardar_Click(object sender, EventArgs e)
@@ -99,7 +94,7 @@ namespace TR_Cine.Mantenimientos
                 usuarioin.pro_descripcion = txt_descripcion.Text;
                 //usuarioin.pel_Idioma = txt_idioma.Text;
                 //    usuarioin.pel_img = img_s.ImageAlig;
-               
+
 
                 Promocion_Logica.Guardar(usuarioin);
                 lbl_mensaje.Visible = true;
@@ -128,8 +123,8 @@ namespace TR_Cine.Mantenimientos
             try
             {
                 usuarioin.pro_descripcion = txt_descripcion.Text;
-               
-               
+
+
 
                 Promocion_Logica.Editar(usuarioin);
                 lbl_mensaje.Visible = true;

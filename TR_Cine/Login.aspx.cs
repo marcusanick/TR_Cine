@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Capa_Datos;
+﻿using Capa_Datos;
 using Capa_Negocios;
-using System.Data.Linq;
+using System;
 using System.Drawing;
 
 namespace TR_Cine
@@ -45,7 +39,7 @@ namespace TR_Cine
             }
             else if (string.IsNullOrEmpty(txt_password.Text))
             {
-                lbl_mensaje.Text = "Ingrese su  Contrasenia";
+                lbl_mensaje.Text = "Ingrese su  Contraseña";
                 lbl_mensaje.ForeColor = Color.Red;
             }
             else
@@ -70,11 +64,11 @@ namespace TR_Cine
                                 Response.Redirect("~/Mantenimientos/VistaPrincipal.aspx");
                                 //Response.Redirect("/Agregarimg.aspx");
                             }
-                             if (tusu == 2)
+                            if (tusu == 2)
                             {
                                 Session["usu"] = usuari;
-
-                                //Response.Redirect("/Us.aspx");
+                                
+                                Response.Redirect("~/Opcion2/Index.aspx");
                             }
                             if (tusu == 3)
                             {
@@ -101,7 +95,7 @@ namespace TR_Cine
                             {
                                 btn_ingresar.Visible = false;
                                 txt_password.Visible = false;
-                                
+
                                 btn_desbloquear.Visible = true;
                                 lnk_registrar.Visible = false;
                                 lnk_olvido.Visible = false;

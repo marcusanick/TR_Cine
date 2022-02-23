@@ -106,7 +106,7 @@
                                     
                                         <asp:TemplateField HeaderText="Estado">
                                             <ItemTemplate>
-                                                <asp:Label ID="pel_estado" runat="server" Text='<%#Eval("per_estado")%>'></asp:Label>
+                                                <asp:Label ID="pel_estado" runat="server" Text='<%#Eval("pel_estado")%>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         

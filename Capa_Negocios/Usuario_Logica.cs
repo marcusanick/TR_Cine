@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Capa_Datos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Capa_Datos;
-using System.Data.Linq;
 
 namespace Capa_Negocios
 {
@@ -28,7 +25,7 @@ namespace Capa_Negocios
                                             usu.usu_pass.Equals(pass));
             return auto;
         }
-        
+
         //metodo para verificar si existe o no  
         public static bool AutentificarxNombre(string nombre)
         {
@@ -68,7 +65,7 @@ namespace Capa_Negocios
                 usuario.usu_estado = 'A';
                 //usuario.usu_add = DateTime.Now;
                 usuario.rol_id = 2;
-                
+
                 dc.tbl_Usuario.InsertOnSubmit(usuario);
                 dc.SubmitChanges();
             }
@@ -85,7 +82,7 @@ namespace Capa_Negocios
             try
             {
                 pro.usu_estado = 'A';
-               
+
                 dc.tbl_Usuario.InsertOnSubmit(pro);
                 dc.SubmitChanges();
             }
@@ -100,7 +97,7 @@ namespace Capa_Negocios
         {
             try
             {
-                
+
                 dc.tbl_Usuario.InsertOnSubmit(pro);
                 dc.SubmitChanges();
             }

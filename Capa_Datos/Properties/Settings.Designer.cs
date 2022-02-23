@@ -43,5 +43,16 @@ namespace Capa_Datos.Properties {
                 return ((string)(this["BoleteriaPmConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Secur" +
+            "ity Info=True;User ID=marcusanick_SQLLogin_1;Password=7x5orgwf9j")]
+        public string BoleteriaPmConnectionString1 {
+            get {
+                return ((string)(this["BoleteriaPmConnectionString1"]));
+            }
+        }
     }
 }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Capa_Datos;
+﻿using Capa_Datos;
 using Capa_Negocios;
+using System;
+using System.Collections.Generic;
 
 namespace TR_Cine.Mantenimientos
 {
@@ -24,10 +20,10 @@ namespace TR_Cine.Mantenimientos
                     usuarioin = Pelicula_Logica.Obtner_perXId(codigo);
                     if (usuarioin != null)
                     {
-                        txt_titulo.Text = usuarioin.pel_Titulo.ToString();
-                        txt_idioma.Text = usuarioin.pel_Idioma.ToString();
+                        txt_titulo.Text = usuarioin.pel_titulo.ToString();
+                        txt_idioma.Text = usuarioin.pel_idioma.ToString();
                         ddl_gen.SelectedValue = usuarioin.gen_id.ToString();
-                       // img_s.ImageUrl= usuarioin.gen_id.ToString();
+                        // img_s.ImageUrl= usuarioin.gen_id.ToString();
                         txt_sinop.Text = usuarioin.pel_sinopsis.ToString();
                         txt_url.Text = usuarioin.pel_url.ToString();
                         lnk_guardar.Visible = false;
@@ -35,7 +31,7 @@ namespace TR_Cine.Mantenimientos
                     }
                 }
                 cargarGenero();
-               
+
             }
         }
 
@@ -63,7 +59,7 @@ namespace TR_Cine.Mantenimientos
         private void Nuev_Pelicula()
         {
             txt_idioma.Text = txt_sinop.Text = txt_titulo.Text = txt_url.Text = "";
-           
+
             ddl_gen.ClearSelection();
         }
 
@@ -109,21 +105,29 @@ namespace TR_Cine.Mantenimientos
         {
             try
             {
-                usuarioin = new tbl_Pelicula();
-                usuarioin.pel_Titulo = txt_titulo.Text;
-                usuarioin.pel_Idioma = txt_idioma.Text;
-            //    usuarioin.pel_img = img_s.ImageAlig;
-                usuarioin.pel_sinopsis = txt_sinop.Text;
-                usuarioin.pel_url = txt_url.Text;
-
-                usuarioin.gen_id = Convert.ToInt32(ddl_gen.SelectedValue);
-
-                Pelicula_Logica.Guardar(usuarioin);
-                lbl_mensaje.Visible = true;
-                lbl_mensaje.Text = "Los datos han sido guardados";
-                if (lbl_mensaje.Text == "Los datos han sido guardados")
+                if (txt_titulo.Text==String.Empty || txt_idioma.Text==String.Empty || txt_sinop.Text==String.Empty
+                    || txt_url.Text==String.Empty)
                 {
-                    Timer1.Enabled = true;
+                    lbl_mensaje.Text = "Llenar todos los campos por favor";
+                }
+                else
+                {
+                    usuarioin = new tbl_Pelicula();
+                    usuarioin.pel_titulo = txt_titulo.Text;
+                    usuarioin.pel_idioma = txt_idioma.Text;
+                    //    usuarioin.pel_img = img_s.ImageAlig;
+                    usuarioin.pel_sinopsis = txt_sinop.Text;
+                    usuarioin.pel_url = txt_url.Text;
+
+                    usuarioin.gen_id = Convert.ToInt32(ddl_gen.SelectedValue);
+
+                    Pelicula_Logica.Guardar(usuarioin);
+                    lbl_mensaje.Visible = true;
+                    lbl_mensaje.Text = "Los datos han sido guardados";
+                    if (lbl_mensaje.Text == "Los datos han sido guardados")
+                    {
+                        Timer1.Enabled = true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -142,11 +146,11 @@ namespace TR_Cine.Mantenimientos
         {
             try
             {
-                usuarioin.pel_Titulo = txt_titulo.Text;
-                usuarioin.pel_Idioma = txt_idioma.Text;
+                usuarioin.pel_titulo = txt_titulo.Text;
+                usuarioin.pel_idioma = txt_idioma.Text;
                 usuarioin.pel_sinopsis = txt_sinop.Text;
                 usuarioin.pel_url = txt_url.Text;
-                
+
                 usuarioin.gen_id = Convert.ToInt32(ddl_gen.SelectedValue);
 
                 Pelicula_Logica.Editar(usuarioin);

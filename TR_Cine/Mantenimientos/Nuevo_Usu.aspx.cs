@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Capa_Datos;
+﻿using Capa_Datos;
 using Capa_Negocios;
+using System;
+using System.Collections.Generic;
 
 namespace TR_Cine.Mantenimientos
 {
@@ -27,7 +23,7 @@ namespace TR_Cine.Mantenimientos
                         txt_usu.Text = usuarioin.usu_usuario.ToString();
                         txt_pass.Text = usuarioin.usu_pass.ToString();
                         txt_correo.Text = usuarioin.usu_email.ToString();
-                        txt_ced.Text = usuarioin.usu_cedula.ToString();                     
+                        txt_ced.Text = usuarioin.usu_cedula.ToString();
                         ddl_rol.SelectedValue = usuarioin.rol_id.ToString();
                         txt_nombre.Text = usuarioin.usu_nombre.ToString();
                         txt_apellido.Text = usuarioin.usu_apellido.ToString();
@@ -39,7 +35,7 @@ namespace TR_Cine.Mantenimientos
                     }
                 }
                 cargarRol();
-                
+
             }
         }
 
@@ -56,31 +52,41 @@ namespace TR_Cine.Mantenimientos
 
         protected void lnk_nuevo_Click(object sender, EventArgs e)
         {
-            txt_usu.Text =  txt_pass.Text =    txt_correo.Text =  txt_ced.Text = 
-            ddl_rol.SelectedValue =        txt_nombre.Text =          txt_apellido.Text = 
-            txt_direccion.Text =           txt_cel.Text = "";
+            txt_usu.Text = txt_pass.Text = txt_correo.Text = txt_ced.Text =
+            ddl_rol.SelectedValue = txt_nombre.Text = txt_apellido.Text =
+            txt_direccion.Text = txt_cel.Text = "";
             ddl_rol.ClearSelection();
         }
 
         protected void lnk_guardar_Click(object sender, EventArgs e)
         {
-            //verificar si existe datos
-            bool existe = Usuario_Logica.AutentificarNombre(txt_usu.Text);
+            if (txt_usu.Text == String.Empty || txt_pass.Text == String.Empty || txt_correo.Text == String.Empty
+                    || txt_ced.Text == String.Empty || ddl_rol.SelectedValue == "0" || txt_nombre.Text == String.Empty
+                    || txt_apellido.Text == String.Empty || txt_direccion.Text == String.Empty || txt_cel.Text == String.Empty)
             {
-                if (existe)
+                lbl_mensaje.Visible = true;
+                lbl_mensaje.Text = "Hay campos vacios, por favor llenarlos todos";
+            }
+            else
+            {
+                //verificar si existe datos
+                bool existe = Usuario_Logica.AutentificarNombre(txt_usu.Text);
                 {
-                    tbl_Usuario dep = new tbl_Usuario();
-                    dep = Usuario_Logica.Obtener_DepaXnombre(txt_usu.Text);
-                    if (dep != null)
+                    if (existe)
                     {
-                        lbl_mensaje.Visible = true;
-                        lbl_mensaje.Text = "Producto Ya existente";
+                        tbl_Usuario dep = new tbl_Usuario();
+                        dep = Usuario_Logica.Obtener_DepaXnombre(txt_usu.Text);
+                        if (dep != null)
+                        {
+                            lbl_mensaje.Visible = true;
+                            lbl_mensaje.Text = "Usuario Ya existente";
+                        }
                     }
-                }
-                else
-                {
-                    lbl_mensaje.Visible = false;
-                    Guardar_Modificar(Convert.ToInt32(Request["cod"]));
+                    else
+                    {
+                        lbl_mensaje.Visible = false;
+                        Guardar_Modificar(Convert.ToInt32(Request["cod"]));
+                    }
                 }
             }
         }
@@ -105,24 +111,34 @@ namespace TR_Cine.Mantenimientos
         {
             try
             {
-                usuarioin = new tbl_Usuario();
-                usuarioin.usu_usuario = txt_usu.Text;
-                usuarioin.usu_pass= txt_pass.Text;
-                usuarioin.usu_email = txt_correo.Text;
-                usuarioin.usu_cedula = txt_ced.Text;
-                usuarioin.rol_id = Convert.ToInt32(ddl_rol.SelectedValue);
-                usuarioin.usu_nombre = txt_nombre.Text;
-                usuarioin.usu_apellido = txt_apellido.Text;
-                usuarioin.usu_direccion = txt_direccion.Text;
-                usuarioin.usu_cel = txt_cel.Text;
-
-
-                Usuario_Logica.Guardar(usuarioin);
-                lbl_mensaje.Visible = true;
-                lbl_mensaje.Text = "Los datos han sido guardados";
-                if (lbl_mensaje.Text == "Los datos han sido guardados")
+                if (txt_usu.Text==String.Empty || txt_pass.Text==String.Empty || txt_correo.Text==String.Empty
+                    || txt_ced.Text==String.Empty || ddl_rol.SelectedValue=="0" || txt_nombre.Text==String.Empty
+                    || txt_apellido.Text==String.Empty || txt_direccion.Text==String.Empty || txt_cel.Text==String.Empty)
                 {
-                    Timer1.Enabled = true;
+                    lbl_mensaje.Visible = true;
+                    lbl_mensaje.Text = "Hay campos vacios, por favor llenarlos todos";
+                }
+                else
+                {
+                    usuarioin = new tbl_Usuario();
+                    usuarioin.usu_usuario = txt_usu.Text;
+                    usuarioin.usu_pass = txt_pass.Text;
+                    usuarioin.usu_email = txt_correo.Text;
+                    usuarioin.usu_cedula = txt_ced.Text;
+                    usuarioin.rol_id = Convert.ToInt32(ddl_rol.SelectedValue);
+                    usuarioin.usu_nombre = txt_nombre.Text;
+                    usuarioin.usu_apellido = txt_apellido.Text;
+                    usuarioin.usu_direccion = txt_direccion.Text;
+                    usuarioin.usu_cel = txt_cel.Text;
+
+
+                    Usuario_Logica.Guardar(usuarioin);
+                    lbl_mensaje.Visible = true;
+                    lbl_mensaje.Text = "Los datos han sido guardados";
+                    if (lbl_mensaje.Text == "Los datos han sido guardados")
+                    {
+                        Timer1.Enabled = true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -143,7 +159,7 @@ namespace TR_Cine.Mantenimientos
             try
             {
                 usuarioin.usu_usuario = txt_usu.Text;
-                
+
                 usuarioin.usu_email = txt_correo.Text;
                 usuarioin.usu_cedula = txt_ced.Text;
                 usuarioin.rol_id = Convert.ToInt32(ddl_rol.SelectedValue);

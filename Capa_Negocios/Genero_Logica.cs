@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Capa_Datos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Capa_Datos;
-using Capa_Negocios;
 namespace Capa_Negocios
 {
     public class Genero_Logica
@@ -64,7 +61,7 @@ namespace Capa_Negocios
             try
             {
                 pro.gen_estado = 'A';
-                
+
                 dc.tbl_Genero.InsertOnSubmit(pro);
                 dc.SubmitChanges();
             }
@@ -79,7 +76,7 @@ namespace Capa_Negocios
         {
             try
             {
-                
+
                 dc.SubmitChanges();
             }
             catch (Exception ex)

@@ -13,8 +13,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Estilos -->
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/estilosp.css">
+    <%--<link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilosp.css">--%>
+    <link rel="stylesheet" href="Opcion2/css/estilos.css">
     <!-- Iconos -->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 </head>
@@ -27,7 +28,7 @@
                 <section>
                     <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
                         <div class="container">
-                            <asp:LinkButton ID="lnk_home" class="navbar-brand" runat="server" OnClick="lnk_home_Click">Cineplanet</asp:LinkButton>
+                            <asp:LinkButton ID="lnk_home" class="navbar-brand" runat="server" OnClick="lnk_home_Click">Cinema</asp:LinkButton>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -36,11 +37,9 @@
                     </nav>
                 </section>
                 
-                <section class="my-5">
-
+                <section class="sec">
                     <h1>Registrate</h1>
                     <div class="contenedor">
-
                         <asp:Label ID="Label1" runat="server" Text=" Nombre: " Font-Size="1.15em" ForeColor="White"></asp:Label>
                         <div class="input-contenedor">
                             <asp:TextBox ID="txt_nombre"  placeholder="Ingrese su Nombre: " runat="server" Width="100%"></asp:TextBox>
@@ -140,10 +139,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        var nav = document.querySelector('nav');
-        nav.classList.add('bg-dark', 'shadow');
-    </script>
 </body>
 
 </html>

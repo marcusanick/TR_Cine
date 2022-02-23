@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Capa_Datos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Capa_Datos;
 
 namespace Capa_Negocios
 {
@@ -18,7 +16,7 @@ namespace Capa_Negocios
         {
             try
             {
-                var personas = dc.tbl_Pelicula.Where(per => per.per_estado == 'A');
+                var personas = dc.tbl_Pelicula.Where(per => per.pel_estado == 'A');
                 return personas.ToList();
             }
             catch (Exception ex)
@@ -34,7 +32,7 @@ namespace Capa_Negocios
         {
             try
             {
-                var personas = dc.tbl_Pelicula.FirstOrDefault(rol => rol.per_estado == 'A'
+                var personas = dc.tbl_Pelicula.FirstOrDefault(rol => rol.pel_estado == 'A'
                                         && rol.pel_id.Equals(codigoPer));
                 return personas;
             }
@@ -48,7 +46,7 @@ namespace Capa_Negocios
         //metodo para traer persona x nombre
         public static tbl_Pelicula Obtener_perXnombre(string nombre)
         {
-            var proid = dc.tbl_Pelicula.FirstOrDefault(pro => pro.pel_Titulo.Equals(nombre) && pro.per_estado == 'A');
+            var proid = dc.tbl_Pelicula.FirstOrDefault(pro => pro.pel_titulo.Equals(nombre) && pro.pel_estado == 'A');
             return proid;
         }
         //METODOS CRUD
@@ -56,7 +54,7 @@ namespace Capa_Negocios
         //metodo para autenticar que no sean duplicados
         public static bool autentificar_per(string nombre)
         {
-            var auto = dc.tbl_Pelicula.Any(pro => pro.pel_Titulo.Equals(nombre));
+            var auto = dc.tbl_Pelicula.Any(pro => pro.pel_titulo.Equals(nombre));
             return auto;
         }
         //metodo para Guardar
@@ -64,8 +62,8 @@ namespace Capa_Negocios
         {
             try
             {
-                pro.per_estado = 'A';
-                
+                pro.pel_estado = 'A';
+
                 dc.tbl_Pelicula.InsertOnSubmit(pro);
                 dc.SubmitChanges();
             }
@@ -80,7 +78,7 @@ namespace Capa_Negocios
         {
             try
             {
-              
+
                 dc.SubmitChanges();
             }
             catch (Exception ex)
@@ -93,7 +91,7 @@ namespace Capa_Negocios
         {
             try
             {
-                pro.per_estado = 'I';
+                pro.pel_estado = 'I';
                 // dc.Tbl_Producto.DeleteOnSubmit(pro);
                 dc.SubmitChanges();
             }

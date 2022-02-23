@@ -1,37 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_BoleteriaCine" Class="BD_CineDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=MARCUS;Initial Catalog=BD_BoleteriaCine;Integrated Security=True" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="BD_BoleteriaCineConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BoleteriaPm" Class="BD_CineDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Security Info=True;User ID=marcusanick_SQLLogin_1" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="BoleteriaPmConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_Bebida" Member="tbl_Bebida">
     <Type Name="tbl_Bebida">
       <Column Name="beb_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="beb_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="beb_precio" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="beb_precio" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="beb_stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="beb_img" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="beb_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="tbl_Bebida_tbl_Combo" Member="tbl_Combo" ThisKey="beb_id" OtherKey="beb_id" Type="tbl_Combo" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_Usuario" Member="tbl_Usuario">
-    <Type Name="tbl_Usuario">
-      <Column Name="usu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="usu_usuario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="usu_pass" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="usu_email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="usu_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="rol_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="usu_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="usu_apellido" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="usu_cedula" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="usu_direccion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="usu_cel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="tbl_Usuario_tbl_Factura" Member="tbl_Factura" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_Factura" />
-      <Association Name="tbl_Rol_tbl_Usuario" Member="tbl_Rol" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Rol" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tbl_Ciudad" Member="tbl_Ciudad">
     <Type Name="tbl_Ciudad">
       <Column Name="ciu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ciu_descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ciu_descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="ciu_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="suc_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tbl_Ciudad_tbl_Factura" Member="tbl_Factura" ThisKey="ciu_id" OtherKey="ciu_id" Type="tbl_Factura" />
@@ -42,11 +25,11 @@
     <Type Name="tbl_Combo">
       <Column Name="com_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="com_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="com_precio" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="com_precio" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="com_img" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="beb_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="snac_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="snac_iestado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="com_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="tbl_Combo_tbl_Factura" Member="tbl_Factura" ThisKey="com_id" OtherKey="com_id" Type="tbl_Factura" />
       <Association Name="tbl_Bebida_tbl_Combo" Member="tbl_Bebida" ThisKey="beb_id" OtherKey="beb_id" Type="tbl_Bebida" IsForeignKey="true" />
       <Association Name="tbl_Sanck_tbl_Combo" Member="tbl_Sanck" ThisKey="snac_id" OtherKey="snac_id" Type="tbl_Sanck" IsForeignKey="true" />
@@ -54,7 +37,7 @@
   </Table>
   <Table Name="dbo.tbl_Factura" Member="tbl_Factura">
     <Type Name="tbl_Factura">
-      <Column Name="fact_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fac_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="fac_fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="fun_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="usu_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -62,8 +45,8 @@
       <Column Name="ciu_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tbl_Ciudad_tbl_Factura" Member="tbl_Ciudad" ThisKey="ciu_id" OtherKey="ciu_id" Type="tbl_Ciudad" IsForeignKey="true" />
       <Association Name="tbl_Combo_tbl_Factura" Member="tbl_Combo" ThisKey="com_id" OtherKey="com_id" Type="tbl_Combo" IsForeignKey="true" />
-      <Association Name="tbl_Usuario_tbl_Factura" Member="tbl_Usuario" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_Usuario" IsForeignKey="true" />
       <Association Name="tbl_Funcion_tbl_Factura" Member="tbl_Funcion" ThisKey="fun_id" OtherKey="fun_id" Type="tbl_Funcion" IsForeignKey="true" />
+      <Association Name="tbl_Usuario_tbl_Factura" Member="tbl_Usuario" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_Usuario" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Funcion" Member="tbl_Funcion">
@@ -83,7 +66,7 @@
   <Table Name="dbo.tbl_Genero" Member="tbl_Genero">
     <Type Name="tbl_Genero">
       <Column Name="gen_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="gen_descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="gen_descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="gen_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="tbl_Genero_tbl_Pelicula" Member="tbl_Pelicula" ThisKey="gen_id" OtherKey="gen_id" Type="tbl_Pelicula" />
     </Type>
@@ -91,7 +74,7 @@
   <Table Name="dbo.tbl_Hora" Member="tbl_Hora">
     <Type Name="tbl_Hora">
       <Column Name="hor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="hor_descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="hor_descripcion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="hor_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="tbl_Hora_tbl_Funcion" Member="tbl_Funcion" ThisKey="hor_id" OtherKey="hor_id" Type="tbl_Funcion" />
     </Type>
@@ -99,13 +82,13 @@
   <Table Name="dbo.tbl_Pelicula" Member="tbl_Pelicula">
     <Type Name="tbl_Pelicula">
       <Column Name="pel_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="pel_Titulo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="pel_Idioma" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="pel_titulo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="pel_idioma" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="gen_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="per_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="pel_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="pel_img" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="pel_sinopsis" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="pel_url" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="pel_sinopsis" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="pel_url" Type="System.String" DbType="VarChar(400)" CanBeNull="true" />
       <Association Name="tbl_Pelicula_tbl_Funcion" Member="tbl_Funcion" ThisKey="pel_id" OtherKey="pel_id" Type="tbl_Funcion" />
       <Association Name="tbl_Genero_tbl_Pelicula" Member="tbl_Genero" ThisKey="gen_id" OtherKey="gen_id" Type="tbl_Genero" IsForeignKey="true" />
     </Type>
@@ -115,15 +98,23 @@
       <Column Name="per_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="per_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="per_apellido" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="per_cedula" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="per_cedula" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="per_direccion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="per_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_promocion" Member="tbl_promocion">
+    <Type Name="tbl_promocion">
+      <Column Name="pro_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pro_descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pro_imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pro_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Rol" Member="tbl_Rol">
     <Type Name="tbl_Rol">
       <Column Name="rol_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="rol_descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="rol_descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="rol_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="tbl_Rol_tbl_Usuario" Member="tbl_Usuario" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Usuario" />
     </Type>
@@ -140,7 +131,7 @@
     <Type Name="tbl_Sanck">
       <Column Name="snac_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="snac_nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="snac_precio" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="snac_precio" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="snac_stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="snac_img" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="snac_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
@@ -150,17 +141,26 @@
   <Table Name="dbo.tbl_Sucursal" Member="tbl_Sucursal">
     <Type Name="tbl_Sucursal">
       <Column Name="suc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="suc_descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="suc_descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="suc_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="tbl_Sucursal_tbl_Ciudad" Member="tbl_Ciudad" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Ciudad" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_promocion" Member="tbl_promocion">
-    <Type Name="tbl_promocion">
-      <Column Name="pro_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="pro_descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="pro_imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="pro_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+  <Table Name="dbo.tbl_Usuario" Member="tbl_Usuario">
+    <Type Name="tbl_Usuario">
+      <Column Name="usu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="usu_usuario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usu_pass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usu_email" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="usu_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="rol_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="usu_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usu_apellido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usu_cedula" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usu_direccion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="usu_cel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="tbl_Usuario_tbl_Factura" Member="tbl_Factura" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_Factura" />
+      <Association Name="tbl_Rol_tbl_Usuario" Member="tbl_Rol" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Rol" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

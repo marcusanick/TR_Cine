@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Capa_Datos;
+using Capa_Negocios;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Capa_Datos;
-using Capa_Negocios;
 
 namespace TR_Cine.Mantenimientos
 {
@@ -25,7 +23,7 @@ namespace TR_Cine.Mantenimientos
             {
                 lbl_nombre.Text = Session["gere"].ToString();
             }
-           
+
             else
             {
                 Response.Redirect("~/Login.aspx");
