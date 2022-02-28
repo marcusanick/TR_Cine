@@ -116,7 +116,7 @@
         }
 
         img {
-            width: 100%;
+            width: 130%;
         }
 
         /*-----------Diseño para telefono-----------------------------------------------*/
@@ -313,18 +313,18 @@
                     <!-- Aqui el Repeater-->
                     <asp:Repeater ID="Repeater1" runat="server">
                         <ItemTemplate>
-                            <div class="col p-4">
-                                <a href="<%#DataBinder.Eval(Container.DataItem,"pel_url") %>">
+                            <div class="col p-4">                                
                                     <div class="box">
+                                        <a href="<%#DataBinder.Eval(Container.DataItem,"pel_url") %>">
                                         <img src="data:image/jpg;base64,<%#Convert.ToBase64String((byte[])DataBinder.Eval(Container.DataItem,"pel_img")) %>">
                                         <div class="hover">
                                             <h1><%# DataBinder.Eval(Container.DataItem,"pel_Titulo") %></h1>
-                                        </div>                                       
+                                        </div> 
+                                         </a>   
                                     </div>
-                                    <div class="box2">
+                                    <%--<div class="box2">
                                          <asp:Button ID="btn_comprar" runat="server" class="button" Text="Comprar" />
-                                    </div>
-                                </a>                                                                 
+                                    </div>--%>                                                                                             
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
