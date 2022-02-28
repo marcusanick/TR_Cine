@@ -42,30 +42,30 @@
         }
 
         .nav-tabs .nav-link.active {
-            background-color: #9400d3;
+            background-color: #322523;
             color: #fff;
-            border: 4px solid #9400d3;
+            border: 4px solid #322523;
         }
 
         .nav-tabs .nav-link {
             background-color: #fff;
-            color: #9400d3;
-            border: 5px solid #9400d3;
+            color: #322523;
+            border: 5px solid #322523;
             margin-right: 1rem;
             padding-left: 1rem;
             padding-right: 1rem;
         }
 
             .nav-tabs .nav-link:hover {
-                border: 3px solid #9400d3;
+                border: 3px solid #322523;
             }
 
         .nav-tabs {
-            border-bottom: 3px solid #9400d3;
+            border-bottom: 3px solid #322523;
         }
 
         .tab-content {
-            border: 1px solid #9400d3;
+            border: 1px solid #322523;
             padding: 50px;
         }
 
@@ -318,7 +318,7 @@
                                     <div class="box">
                                         <img src="data:image/jpg;base64,<%#Convert.ToBase64String((byte[])DataBinder.Eval(Container.DataItem,"pel_img")) %>">
                                         <div class="hover">
-                                            <h1><%# DataBinder.Eval(Container.DataItem,"pel_titulo") %></h1>
+                                            <h1><%# DataBinder.Eval(Container.DataItem,"pel_Titulo") %></h1>
                                         </div>                                       
                                     </div>
                                     <div class="box2">
