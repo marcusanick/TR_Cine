@@ -15,7 +15,7 @@ namespace Capa_Negocios
         {
             try
             {
-                var lista = dc.tbl_Sucursal.Where(data => data.suc_estado == 'A').OrderBy(ord => ord.suc_descripcion);
+                var lista = dc.tbl_Sucursal.Where(data => data.suc_estado == 'A' && data.ciu_id.Equals(Codigo_Ciudad)).OrderBy(ord => ord.suc_descripcion);
                 return lista.ToList();
             }
             catch (Exception)

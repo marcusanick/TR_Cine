@@ -27,8 +27,8 @@
             </div>
             <div class="funciones">
                 <div class="filtro">
-                    <asp:DropDownList ID="ddl_Ciudad" runat="server" OnSelectedIndexChanged="ddl_Ciudad_SelectedIndexChanged"></asp:DropDownList>
-                    <asp:DropDownList ID="ddl_sucursal" runat="server"></asp:DropDownList>                    
+                    <asp:DropDownList ID="ddl_Ciudad" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddl_Ciudad_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="ddl_sucursal" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddl_sucursal_SelectedIndexChanged"></asp:DropDownList>                    
                 </div>
                 <h3 class="info">Horarios:</h3>
                 <p>
