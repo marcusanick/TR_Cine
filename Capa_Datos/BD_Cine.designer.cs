@@ -33,6 +33,9 @@ namespace Capa_Datos
     partial void Inserttbl_Bebida(tbl_Bebida instance);
     partial void Updatetbl_Bebida(tbl_Bebida instance);
     partial void Deletetbl_Bebida(tbl_Bebida instance);
+    partial void Inserttbl_Usuario(tbl_Usuario instance);
+    partial void Updatetbl_Usuario(tbl_Usuario instance);
+    partial void Deletetbl_Usuario(tbl_Usuario instance);
     partial void Inserttbl_Ciudad(tbl_Ciudad instance);
     partial void Updatetbl_Ciudad(tbl_Ciudad instance);
     partial void Deletetbl_Ciudad(tbl_Ciudad instance);
@@ -72,9 +75,6 @@ namespace Capa_Datos
     partial void Inserttbl_Sucursal(tbl_Sucursal instance);
     partial void Updatetbl_Sucursal(tbl_Sucursal instance);
     partial void Deletetbl_Sucursal(tbl_Sucursal instance);
-    partial void Inserttbl_Usuario(tbl_Usuario instance);
-    partial void Updatetbl_Usuario(tbl_Usuario instance);
-    partial void Deletetbl_Usuario(tbl_Usuario instance);
     #endregion
 		
 		public BD_CineDataContext() : 
@@ -112,6 +112,14 @@ namespace Capa_Datos
 			get
 			{
 				return this.GetTable<tbl_Bebida>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Usuario> tbl_Usuario
+		{
+			get
+			{
+				return this.GetTable<tbl_Usuario>();
 			}
 		}
 		
@@ -216,14 +224,6 @@ namespace Capa_Datos
 			get
 			{
 				return this.GetTable<tbl_Sucursal>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_Usuario> tbl_Usuario
-		{
-			get
-			{
-				return this.GetTable<tbl_Usuario>();
 			}
 		}
 	}
@@ -438,6 +438,412 @@ namespace Capa_Datos
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Usuario")]
+	public partial class tbl_Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _usu_id;
+		
+		private string _usu_usuario;
+		
+		private string _usu_pass;
+		
+<<<<<<< HEAD
+		private string _usu_email;
+		
+		private System.Nullable<char> _usu_estado;
+		
+		private System.Nullable<int> _rol_id;
+		
+		private string _usu_nombre;
+		
+		private string _usu_apellido;
+		
+		private string _usu_cedula;
+		
+		private string _usu_direccion;
+		
+		private string _usu_cel;
+		
+		private EntitySet<tbl_Factura> _tbl_Factura;
+		
+		private EntityRef<tbl_Rol> _tbl_Rol;
+=======
+		private EntitySet<tbl_Sucursal> _tbl_Sucursal;
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+<<<<<<< HEAD
+    partial void Onusu_idChanging(int value);
+    partial void Onusu_idChanged();
+    partial void Onusu_usuarioChanging(string value);
+    partial void Onusu_usuarioChanged();
+    partial void Onusu_passChanging(string value);
+    partial void Onusu_passChanged();
+    partial void Onusu_emailChanging(string value);
+    partial void Onusu_emailChanged();
+    partial void Onusu_estadoChanging(System.Nullable<char> value);
+    partial void Onusu_estadoChanged();
+    partial void Onrol_idChanging(System.Nullable<int> value);
+    partial void Onrol_idChanged();
+    partial void Onusu_nombreChanging(string value);
+    partial void Onusu_nombreChanged();
+    partial void Onusu_apellidoChanging(string value);
+    partial void Onusu_apellidoChanged();
+    partial void Onusu_cedulaChanging(string value);
+    partial void Onusu_cedulaChanged();
+    partial void Onusu_direccionChanging(string value);
+    partial void Onusu_direccionChanged();
+    partial void Onusu_celChanging(string value);
+    partial void Onusu_celChanged();
+=======
+    partial void Onciu_idChanging(int value);
+    partial void Onciu_idChanged();
+    partial void Onciu_descripcionChanging(string value);
+    partial void Onciu_descripcionChanged();
+    partial void Onciu_estadoChanging(System.Nullable<char> value);
+    partial void Onciu_estadoChanged();
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
+    #endregion
+		
+		public tbl_Usuario()
+		{
+<<<<<<< HEAD
+			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
+			this._tbl_Rol = default(EntityRef<tbl_Rol>);
+=======
+			this._tbl_Sucursal = new EntitySet<tbl_Sucursal>(new Action<tbl_Sucursal>(this.attach_tbl_Sucursal), new Action<tbl_Sucursal>(this.detach_tbl_Sucursal));
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int usu_id
+		{
+			get
+			{
+				return this._usu_id;
+			}
+			set
+			{
+				if ((this._usu_id != value))
+				{
+					this.Onusu_idChanging(value);
+					this.SendPropertyChanging();
+					this._usu_id = value;
+					this.SendPropertyChanged("usu_id");
+					this.Onusu_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_usuario", DbType="VarChar(50)")]
+		public string usu_usuario
+		{
+			get
+			{
+				return this._usu_usuario;
+			}
+			set
+			{
+				if ((this._usu_usuario != value))
+				{
+					this.Onusu_usuarioChanging(value);
+					this.SendPropertyChanging();
+					this._usu_usuario = value;
+					this.SendPropertyChanged("usu_usuario");
+					this.Onusu_usuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_pass", DbType="VarChar(50)")]
+		public string usu_pass
+		{
+			get
+			{
+				return this._usu_pass;
+			}
+			set
+			{
+				if ((this._usu_pass != value))
+				{
+					this.Onusu_passChanging(value);
+					this.SendPropertyChanging();
+					this._usu_pass = value;
+					this.SendPropertyChanged("usu_pass");
+					this.Onusu_passChanged();
+				}
+			}
+		}
+		
+<<<<<<< HEAD
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_email", DbType="VarChar(150)")]
+		public string usu_email
+		{
+			get
+			{
+				return this._usu_email;
+			}
+			set
+			{
+				if ((this._usu_email != value))
+				{
+					this.Onusu_emailChanging(value);
+					this.SendPropertyChanging();
+					this._usu_email = value;
+					this.SendPropertyChanged("usu_email");
+					this.Onusu_emailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_estado", DbType="Char(1)")]
+		public System.Nullable<char> usu_estado
+		{
+			get
+			{
+				return this._usu_estado;
+			}
+			set
+			{
+				if ((this._usu_estado != value))
+				{
+					this.Onusu_estadoChanging(value);
+					this.SendPropertyChanging();
+					this._usu_estado = value;
+					this.SendPropertyChanged("usu_estado");
+					this.Onusu_estadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rol_id", DbType="Int")]
+		public System.Nullable<int> rol_id
+		{
+			get
+			{
+				return this._rol_id;
+			}
+			set
+			{
+				if ((this._rol_id != value))
+				{
+					if (this._tbl_Rol.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onrol_idChanging(value);
+					this.SendPropertyChanging();
+					this._rol_id = value;
+					this.SendPropertyChanged("rol_id");
+					this.Onrol_idChanged();
+				}
+=======
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Ciudad_tbl_Sucursal", Storage="_tbl_Sucursal", ThisKey="ciu_id", OtherKey="ciu_id")]
+		public EntitySet<tbl_Sucursal> tbl_Sucursal
+		{
+			get
+			{
+				return this._tbl_Sucursal;
+			}
+			set
+			{
+				this._tbl_Sucursal.Assign(value);
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_nombre", DbType="VarChar(50)")]
+		public string usu_nombre
+		{
+			get
+			{
+				return this._usu_nombre;
+			}
+			set
+			{
+				if ((this._usu_nombre != value))
+				{
+					this.Onusu_nombreChanging(value);
+					this.SendPropertyChanging();
+					this._usu_nombre = value;
+					this.SendPropertyChanged("usu_nombre");
+					this.Onusu_nombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_apellido", DbType="VarChar(50)")]
+		public string usu_apellido
+		{
+			get
+			{
+				return this._usu_apellido;
+			}
+			set
+			{
+				if ((this._usu_apellido != value))
+				{
+					this.Onusu_apellidoChanging(value);
+					this.SendPropertyChanging();
+					this._usu_apellido = value;
+					this.SendPropertyChanged("usu_apellido");
+					this.Onusu_apellidoChanged();
+				}
+			}
+		}
+		
+<<<<<<< HEAD
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_cedula", DbType="VarChar(50)")]
+		public string usu_cedula
+=======
+		private void attach_tbl_Sucursal(tbl_Sucursal entity)
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
+		{
+			get
+			{
+				return this._usu_cedula;
+			}
+			set
+			{
+				if ((this._usu_cedula != value))
+				{
+					this.Onusu_cedulaChanging(value);
+					this.SendPropertyChanging();
+					this._usu_cedula = value;
+					this.SendPropertyChanged("usu_cedula");
+					this.Onusu_cedulaChanged();
+				}
+			}
+		}
+		
+<<<<<<< HEAD
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_direccion", DbType="VarChar(150)")]
+		public string usu_direccion
+		{
+			get
+			{
+				return this._usu_direccion;
+			}
+			set
+			{
+				if ((this._usu_direccion != value))
+				{
+					this.Onusu_direccionChanging(value);
+					this.SendPropertyChanging();
+					this._usu_direccion = value;
+					this.SendPropertyChanged("usu_direccion");
+					this.Onusu_direccionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_cel", DbType="VarChar(10)")]
+		public string usu_cel
+		{
+			get
+			{
+				return this._usu_cel;
+			}
+			set
+			{
+				if ((this._usu_cel != value))
+				{
+					this.Onusu_celChanging(value);
+					this.SendPropertyChanging();
+					this._usu_cel = value;
+					this.SendPropertyChanged("usu_cel");
+					this.Onusu_celChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Usuario_tbl_Factura", Storage="_tbl_Factura", ThisKey="usu_id", OtherKey="usu_id")]
+		public EntitySet<tbl_Factura> tbl_Factura
+		{
+			get
+			{
+				return this._tbl_Factura;
+			}
+			set
+			{
+				this._tbl_Factura.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Rol_tbl_Usuario", Storage="_tbl_Rol", ThisKey="rol_id", OtherKey="rol_id", IsForeignKey=true)]
+		public tbl_Rol tbl_Rol
+		{
+			get
+			{
+				return this._tbl_Rol.Entity;
+			}
+			set
+			{
+				tbl_Rol previousValue = this._tbl_Rol.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Rol.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_Rol.Entity = null;
+						previousValue.tbl_Usuario.Remove(this);
+					}
+					this._tbl_Rol.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Usuario.Add(this);
+						this._rol_id = value.rol_id;
+					}
+					else
+					{
+						this._rol_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tbl_Rol");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_Factura(tbl_Factura entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Usuario = this;
+		}
+		
+		private void detach_tbl_Factura(tbl_Factura entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Usuario = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Ciudad")]
 	public partial class tbl_Ciudad : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -569,6 +975,11 @@ namespace Capa_Datos
 			entity.tbl_Ciudad = this;
 		}
 		
+<<<<<<< HEAD
+=======
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
+=======
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
 		private void detach_tbl_Sucursal(tbl_Sucursal entity)
 		{
 			this.SendPropertyChanging();
@@ -912,11 +1323,19 @@ namespace Capa_Datos
 		
 		private EntityRef<tbl_Combo> _tbl_Combo;
 		
+		private EntityRef<tbl_Usuario> _tbl_Usuario;
+		
 		private EntityRef<tbl_Funcion> _tbl_Funcion;
 		
 		private EntityRef<tbl_Sucursal> _tbl_Sucursal;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
 		
 		private EntityRef<tbl_Usuario> _tbl_Usuario;
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -939,9 +1358,17 @@ namespace Capa_Datos
 		public tbl_Factura()
 		{
 			this._tbl_Combo = default(EntityRef<tbl_Combo>);
+<<<<<<< HEAD
+=======
 			this._tbl_Funcion = default(EntityRef<tbl_Funcion>);
 			this._tbl_Sucursal = default(EntityRef<tbl_Sucursal>);
+<<<<<<< HEAD
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
+=======
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
 			this._tbl_Usuario = default(EntityRef<tbl_Usuario>);
+			this._tbl_Funcion = default(EntityRef<tbl_Funcion>);
+			this._tbl_Sucursal = default(EntityRef<tbl_Sucursal>);
 			OnCreated();
 		}
 		
@@ -1115,6 +1542,21 @@ namespace Capa_Datos
 			}
 		}
 		
+<<<<<<< HEAD
+<<<<<<< HEAD
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Usuario_tbl_Factura", Storage="_tbl_Usuario", ThisKey="usu_id", OtherKey="usu_id", IsForeignKey=true)]
+		public tbl_Usuario tbl_Usuario
+		{
+			get
+			{
+				return this._tbl_Usuario.Entity;
+			}
+			set
+			{
+				tbl_Usuario previousValue = this._tbl_Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Usuario.HasLoadedOrAssignedValue == false)))
+=======
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Funcion_tbl_Factura", Storage="_tbl_Funcion", ThisKey="fun_id", OtherKey="fun_id", IsForeignKey=true)]
 		public tbl_Funcion tbl_Funcion
 		{
@@ -1127,10 +1569,44 @@ namespace Capa_Datos
 				tbl_Funcion previousValue = this._tbl_Funcion.Entity;
 				if (((previousValue != value) 
 							|| (this._tbl_Funcion.HasLoadedOrAssignedValue == false)))
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
+=======
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Funcion_tbl_Factura", Storage="_tbl_Funcion", ThisKey="fun_id", OtherKey="fun_id", IsForeignKey=true)]
+		public tbl_Funcion tbl_Funcion
+		{
+			get
+			{
+				return this._tbl_Funcion.Entity;
+			}
+			set
+			{
+				tbl_Funcion previousValue = this._tbl_Funcion.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Funcion.HasLoadedOrAssignedValue == false)))
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
+<<<<<<< HEAD
+<<<<<<< HEAD
+						this._tbl_Usuario.Entity = null;
+						previousValue.tbl_Factura.Remove(this);
+					}
+					this._tbl_Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Factura.Add(this);
+						this._usu_id = value.usu_id;
+					}
+					else
+					{
+						this._usu_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tbl_Usuario");
+=======
+=======
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
 						this._tbl_Funcion.Entity = null;
 						previousValue.tbl_Factura.Remove(this);
 					}
@@ -1145,6 +1621,10 @@ namespace Capa_Datos
 						this._fun_id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("tbl_Funcion");
+<<<<<<< HEAD
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
+=======
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
 				}
 			}
 		}
@@ -1183,36 +1663,36 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Usuario_tbl_Factura", Storage="_tbl_Usuario", ThisKey="usu_id", OtherKey="usu_id", IsForeignKey=true)]
-		public tbl_Usuario tbl_Usuario
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Factura", Storage="_tbl_Sucursal", ThisKey="suc_id", OtherKey="suc_id", IsForeignKey=true)]
+		public tbl_Sucursal tbl_Sucursal
 		{
 			get
 			{
-				return this._tbl_Usuario.Entity;
+				return this._tbl_Sucursal.Entity;
 			}
 			set
 			{
-				tbl_Usuario previousValue = this._tbl_Usuario.Entity;
+				tbl_Sucursal previousValue = this._tbl_Sucursal.Entity;
 				if (((previousValue != value) 
-							|| (this._tbl_Usuario.HasLoadedOrAssignedValue == false)))
+							|| (this._tbl_Sucursal.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._tbl_Usuario.Entity = null;
+						this._tbl_Sucursal.Entity = null;
 						previousValue.tbl_Factura.Remove(this);
 					}
-					this._tbl_Usuario.Entity = value;
+					this._tbl_Sucursal.Entity = value;
 					if ((value != null))
 					{
 						value.tbl_Factura.Add(this);
-						this._usu_id = value.usu_id;
+						this._suc_id = value.suc_id;
 					}
 					else
 					{
-						this._usu_id = default(Nullable<int>);
+						this._suc_id = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("tbl_Usuario");
+					this.SendPropertyChanged("tbl_Sucursal");
 				}
 			}
 		}
@@ -3029,6 +3509,11 @@ namespace Capa_Datos
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciu_id", DbType="Int")]
 		public System.Nullable<int> ciu_id
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
 		{
 			get
 			{
@@ -3320,129 +3805,50 @@ namespace Capa_Datos
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rol_id", DbType="Int")]
 		public System.Nullable<int> rol_id
+>>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
 		{
 			get
 			{
-				return this._rol_id;
+				return this._ciu_id;
 			}
 			set
 			{
-				if ((this._rol_id != value))
+				if ((this._ciu_id != value))
 				{
-					if (this._tbl_Rol.HasLoadedOrAssignedValue)
+					if (this._tbl_Ciudad.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onrol_idChanging(value);
+					this.Onciu_idChanging(value);
 					this.SendPropertyChanging();
-					this._rol_id = value;
-					this.SendPropertyChanged("rol_id");
-					this.Onrol_idChanged();
+					this._ciu_id = value;
+					this.SendPropertyChanged("ciu_id");
+					this.Onciu_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_nombre", DbType="VarChar(50)")]
-		public string usu_nombre
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_suc_estado", DbType="Char(1)")]
+		public System.Nullable<char> suc_estado
 		{
 			get
 			{
-				return this._usu_nombre;
+				return this._suc_estado;
 			}
 			set
 			{
-				if ((this._usu_nombre != value))
+				if ((this._suc_estado != value))
 				{
-					this.Onusu_nombreChanging(value);
+					this.Onsuc_estadoChanging(value);
 					this.SendPropertyChanging();
-					this._usu_nombre = value;
-					this.SendPropertyChanged("usu_nombre");
-					this.Onusu_nombreChanged();
+					this._suc_estado = value;
+					this.SendPropertyChanged("suc_estado");
+					this.Onsuc_estadoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_apellido", DbType="VarChar(50)")]
-		public string usu_apellido
-		{
-			get
-			{
-				return this._usu_apellido;
-			}
-			set
-			{
-				if ((this._usu_apellido != value))
-				{
-					this.Onusu_apellidoChanging(value);
-					this.SendPropertyChanging();
-					this._usu_apellido = value;
-					this.SendPropertyChanged("usu_apellido");
-					this.Onusu_apellidoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_cedula", DbType="VarChar(50)")]
-		public string usu_cedula
-		{
-			get
-			{
-				return this._usu_cedula;
-			}
-			set
-			{
-				if ((this._usu_cedula != value))
-				{
-					this.Onusu_cedulaChanging(value);
-					this.SendPropertyChanging();
-					this._usu_cedula = value;
-					this.SendPropertyChanged("usu_cedula");
-					this.Onusu_cedulaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_direccion", DbType="VarChar(150)")]
-		public string usu_direccion
-		{
-			get
-			{
-				return this._usu_direccion;
-			}
-			set
-			{
-				if ((this._usu_direccion != value))
-				{
-					this.Onusu_direccionChanging(value);
-					this.SendPropertyChanging();
-					this._usu_direccion = value;
-					this.SendPropertyChanged("usu_direccion");
-					this.Onusu_direccionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_cel", DbType="VarChar(10)")]
-		public string usu_cel
-		{
-			get
-			{
-				return this._usu_cel;
-			}
-			set
-			{
-				if ((this._usu_cel != value))
-				{
-					this.Onusu_celChanging(value);
-					this.SendPropertyChanging();
-					this._usu_cel = value;
-					this.SendPropertyChanged("usu_cel");
-					this.Onusu_celChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Usuario_tbl_Factura", Storage="_tbl_Factura", ThisKey="usu_id", OtherKey="usu_id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Factura", Storage="_tbl_Factura", ThisKey="suc_id", OtherKey="suc_id")]
 		public EntitySet<tbl_Factura> tbl_Factura
 		{
 			get
@@ -3455,36 +3861,36 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Rol_tbl_Usuario", Storage="_tbl_Rol", ThisKey="rol_id", OtherKey="rol_id", IsForeignKey=true)]
-		public tbl_Rol tbl_Rol
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Ciudad_tbl_Sucursal", Storage="_tbl_Ciudad", ThisKey="ciu_id", OtherKey="ciu_id", IsForeignKey=true)]
+		public tbl_Ciudad tbl_Ciudad
 		{
 			get
 			{
-				return this._tbl_Rol.Entity;
+				return this._tbl_Ciudad.Entity;
 			}
 			set
 			{
-				tbl_Rol previousValue = this._tbl_Rol.Entity;
+				tbl_Ciudad previousValue = this._tbl_Ciudad.Entity;
 				if (((previousValue != value) 
-							|| (this._tbl_Rol.HasLoadedOrAssignedValue == false)))
+							|| (this._tbl_Ciudad.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._tbl_Rol.Entity = null;
-						previousValue.tbl_Usuario.Remove(this);
+						this._tbl_Ciudad.Entity = null;
+						previousValue.tbl_Sucursal.Remove(this);
 					}
-					this._tbl_Rol.Entity = value;
+					this._tbl_Ciudad.Entity = value;
 					if ((value != null))
 					{
-						value.tbl_Usuario.Add(this);
-						this._rol_id = value.rol_id;
+						value.tbl_Sucursal.Add(this);
+						this._ciu_id = value.ciu_id;
 					}
 					else
 					{
-						this._rol_id = default(Nullable<int>);
+						this._ciu_id = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("tbl_Rol");
+					this.SendPropertyChanged("tbl_Ciudad");
 				}
 			}
 		}
@@ -3512,13 +3918,13 @@ namespace Capa_Datos
 		private void attach_tbl_Factura(tbl_Factura entity)
 		{
 			this.SendPropertyChanging();
-			entity.tbl_Usuario = this;
+			entity.tbl_Sucursal = this;
 		}
 		
 		private void detach_tbl_Factura(tbl_Factura entity)
 		{
 			this.SendPropertyChanging();
-			entity.tbl_Usuario = null;
+			entity.tbl_Sucursal = null;
 		}
 	}
 }
