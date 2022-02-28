@@ -450,11 +450,7 @@ namespace Capa_Datos
 		
 		private System.Nullable<char> _ciu_estado;
 		
-		private System.Nullable<int> _suc_id;
-		
-		private EntitySet<tbl_Factura> _tbl_Factura;
-		
-		private EntityRef<tbl_Sucursal> _tbl_Sucursal;
+		private EntitySet<tbl_Sucursal> _tbl_Sucursal;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -466,14 +462,11 @@ namespace Capa_Datos
     partial void Onciu_descripcionChanged();
     partial void Onciu_estadoChanging(System.Nullable<char> value);
     partial void Onciu_estadoChanged();
-    partial void Onsuc_idChanging(System.Nullable<int> value);
-    partial void Onsuc_idChanged();
     #endregion
 		
 		public tbl_Ciudad()
 		{
-			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
-			this._tbl_Sucursal = default(EntityRef<tbl_Sucursal>);
+			this._tbl_Sucursal = new EntitySet<tbl_Sucursal>(new Action<tbl_Sucursal>(this.attach_tbl_Sucursal), new Action<tbl_Sucursal>(this.detach_tbl_Sucursal));
 			OnCreated();
 		}
 		
@@ -537,74 +530,16 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_suc_id", DbType="Int")]
-		public System.Nullable<int> suc_id
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Ciudad_tbl_Sucursal", Storage="_tbl_Sucursal", ThisKey="ciu_id", OtherKey="ciu_id")]
+		public EntitySet<tbl_Sucursal> tbl_Sucursal
 		{
 			get
 			{
-				return this._suc_id;
+				return this._tbl_Sucursal;
 			}
 			set
 			{
-				if ((this._suc_id != value))
-				{
-					if (this._tbl_Sucursal.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onsuc_idChanging(value);
-					this.SendPropertyChanging();
-					this._suc_id = value;
-					this.SendPropertyChanged("suc_id");
-					this.Onsuc_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Ciudad_tbl_Factura", Storage="_tbl_Factura", ThisKey="ciu_id", OtherKey="ciu_id")]
-		public EntitySet<tbl_Factura> tbl_Factura
-		{
-			get
-			{
-				return this._tbl_Factura;
-			}
-			set
-			{
-				this._tbl_Factura.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Ciudad", Storage="_tbl_Sucursal", ThisKey="suc_id", OtherKey="suc_id", IsForeignKey=true)]
-		public tbl_Sucursal tbl_Sucursal
-		{
-			get
-			{
-				return this._tbl_Sucursal.Entity;
-			}
-			set
-			{
-				tbl_Sucursal previousValue = this._tbl_Sucursal.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_Sucursal.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_Sucursal.Entity = null;
-						previousValue.tbl_Ciudad.Remove(this);
-					}
-					this._tbl_Sucursal.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_Ciudad.Add(this);
-						this._suc_id = value.suc_id;
-					}
-					else
-					{
-						this._suc_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tbl_Sucursal");
-				}
+				this._tbl_Sucursal.Assign(value);
 			}
 		}
 		
@@ -628,13 +563,13 @@ namespace Capa_Datos
 			}
 		}
 		
-		private void attach_tbl_Factura(tbl_Factura entity)
+		private void attach_tbl_Sucursal(tbl_Sucursal entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Ciudad = this;
 		}
 		
-		private void detach_tbl_Factura(tbl_Factura entity)
+		private void detach_tbl_Sucursal(tbl_Sucursal entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Ciudad = null;
@@ -973,13 +908,13 @@ namespace Capa_Datos
 		
 		private System.Nullable<int> _com_id;
 		
-		private System.Nullable<int> _ciu_id;
-		
-		private EntityRef<tbl_Ciudad> _tbl_Ciudad;
+		private System.Nullable<int> _suc_id;
 		
 		private EntityRef<tbl_Combo> _tbl_Combo;
 		
 		private EntityRef<tbl_Funcion> _tbl_Funcion;
+		
+		private EntityRef<tbl_Sucursal> _tbl_Sucursal;
 		
 		private EntityRef<tbl_Usuario> _tbl_Usuario;
 		
@@ -997,15 +932,15 @@ namespace Capa_Datos
     partial void Onusu_idChanged();
     partial void Oncom_idChanging(System.Nullable<int> value);
     partial void Oncom_idChanged();
-    partial void Onciu_idChanging(System.Nullable<int> value);
-    partial void Onciu_idChanged();
+    partial void Onsuc_idChanging(System.Nullable<int> value);
+    partial void Onsuc_idChanged();
     #endregion
 		
 		public tbl_Factura()
 		{
-			this._tbl_Ciudad = default(EntityRef<tbl_Ciudad>);
 			this._tbl_Combo = default(EntityRef<tbl_Combo>);
 			this._tbl_Funcion = default(EntityRef<tbl_Funcion>);
+			this._tbl_Sucursal = default(EntityRef<tbl_Sucursal>);
 			this._tbl_Usuario = default(EntityRef<tbl_Usuario>);
 			OnCreated();
 		}
@@ -1122,60 +1057,26 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciu_id", DbType="Int")]
-		public System.Nullable<int> ciu_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_suc_id", DbType="Int")]
+		public System.Nullable<int> suc_id
 		{
 			get
 			{
-				return this._ciu_id;
+				return this._suc_id;
 			}
 			set
 			{
-				if ((this._ciu_id != value))
+				if ((this._suc_id != value))
 				{
-					if (this._tbl_Ciudad.HasLoadedOrAssignedValue)
+					if (this._tbl_Sucursal.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onciu_idChanging(value);
+					this.Onsuc_idChanging(value);
 					this.SendPropertyChanging();
-					this._ciu_id = value;
-					this.SendPropertyChanged("ciu_id");
-					this.Onciu_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Ciudad_tbl_Factura", Storage="_tbl_Ciudad", ThisKey="ciu_id", OtherKey="ciu_id", IsForeignKey=true)]
-		public tbl_Ciudad tbl_Ciudad
-		{
-			get
-			{
-				return this._tbl_Ciudad.Entity;
-			}
-			set
-			{
-				tbl_Ciudad previousValue = this._tbl_Ciudad.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_Ciudad.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_Ciudad.Entity = null;
-						previousValue.tbl_Factura.Remove(this);
-					}
-					this._tbl_Ciudad.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_Factura.Add(this);
-						this._ciu_id = value.ciu_id;
-					}
-					else
-					{
-						this._ciu_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tbl_Ciudad");
+					this._suc_id = value;
+					this.SendPropertyChanged("suc_id");
+					this.Onsuc_idChanged();
 				}
 			}
 		}
@@ -1244,6 +1145,40 @@ namespace Capa_Datos
 						this._fun_id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("tbl_Funcion");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Factura", Storage="_tbl_Sucursal", ThisKey="suc_id", OtherKey="suc_id", IsForeignKey=true)]
+		public tbl_Sucursal tbl_Sucursal
+		{
+			get
+			{
+				return this._tbl_Sucursal.Entity;
+			}
+			set
+			{
+				tbl_Sucursal previousValue = this._tbl_Sucursal.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Sucursal.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_Sucursal.Entity = null;
+						previousValue.tbl_Factura.Remove(this);
+					}
+					this._tbl_Sucursal.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Factura.Add(this);
+						this._suc_id = value.suc_id;
+					}
+					else
+					{
+						this._suc_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tbl_Sucursal");
 				}
 			}
 		}
@@ -3023,9 +2958,13 @@ namespace Capa_Datos
 		
 		private string _suc_descripcion;
 		
+		private System.Nullable<int> _ciu_id;
+		
 		private System.Nullable<char> _suc_estado;
 		
-		private EntitySet<tbl_Ciudad> _tbl_Ciudad;
+		private EntitySet<tbl_Factura> _tbl_Factura;
+		
+		private EntityRef<tbl_Ciudad> _tbl_Ciudad;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -3035,13 +2974,16 @@ namespace Capa_Datos
     partial void Onsuc_idChanged();
     partial void Onsuc_descripcionChanging(string value);
     partial void Onsuc_descripcionChanged();
+    partial void Onciu_idChanging(System.Nullable<int> value);
+    partial void Onciu_idChanged();
     partial void Onsuc_estadoChanging(System.Nullable<char> value);
     partial void Onsuc_estadoChanged();
     #endregion
 		
 		public tbl_Sucursal()
 		{
-			this._tbl_Ciudad = new EntitySet<tbl_Ciudad>(new Action<tbl_Ciudad>(this.attach_tbl_Ciudad), new Action<tbl_Ciudad>(this.detach_tbl_Ciudad));
+			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
+			this._tbl_Ciudad = default(EntityRef<tbl_Ciudad>);
 			OnCreated();
 		}
 		
@@ -3085,6 +3027,30 @@ namespace Capa_Datos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciu_id", DbType="Int")]
+		public System.Nullable<int> ciu_id
+		{
+			get
+			{
+				return this._ciu_id;
+			}
+			set
+			{
+				if ((this._ciu_id != value))
+				{
+					if (this._tbl_Ciudad.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onciu_idChanging(value);
+					this.SendPropertyChanging();
+					this._ciu_id = value;
+					this.SendPropertyChanged("ciu_id");
+					this.Onciu_idChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_suc_estado", DbType="Char(1)")]
 		public System.Nullable<char> suc_estado
 		{
@@ -3105,16 +3071,50 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Ciudad", Storage="_tbl_Ciudad", ThisKey="suc_id", OtherKey="suc_id")]
-		public EntitySet<tbl_Ciudad> tbl_Ciudad
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Factura", Storage="_tbl_Factura", ThisKey="suc_id", OtherKey="suc_id")]
+		public EntitySet<tbl_Factura> tbl_Factura
 		{
 			get
 			{
-				return this._tbl_Ciudad;
+				return this._tbl_Factura;
 			}
 			set
 			{
-				this._tbl_Ciudad.Assign(value);
+				this._tbl_Factura.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Ciudad_tbl_Sucursal", Storage="_tbl_Ciudad", ThisKey="ciu_id", OtherKey="ciu_id", IsForeignKey=true)]
+		public tbl_Ciudad tbl_Ciudad
+		{
+			get
+			{
+				return this._tbl_Ciudad.Entity;
+			}
+			set
+			{
+				tbl_Ciudad previousValue = this._tbl_Ciudad.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Ciudad.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_Ciudad.Entity = null;
+						previousValue.tbl_Sucursal.Remove(this);
+					}
+					this._tbl_Ciudad.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Sucursal.Add(this);
+						this._ciu_id = value.ciu_id;
+					}
+					else
+					{
+						this._ciu_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tbl_Ciudad");
+				}
 			}
 		}
 		
@@ -3138,13 +3138,13 @@ namespace Capa_Datos
 			}
 		}
 		
-		private void attach_tbl_Ciudad(tbl_Ciudad entity)
+		private void attach_tbl_Factura(tbl_Factura entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Sucursal = this;
 		}
 		
-		private void detach_tbl_Ciudad(tbl_Ciudad entity)
+		private void detach_tbl_Factura(tbl_Factura entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Sucursal = null;

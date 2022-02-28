@@ -16,9 +16,7 @@
       <Column Name="ciu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ciu_descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="ciu_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="suc_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="tbl_Ciudad_tbl_Factura" Member="tbl_Factura" ThisKey="ciu_id" OtherKey="ciu_id" Type="tbl_Factura" />
-      <Association Name="tbl_Sucursal_tbl_Ciudad" Member="tbl_Sucursal" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Sucursal" IsForeignKey="true" />
+      <Association Name="tbl_Ciudad_tbl_Sucursal" Member="tbl_Sucursal" ThisKey="ciu_id" OtherKey="ciu_id" Type="tbl_Sucursal" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Combo" Member="tbl_Combo">
@@ -42,10 +40,10 @@
       <Column Name="fun_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="usu_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="com_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ciu_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="tbl_Ciudad_tbl_Factura" Member="tbl_Ciudad" ThisKey="ciu_id" OtherKey="ciu_id" Type="tbl_Ciudad" IsForeignKey="true" />
+      <Column Name="suc_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tbl_Combo_tbl_Factura" Member="tbl_Combo" ThisKey="com_id" OtherKey="com_id" Type="tbl_Combo" IsForeignKey="true" />
       <Association Name="tbl_Funcion_tbl_Factura" Member="tbl_Funcion" ThisKey="fun_id" OtherKey="fun_id" Type="tbl_Funcion" IsForeignKey="true" />
+      <Association Name="tbl_Sucursal_tbl_Factura" Member="tbl_Sucursal" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Sucursal" IsForeignKey="true" />
       <Association Name="tbl_Usuario_tbl_Factura" Member="tbl_Usuario" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_Usuario" IsForeignKey="true" />
     </Type>
   </Table>
@@ -142,8 +140,10 @@
     <Type Name="tbl_Sucursal">
       <Column Name="suc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="suc_descripcion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ciu_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="suc_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Association Name="tbl_Sucursal_tbl_Ciudad" Member="tbl_Ciudad" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Ciudad" />
+      <Association Name="tbl_Sucursal_tbl_Factura" Member="tbl_Factura" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Factura" />
+      <Association Name="tbl_Ciudad_tbl_Sucursal" Member="tbl_Ciudad" ThisKey="ciu_id" OtherKey="ciu_id" Type="tbl_Ciudad" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Usuario" Member="tbl_Usuario">
