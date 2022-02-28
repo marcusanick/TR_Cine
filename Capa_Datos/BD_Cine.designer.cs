@@ -123,6 +123,14 @@ namespace Capa_Datos
 			}
 		}
 		
+		public System.Data.Linq.Table<tbl_butaca> tbl_butaca
+		{
+			get
+			{
+				return this.GetTable<tbl_butaca>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tbl_Ciudad> tbl_Ciudad
 		{
 			get
@@ -806,6 +814,105 @@ namespace Capa_Datos
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Usuario = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_butaca")]
+	public partial class tbl_butaca
+	{
+		
+		private System.Nullable<int> _but_id;
+		
+		private string _but_descripcion;
+		
+		private System.Nullable<int> _hor_id;
+		
+		private System.Nullable<int> _sal_id;
+		
+		private System.Nullable<char> _but_estado;
+		
+		public tbl_butaca()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_but_id", DbType="Int")]
+		public System.Nullable<int> but_id
+		{
+			get
+			{
+				return this._but_id;
+			}
+			set
+			{
+				if ((this._but_id != value))
+				{
+					this._but_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_but_descripcion", DbType="VarChar(50)")]
+		public string but_descripcion
+		{
+			get
+			{
+				return this._but_descripcion;
+			}
+			set
+			{
+				if ((this._but_descripcion != value))
+				{
+					this._but_descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hor_id", DbType="Int")]
+		public System.Nullable<int> hor_id
+		{
+			get
+			{
+				return this._hor_id;
+			}
+			set
+			{
+				if ((this._hor_id != value))
+				{
+					this._hor_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sal_id", DbType="Int")]
+		public System.Nullable<int> sal_id
+		{
+			get
+			{
+				return this._sal_id;
+			}
+			set
+			{
+				if ((this._sal_id != value))
+				{
+					this._sal_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_but_estado", DbType="Char(1)")]
+		public System.Nullable<char> but_estado
+		{
+			get
+			{
+				return this._but_estado;
+			}
+			set
+			{
+				if ((this._but_estado != value))
+				{
+					this._but_estado = value;
+				}
+			}
 		}
 	}
 	
@@ -2092,7 +2199,15 @@ namespace Capa_Datos
 		
 		private System.Nullable<char> _hor_estado;
 		
+		private System.Nullable<int> _suc_id;
+		
+		private System.Nullable<int> _pel_id;
+		
 		private EntitySet<tbl_Funcion> _tbl_Funcion;
+		
+		private EntityRef<tbl_Pelicula> _tbl_Pelicula;
+		
+		private EntityRef<tbl_Sucursal> _tbl_Sucursal;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -2104,11 +2219,17 @@ namespace Capa_Datos
     partial void Onhor_descripcionChanged();
     partial void Onhor_estadoChanging(System.Nullable<char> value);
     partial void Onhor_estadoChanged();
+    partial void Onsuc_idChanging(System.Nullable<int> value);
+    partial void Onsuc_idChanged();
+    partial void Onpel_idChanging(System.Nullable<int> value);
+    partial void Onpel_idChanged();
     #endregion
 		
 		public tbl_Hora()
 		{
 			this._tbl_Funcion = new EntitySet<tbl_Funcion>(new Action<tbl_Funcion>(this.attach_tbl_Funcion), new Action<tbl_Funcion>(this.detach_tbl_Funcion));
+			this._tbl_Pelicula = default(EntityRef<tbl_Pelicula>);
+			this._tbl_Sucursal = default(EntityRef<tbl_Sucursal>);
 			OnCreated();
 		}
 		
@@ -2172,6 +2293,54 @@ namespace Capa_Datos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_suc_id", DbType="Int")]
+		public System.Nullable<int> suc_id
+		{
+			get
+			{
+				return this._suc_id;
+			}
+			set
+			{
+				if ((this._suc_id != value))
+				{
+					if (this._tbl_Sucursal.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsuc_idChanging(value);
+					this.SendPropertyChanging();
+					this._suc_id = value;
+					this.SendPropertyChanged("suc_id");
+					this.Onsuc_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pel_id", DbType="Int")]
+		public System.Nullable<int> pel_id
+		{
+			get
+			{
+				return this._pel_id;
+			}
+			set
+			{
+				if ((this._pel_id != value))
+				{
+					if (this._tbl_Pelicula.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onpel_idChanging(value);
+					this.SendPropertyChanging();
+					this._pel_id = value;
+					this.SendPropertyChanged("pel_id");
+					this.Onpel_idChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Hora_tbl_Funcion", Storage="_tbl_Funcion", ThisKey="hor_id", OtherKey="hor_id")]
 		public EntitySet<tbl_Funcion> tbl_Funcion
 		{
@@ -2182,6 +2351,74 @@ namespace Capa_Datos
 			set
 			{
 				this._tbl_Funcion.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Pelicula_tbl_Hora", Storage="_tbl_Pelicula", ThisKey="pel_id", OtherKey="pel_id", IsForeignKey=true)]
+		public tbl_Pelicula tbl_Pelicula
+		{
+			get
+			{
+				return this._tbl_Pelicula.Entity;
+			}
+			set
+			{
+				tbl_Pelicula previousValue = this._tbl_Pelicula.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Pelicula.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_Pelicula.Entity = null;
+						previousValue.tbl_Hora.Remove(this);
+					}
+					this._tbl_Pelicula.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Hora.Add(this);
+						this._pel_id = value.pel_id;
+					}
+					else
+					{
+						this._pel_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tbl_Pelicula");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Hora", Storage="_tbl_Sucursal", ThisKey="suc_id", OtherKey="suc_id", IsForeignKey=true)]
+		public tbl_Sucursal tbl_Sucursal
+		{
+			get
+			{
+				return this._tbl_Sucursal.Entity;
+			}
+			set
+			{
+				tbl_Sucursal previousValue = this._tbl_Sucursal.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Sucursal.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_Sucursal.Entity = null;
+						previousValue.tbl_Hora.Remove(this);
+					}
+					this._tbl_Sucursal.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Hora.Add(this);
+						this._suc_id = value.suc_id;
+					}
+					else
+					{
+						this._suc_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tbl_Sucursal");
+				}
 			}
 		}
 		
@@ -2242,6 +2479,8 @@ namespace Capa_Datos
 		
 		private EntitySet<tbl_Funcion> _tbl_Funcion;
 		
+		private EntitySet<tbl_Hora> _tbl_Hora;
+		
 		private EntityRef<tbl_Genero> _tbl_Genero;
 		
     #region Definiciones de métodos de extensibilidad
@@ -2269,6 +2508,7 @@ namespace Capa_Datos
 		public tbl_Pelicula()
 		{
 			this._tbl_Funcion = new EntitySet<tbl_Funcion>(new Action<tbl_Funcion>(this.attach_tbl_Funcion), new Action<tbl_Funcion>(this.detach_tbl_Funcion));
+			this._tbl_Hora = new EntitySet<tbl_Hora>(new Action<tbl_Hora>(this.attach_tbl_Hora), new Action<tbl_Hora>(this.detach_tbl_Hora));
 			this._tbl_Genero = default(EntityRef<tbl_Genero>);
 			OnCreated();
 		}
@@ -2450,6 +2690,19 @@ namespace Capa_Datos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Pelicula_tbl_Hora", Storage="_tbl_Hora", ThisKey="pel_id", OtherKey="pel_id")]
+		public EntitySet<tbl_Hora> tbl_Hora
+		{
+			get
+			{
+				return this._tbl_Hora;
+			}
+			set
+			{
+				this._tbl_Hora.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Genero_tbl_Pelicula", Storage="_tbl_Genero", ThisKey="gen_id", OtherKey="gen_id", IsForeignKey=true)]
 		public tbl_Genero tbl_Genero
 		{
@@ -2511,6 +2764,18 @@ namespace Capa_Datos
 		}
 		
 		private void detach_tbl_Funcion(tbl_Funcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Pelicula = null;
+		}
+		
+		private void attach_tbl_Hora(tbl_Hora entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Pelicula = this;
+		}
+		
+		private void detach_tbl_Hora(tbl_Hora entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Pelicula = null;
@@ -3335,6 +3600,8 @@ namespace Capa_Datos
 		
 		private EntitySet<tbl_Factura> _tbl_Factura;
 		
+		private EntitySet<tbl_Hora> _tbl_Hora;
+		
 		private EntityRef<tbl_Ciudad> _tbl_Ciudad;
 		
     #region Definiciones de métodos de extensibilidad
@@ -3354,6 +3621,7 @@ namespace Capa_Datos
 		public tbl_Sucursal()
 		{
 			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
+			this._tbl_Hora = new EntitySet<tbl_Hora>(new Action<tbl_Hora>(this.attach_tbl_Hora), new Action<tbl_Hora>(this.detach_tbl_Hora));
 			this._tbl_Ciudad = default(EntityRef<tbl_Ciudad>);
 			OnCreated();
 		}
@@ -3455,6 +3723,19 @@ namespace Capa_Datos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Hora", Storage="_tbl_Hora", ThisKey="suc_id", OtherKey="suc_id")]
+		public EntitySet<tbl_Hora> tbl_Hora
+		{
+			get
+			{
+				return this._tbl_Hora;
+			}
+			set
+			{
+				this._tbl_Hora.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Ciudad_tbl_Sucursal", Storage="_tbl_Ciudad", ThisKey="ciu_id", OtherKey="ciu_id", IsForeignKey=true)]
 		public tbl_Ciudad tbl_Ciudad
 		{
@@ -3516,6 +3797,18 @@ namespace Capa_Datos
 		}
 		
 		private void detach_tbl_Factura(tbl_Factura entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Sucursal = null;
+		}
+		
+		private void attach_tbl_Hora(tbl_Hora entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Sucursal = this;
+		}
+		
+		private void detach_tbl_Hora(tbl_Hora entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Sucursal = null;

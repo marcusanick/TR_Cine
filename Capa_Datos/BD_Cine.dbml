@@ -28,6 +28,15 @@
       <Association Name="tbl_Rol_tbl_Usuario" Member="tbl_Rol" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Rol" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_butaca" Member="tbl_butaca">
+    <Type Name="tbl_butaca">
+      <Column Name="but_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="but_descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="hor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sal_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="but_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_Ciudad" Member="tbl_Ciudad">
     <Type Name="tbl_Ciudad">
       <Column Name="ciu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -91,7 +100,11 @@
       <Column Name="hor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="hor_descripcion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="hor_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="suc_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pel_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tbl_Hora_tbl_Funcion" Member="tbl_Funcion" ThisKey="hor_id" OtherKey="hor_id" Type="tbl_Funcion" />
+      <Association Name="tbl_Pelicula_tbl_Hora" Member="tbl_Pelicula" ThisKey="pel_id" OtherKey="pel_id" Type="tbl_Pelicula" IsForeignKey="true" />
+      <Association Name="tbl_Sucursal_tbl_Hora" Member="tbl_Sucursal" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Sucursal" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Pelicula" Member="tbl_Pelicula">
@@ -105,6 +118,7 @@
       <Column Name="pel_sinopsis" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
       <Column Name="pel_url" Type="System.String" DbType="VarChar(400)" CanBeNull="true" />
       <Association Name="tbl_Pelicula_tbl_Funcion" Member="tbl_Funcion" ThisKey="pel_id" OtherKey="pel_id" Type="tbl_Funcion" />
+      <Association Name="tbl_Pelicula_tbl_Hora" Member="tbl_Hora" ThisKey="pel_id" OtherKey="pel_id" Type="tbl_Hora" />
       <Association Name="tbl_Genero_tbl_Pelicula" Member="tbl_Genero" ThisKey="gen_id" OtherKey="gen_id" Type="tbl_Genero" IsForeignKey="true" />
     </Type>
   </Table>
@@ -160,6 +174,7 @@
       <Column Name="ciu_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="suc_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="tbl_Sucursal_tbl_Factura" Member="tbl_Factura" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Factura" />
+      <Association Name="tbl_Sucursal_tbl_Hora" Member="tbl_Hora" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Hora" />
       <Association Name="tbl_Ciudad_tbl_Sucursal" Member="tbl_Ciudad" ThisKey="ciu_id" OtherKey="ciu_id" Type="tbl_Ciudad" IsForeignKey="true" />
     </Type>
   </Table>
