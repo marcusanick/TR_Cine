@@ -74,6 +74,7 @@
     <Content Include="css\estilos.css" />
     <Content Include="css\estilosp.css" />
     <Content Include="dar.aspx" />
+    <Content Include="Eternals.aspx" />
     <Content Include="img\banner-img.jpg" />
     <Content Include="img\banner2.png" />
     <Content Include="img\banner3.png" />
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="dar.aspx.designer.cs">
       <DependentUpon>dar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Eternals.aspx.cs">
+      <DependentUpon>Eternals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Eternals.aspx.designer.cs">
+      <DependentUpon>Eternals.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
