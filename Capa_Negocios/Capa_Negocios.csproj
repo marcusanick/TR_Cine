@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arreglo.cs" />
     <Compile Include="Bebida_Logica.cs" />
     <Compile Include="Ciudad_Logica.cs" />
     <Compile Include="Combo_Logica.cs" />

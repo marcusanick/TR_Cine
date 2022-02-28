@@ -8,19 +8,14 @@ using System.Web.UI.WebControls;
 
 namespace TR_Cine
 {
-
     public partial class Eternals : System.Web.UI.Page
     {
-
-        public void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                Cargar_Ciudad();
-            }
+            Cargar_Ciudad();
         }
 
-        public void Cargar_Ciudad()
+        private void Cargar_Ciudad()
         {
             List<tbl_Ciudad> listaCiudad = new List<tbl_Ciudad>();
             listaCiudad = Capa_Negocios.Ciudad_Logica.getallCiudad();
@@ -33,26 +28,25 @@ namespace TR_Cine
                 ddl_Ciudad.DataBind();
             }
         }
-                
-        public void Cargar_Sucursal(int Codigo_Ciudad)
+
+        private void Cargar_Sucursal(int CodigoCiudad)
         {
             try
             {
-                if (Codigo_Ciudad > 0)
+                if (CodigoCiudad > 0)
                 {
                     List<tbl_Sucursal> listaSucursal = new List<tbl_Sucursal>();
-                    listaSucursal = Capa_Negocios.Sucursal_Logica.getallSucursalXCiudad(Codigo_Ciudad);
+                    listaSucursal = Capa_Negocios.Sucursal_Logica.getallSucursalXCiudad(CodigoCiudad);
                     if (listaSucursal != null && listaSucursal.Count > 0)
                     {
-                        listaSucursal.Insert(0, new tbl_Sucursal { ciu_id = 0, suc_descripcion = "Sucursal:" });
+                        listaSucursal.Insert(0, new tbl_Sucursal { suc_id = 0, suc_descripcion = "Ciudad:" });
                         ddl_sucursal.DataSource = listaSucursal;
-                        ddl_sucursal.DataTextField = "suc_descripcion";
-                        ddl_sucursal.DataValueField = "suc_id";
+                        ddl_sucursal.DataTextField = "ciu_descripcion";
+                        ddl_sucursal.DataValueField = "ciu_id";
                         ddl_sucursal.DataBind();
                     }
                 }
-            }
-            catch (Exception)
+            }catch (Exception)
             {
                 throw;
             }
@@ -60,7 +54,6 @@ namespace TR_Cine
 
         protected void ddl_Ciudad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddl_sucursal.Items.Clear();
             if (ddl_Ciudad.SelectedIndex > 0)
             {
                 Cargar_Sucursal(int.Parse(ddl_Ciudad.SelectedValue.ToString()));

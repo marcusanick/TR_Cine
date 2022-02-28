@@ -59,14 +59,6 @@
       <Column Name="com_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="suc_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tbl_Combo_tbl_Factura" Member="tbl_Combo" ThisKey="com_id" OtherKey="com_id" Type="tbl_Combo" IsForeignKey="true" />
-<<<<<<< HEAD
-=======
-      <Association Name="tbl_Funcion_tbl_Factura" Member="tbl_Funcion" ThisKey="fun_id" OtherKey="fun_id" Type="tbl_Funcion" IsForeignKey="true" />
-      <Association Name="tbl_Sucursal_tbl_Factura" Member="tbl_Sucursal" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Sucursal" IsForeignKey="true" />
-<<<<<<< HEAD
->>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
-=======
->>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
       <Association Name="tbl_Usuario_tbl_Factura" Member="tbl_Usuario" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_Usuario" IsForeignKey="true" />
       <Association Name="tbl_Funcion_tbl_Factura" Member="tbl_Funcion" ThisKey="fun_id" OtherKey="fun_id" Type="tbl_Funcion" IsForeignKey="true" />
       <Association Name="tbl_Sucursal_tbl_Factura" Member="tbl_Sucursal" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Sucursal" IsForeignKey="true" />
@@ -169,29 +161,6 @@
       <Column Name="suc_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="tbl_Sucursal_tbl_Factura" Member="tbl_Factura" ThisKey="suc_id" OtherKey="suc_id" Type="tbl_Factura" />
       <Association Name="tbl_Ciudad_tbl_Sucursal" Member="tbl_Ciudad" ThisKey="ciu_id" OtherKey="ciu_id" Type="tbl_Ciudad" IsForeignKey="true" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_Usuario" Member="tbl_Usuario">
-    <Type Name="tbl_Usuario">
-      <Column Name="usu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="usu_usuario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="usu_pass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="usu_email" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="usu_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Column Name="rol_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="usu_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="usu_apellido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="usu_cedula" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="usu_direccion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="usu_cel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="tbl_Usuario_tbl_Factura" Member="tbl_Factura" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_Factura" />
-      <Association Name="tbl_Rol_tbl_Usuario" Member="tbl_Rol" ThisKey="rol_id" OtherKey="rol_id" Type="tbl_Rol" IsForeignKey="true" />
->>>>>>> e4648500b5b570253fba52459cdf0cb0bc3e7cbd
     </Type>
   </Table>
 </Database>
