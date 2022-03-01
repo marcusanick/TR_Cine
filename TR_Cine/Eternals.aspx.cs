@@ -119,7 +119,7 @@ namespace TR_Cine
             string ddl_s = ddl_sucursal.SelectedValue.ToString();
             string ddl_h = ddl_hora.SelectedValue.ToString();
 
-            if (ddl_c == "" && ddl_s == "" && ddl_h == "")
+            if (ddl_c != "0" && ddl_s != "0" && ddl_h != "0")
             {
                 Session["ddl_c"] = ddl_c;
                 Session["ddl_s"] = ddl_s;
