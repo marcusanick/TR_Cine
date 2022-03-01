@@ -112,5 +112,24 @@ namespace TR_Cine
                 Cargar_Hora(int.Parse(ddl_Ciudad.SelectedValue.ToString()));
             }
         }
+
+        protected void Btn_siguiente_Click(object sender, EventArgs e)
+        {
+            string ddl_c = ddl_Ciudad.SelectedValue.ToString();
+            string ddl_s = ddl_sucursal.SelectedValue.ToString();
+            string ddl_h = ddl_hora.SelectedValue.ToString();
+
+            if (ddl_c == "" && ddl_s == "" && ddl_h == "")
+            {
+                Session["ddl_c"] = ddl_c;
+                Session["ddl_s"] = ddl_s;
+                Session["ddl_h"] = ddl_h;
+                Response.Redirect("~/Opcion2/BoletosC.aspx");
+            }
+            else
+            {
+                Response.Redirect("Index.aspx");
+            }
+        }
     }
 }

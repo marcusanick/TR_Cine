@@ -34,7 +34,7 @@
                 </p>
             </div>
             <div class="aside-bottom">
-                <button class="button-step"><a href="BoletosC.aspx">Siguiente</a></button>
+                <asp:Button ID="Btn_siguiente" runat="server" CssClass="button-step" Text="Siguiente" OnClick="Btn_siguiente_Click" />
             </div>
         </div>
     </div>

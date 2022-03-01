@@ -65,7 +65,7 @@
                         <td class="auto-style13"></td>
                         <td class="auto-style3">A</td>
                     </tr>
-                    <tr id="butaca">
+                    <tr id="butaca2">
                         <td class="auto-style3">B</td>
                         <td>&nbsp;</td>
                         <td class="auto-style5">&nbsp;</td>

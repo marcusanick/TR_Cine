@@ -9,10 +9,10 @@
             <div class="img-movie">
                 <img src="img/portadaeternasl.png">
             </div>
-            <h3 class="info">Pelicula:</h3>
-            <h3 class="info">Director:</h3>
-            <h3 class="info">Duración:</h3>
-            <h3 class="info">Calificación:</h3>
+            <h3 class="info">Datos de Compra</h3>
+            <h3 class="info">Ciudad: <asp:Label ID="lbl_ddlc" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Sucursal: <asp:Label ID="lbl_ddls" runat="server" Text=" "></asp:Label> </h3>
+            <h3 class="info">Función: <asp:Label ID="lbl_ddlh" runat="server" Text=" "></asp:Label></h3>                  
         </div>
         <div class="aside">
             <div class="boletosCompra">
