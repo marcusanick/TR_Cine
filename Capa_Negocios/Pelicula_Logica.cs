@@ -103,5 +103,22 @@ namespace Capa_Negocios
         }
 
 
+        //Prueba datos pelicula
+        public static List<tbl_Pelicula> ObtenerEternos()
+        {
+            try
+            {
+                var listap = dc.tbl_Pelicula.Where(data => data.pel_estado == 'A'
+                                        && data.pel_id == 1);
+                return listap.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message);
+            }
+
+        }
+
     }
 }

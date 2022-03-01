@@ -9,20 +9,18 @@
             <div class="img-movie">
                 <img src="img/portadaeternasl.png">
             </div>
-            <h3 class="info">Pelicula:</h3>
-            <h3 class="info">Director:</h3>
-            <h3 class="info">Duración:</h3>
-            <h3 class="info">Calificación:</h3>
+            <h3 class="info">Pelicula: <asp:Label ID="lbl_pelicula" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Idioma: <asp:Label ID="lbl_idioma" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Genero: <asp:Label ID="lbl_genero" runat="server" Text=" "></asp:Label> </h3>
+            <h3 class="info">Estado: <asp:Label ID="lbl_estado" runat="server" Text=" "></asp:Label></h3>
         </div>
         <div class="aside">
-            <div class="steps-movie">
-                <div class="video">
-                </div>
+            <div class="steps-movie">                
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/v1EkoQV4g5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </p>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    <asp:Label ID="lbl_sinopsis" runat="server" Text=" "></asp:Label>
                 </p>
             </div>
             <div class="funciones">

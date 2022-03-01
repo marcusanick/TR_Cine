@@ -1,6 +1,8 @@
 ﻿using Capa_Datos;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,14 +12,18 @@ namespace TR_Cine
 {
     public partial class Eternals : System.Web.UI.Page
     {
+
+        string CadenaConexion = "Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Security Info=True;User ID=marcusanick_SQLLogin_1;Password=7x5orgwf9j";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
+            {                
                 Cargar_Ciudad();
+                cargar_eternos();
             }
         }
-
+        
         private void Cargar_Ciudad()
         {
             List<tbl_Ciudad> ListaCiudad = new List<tbl_Ciudad>();
@@ -29,6 +35,21 @@ namespace TR_Cine
                 ddl_Ciudad.DataTextField = "ciu_descripcion";
                 ddl_Ciudad.DataValueField = "ciu_id";
                 ddl_Ciudad.DataBind();
+            }
+        }
+
+        private void cargar_eternos()
+        {
+            int eternos = 1;
+            tbl_Pelicula pelicula = new tbl_Pelicula();
+            pelicula = Capa_Negocios.Pelicula_Logica.Obtner_perXId(eternos);
+            if (pelicula != null)
+            {
+                lbl_pelicula.Text = pelicula.pel_titulo;
+                lbl_idioma.Text = pelicula.pel_idioma;
+                lbl_genero.Text = pelicula.tbl_Genero.gen_descripcion;
+                lbl_estado.Text = Convert.ToString(pelicula.pel_estado);
+                lbl_sinopsis.Text = pelicula.pel_sinopsis;
             }
         }
 
