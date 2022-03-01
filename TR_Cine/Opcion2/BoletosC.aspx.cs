@@ -49,9 +49,9 @@ namespace TR_Cine.Opcion2
 
             if (sumatotal != 0)
             {
-                int ddl_c = Convert.ToInt32((string)(Session["ddl_c"]));
-                int ddl_s = Convert.ToInt32((string)(Session["ddl_s"]));
-                int ddl_h = Convert.ToInt32((string)(Session["ddl_h"]));
+                string ddl_c = (string)Session["ddl_c"];
+                string ddl_s = (string)Session["ddl_s"];
+                string ddl_h = (string)Session["ddl_h"];
                 Session["ddl_c"] = ddl_c;
                 Session["ddl_s"] = ddl_s;
                 Session["ddl_h"] = ddl_h;

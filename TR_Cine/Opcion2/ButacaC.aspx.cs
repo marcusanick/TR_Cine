@@ -11,7 +11,7 @@ namespace TR_Cine.Opcion2
 
         SqlConnection con = new SqlConnection("Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Security Info=True;User ID=marcusanick_SQLLogin_1;Password=7x5orgwf9j");
         int contador = 0;
-        int contadorbut = 1;
+        int contadorbut = 1;                
         protected void Page_Load(object sender, EventArgs e)
         {
             int ddl_c = Convert.ToInt32((string)(Session["ddl_c"]));
@@ -35,19 +35,28 @@ namespace TR_Cine.Opcion2
             }
             else
             {
-                Response.Redirect("BoletosC.aspx");
+                Response.Redirect("~/Eternals.aspx");
             }
 
             int totalboletos = (int)Session["totalboletos"];
-            int Preciototal = (int)Session["preciototal"];
+            int Preciototal = (int)Session["preciototal"];            
 
             lbl_precio.Text = Convert.ToString(Preciototal);
-            lbl_butco.Text = Convert.ToString(totalboletos);
+            lbl_butco.Text = Convert.ToString(totalboletos);            
+
 
             Verificar_ButacasS1();
             lbl_contador.Text = Convert.ToString(contador);
+            if (totalboletos > contador)
+            {
+                Response.Write("<script>alert('Numero de boletos excede el numero de asientos disponibles');</script>");
+                Response.Redirect("BoletosC.aspx");                
+            }
+
             Session["Ini"] = Session["Inic"];            
-        }        
+        }
+        
+        
         private void Verificar_ButacasS1()
         {
             con.Open();
@@ -254,7 +263,7 @@ namespace TR_Cine.Opcion2
             if (Btn_A1.Text.Equals(""))
             {
                 Btn_A1.BackColor = Color.Blue;
-                Btn_A1.Text = "1";
+                Btn_A1.Text = "1";                
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
