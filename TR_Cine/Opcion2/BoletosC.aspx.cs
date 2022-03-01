@@ -31,6 +31,38 @@ namespace TR_Cine.Opcion2
             {
                 Response.Redirect("~/Eternals.aspx");
             }
+        }       
+
+        protected void Btn_Anterior_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Eternals.aspx");
+        }
+
+        protected void Btn_Siguiente_Click(object sender, EventArgs e)
+        {
+            int sumad = Convert.ToInt32(txt_adult.Text) * 5;
+            int sumam = Convert.ToInt32(txt_menores.Text) * 4;
+            int sumamy = Convert.ToInt32(txt_mayedad.Text) * 2;
+
+            int sumaboletos = Convert.ToInt32(txt_adult.Text) + Convert.ToInt32(txt_menores.Text) + Convert.ToInt32(txt_mayedad.Text);
+            int sumatotal = sumad + sumam + sumamy;
+
+            if (sumatotal != 0)
+            {
+                int ddl_c = Convert.ToInt32((string)(Session["ddl_c"]));
+                int ddl_s = Convert.ToInt32((string)(Session["ddl_s"]));
+                int ddl_h = Convert.ToInt32((string)(Session["ddl_h"]));
+                Session["ddl_c"] = ddl_c;
+                Session["ddl_s"] = ddl_s;
+                Session["ddl_h"] = ddl_h;
+                Session["totalboletos"] = sumaboletos;
+                Session["preciototal"] = sumatotal;
+                Response.Redirect("ButacaC.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('No hay cantidad de boleto escogida');</script>");
+            }
         }
     }
 }

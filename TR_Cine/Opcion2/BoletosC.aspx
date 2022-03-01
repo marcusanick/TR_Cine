@@ -23,7 +23,7 @@
                         <p>Valor 5.00</p>
                     </div>
                     <div class="cantidadBoleto">
-                        <input type="number" max="10" min="0" value="0" class="input-num">
+                        <asp:TextBox ID="txt_adult" type="number" max="10" min="0" class="input-num" runat="server" Text="0"></asp:TextBox>                       
                     </div>
                 </div>
                 <div class="infoBoleto">
@@ -32,7 +32,7 @@
                         <p>Valor 4.00</p>
                     </div>
                     <div class="cantidadBoleto">
-                        <input type="number" max="10" min="0" value="0" class="input-num">
+                        <asp:TextBox ID="txt_menores" type="number" max="10" min="0" class="input-num" runat="server" Text="0"></asp:TextBox>
                     </div>
                 </div>
                 <div class="infoBoleto">
@@ -41,13 +41,13 @@
                         <p>Valor 2.50</p>
                     </div>
                     <div class="cantidadBoleto">
-                        <input type="number" max="10" min="0" value="0" class="input-num">
+                        <asp:TextBox ID="txt_mayedad" type="number" max="10" min="0" class="input-num" runat="server" Text="0"></asp:TextBox>
                     </div>
                 </div>
             </div>
             <div class="aside-bottom">
-                <button class="button-step"><a href="FuncionesC.aspx">Anterior</a></button>
-                <button class="button-step"><a href="ButacaC.aspx">Siguiente</a></button>
+               <asp:Button ID="Btn_Anterior" runat="server" CssClass="button-step" Text="Anterior" OnClick="Btn_Anterior_Click" /> 
+               <asp:Button ID="Btn_Siguiente" runat="server" CssClass="button-step" Text="Siguiente" OnClick="Btn_Siguiente_Click" />
             </div>
         </div>
     </div>

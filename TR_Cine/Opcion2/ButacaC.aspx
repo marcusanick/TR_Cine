@@ -9,12 +9,13 @@
             <div class="img-movie">
                 <img src="img/portadaeternasl.png">
             </div>
-            <h3 class="info">Pelicula:</h3>
-            <h3 class="info">Director:</h3>
-            <h3 class="info">Duración:</h3>
-            <h3 class="info">Calificación:</h3>
-            <h3 class="info">Butacas a comprar:</h3>
-            <h3 class="info">Butacas escogidas: <asp:Label ID="lbl_contadorbut" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Datos de Compra</h3>
+            <h3 class="info">Ciudad: <asp:Label ID="lbl_ddlc" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Sucursal: <asp:Label ID="lbl_ddls" runat="server" Text=" "></asp:Label> </h3>
+            <h3 class="info">Función: <asp:Label ID="lbl_ddlh" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Precio Total: <asp:Label ID="lbl_precio" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Butacas a comprar: <asp:Label ID="lbl_butco" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Butacas escogidas: <asp:Label ID="lbl_contadorbut" runat="server" Text="0"></asp:Label></h3>
             <h3 class="info">Butacas Disponibles: <asp:Label ID="lbl_contador" runat="server" Text=" "></asp:Label> </h3>
         </div>
         <div class="aside">
@@ -192,7 +193,7 @@
             <hr>
             <div class="aside-bottom">
                 <button class="button-step"><a href="BoletosC.aspx">Anterior</a></button>
-                <button class="button-step"><a href="SnackC.aspx">Siguiente</a></button>
+                <asp:Button ID="Btn_siguiente" runat="server" CssClass="button-step" Text="Siguiente" OnClick="Btn_siguiente_Click"/>
             </div>
         </div>
     </div>
