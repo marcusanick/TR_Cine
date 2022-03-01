@@ -15,6 +15,24 @@ namespace TR_Cine.Opcion2
     {
 
         /// <summary>
+        /// Control lbl_contadorbut.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_contadorbut;
+
+        /// <summary>
+        /// Control lbl_contador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_contador;
+
+        /// <summary>
         /// Control lbl_A1.
         /// </summary>
         /// <remarks>

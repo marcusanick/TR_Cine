@@ -13,6 +13,9 @@
             <h3 class="info">Director:</h3>
             <h3 class="info">Duración:</h3>
             <h3 class="info">Calificación:</h3>
+            <h3 class="info">Butacas a comprar:</h3>
+            <h3 class="info">Butacas escogidas: <asp:Label ID="lbl_contadorbut" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Butacas Disponibles: <asp:Label ID="lbl_contador" runat="server" Text=" "></asp:Label> </h3>
         </div>
         <div class="aside">
             <h3 class="info">Elija su asiento:</h3>
@@ -35,17 +38,17 @@
                         <td class="auto-style5">&nbsp;</td>
                         <td class="auto-style15">&nbsp;</td>
                         <td class="auto-style15">
-                            <asp:Label ID="lbl_A1" runat="server" Text="1"></asp:Label><asp:Button ID="Btn_A1" runat="server" class="asiento" /></td>
+                            <asp:Label ID="lbl_A1" runat="server" Text="1"></asp:Label><asp:Button ID="Btn_A1" runat="server" class="asiento" OnClick="Btn_A1_Click" /></td>
                         <td class="auto-style15">
-                            <asp:Label ID="lbl_A2" runat="server" Text="2"></asp:Label><asp:Button ID="Btn_A2" runat="server" class="asiento" /></td>
+                            <asp:Label ID="lbl_A2" runat="server" Text="2"></asp:Label><asp:Button ID="Btn_A2" runat="server" class="asiento" OnClick="Btn_A2_Click" /></td>
                         <td class="auto-style15">
-                            <asp:Label ID="lbl_A3" runat="server" Text="3"></asp:Label><asp:Button ID="Btn_A3" runat="server" class="asiento" /></td>
+                            <asp:Label ID="lbl_A3" runat="server" Text="3"></asp:Label><asp:Button ID="Btn_A3" runat="server" class="asiento" OnClick="Btn_A3_Click" /></td>
                         <td class="auto-style15">
-                            <asp:Label ID="lbl_A4" runat="server" Text="4"></asp:Label><asp:Button ID="Btn_A4" runat="server" class="asiento" /></td>
+                            <asp:Label ID="lbl_A4" runat="server" Text="4"></asp:Label><asp:Button ID="Btn_A4" runat="server" class="asiento" OnClick="Btn_A4_Click" /></td>
                         <td class="auto-style15">
-                            <asp:Label ID="lbl_A5" runat="server" Text="5"></asp:Label><asp:Button ID="Btn_A5" runat="server" class="asiento" /></td>
+                            <asp:Label ID="lbl_A5" runat="server" Text="5"></asp:Label><asp:Button ID="Btn_A5" runat="server" class="asiento" OnClick="Btn_A5_Click" /></td>
                         <td class="auto-style15">
-                            <asp:Label ID="lbl_A6" runat="server" Text="6"></asp:Label><asp:Button ID="Btn_A6" runat="server" class="asiento" /></td>
+                            <asp:Label ID="lbl_A6" runat="server" Text="6"></asp:Label><asp:Button ID="Btn_A6" runat="server" class="asiento" OnClick="Btn_A6_Click" /></td>
                         <td class="auto-style15">&nbsp;</td>
                         <td class="auto-style15">&nbsp;</td>
                         <td class="auto-style15">
