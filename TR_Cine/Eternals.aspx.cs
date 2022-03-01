@@ -12,9 +12,7 @@ namespace TR_Cine
 {
     public partial class Eternals : System.Web.UI.Page
     {
-
-        string CadenaConexion = "Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Security Info=True;User ID=marcusanick_SQLLogin_1;Password=7x5orgwf9j";
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

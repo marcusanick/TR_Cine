@@ -29,17 +29,17 @@
                     <tr>
                         <td>&nbsp;</td>
                     </tr>
-                    <tr id="butaca">
+                    <tr id="butaca1">
                         <td class="auto-style3">A</td>
                         <td>&nbsp;</td>
                         <td class="auto-style5">&nbsp;</td>
                         <td class="auto-style15">&nbsp;</td>
                         <td class="auto-style15">
-                            1<button class="asiento"></button></td>
+                            1 <asp:Button ID="Btn_prueba" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            2<button class="asiento"></button></td>
+                            2<asp:Button ID="Btn_A2" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            3<button class="asiento"></button></td>
+                            3<asp:Button ID="Btn_A3" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
                             4<button class="asiento"></button></td>
                         <td class="auto-style15">
