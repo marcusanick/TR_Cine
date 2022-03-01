@@ -35,31 +35,31 @@
                         <td class="auto-style5">&nbsp;</td>
                         <td class="auto-style15">&nbsp;</td>
                         <td class="auto-style15">
-                            1 <asp:Button ID="Btn_prueba" runat="server" class="asiento" /></td>
+                            <asp:Label ID="lbl_A1" runat="server" Text="1"></asp:Label><asp:Button ID="Btn_A1" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            2<asp:Button ID="Btn_A2" runat="server" class="asiento" /></td>
+                            <asp:Label ID="lbl_A2" runat="server" Text="2"></asp:Label><asp:Button ID="Btn_A2" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            3<asp:Button ID="Btn_A3" runat="server" class="asiento" /></td>
+                            <asp:Label ID="lbl_A3" runat="server" Text="3"></asp:Label><asp:Button ID="Btn_A3" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            4<button class="asiento"></button></td>
+                            <asp:Label ID="lbl_A4" runat="server" Text="4"></asp:Label><asp:Button ID="Btn_A4" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            5<button class="asiento"></button></td>
+                            <asp:Label ID="lbl_A5" runat="server" Text="5"></asp:Label><asp:Button ID="Btn_A5" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            6<button class="asiento"></button></td>
+                            <asp:Label ID="lbl_A6" runat="server" Text="6"></asp:Label><asp:Button ID="Btn_A6" runat="server" class="asiento" /></td>
                         <td class="auto-style15">&nbsp;</td>
                         <td class="auto-style15">&nbsp;</td>
                         <td class="auto-style15">
-                            7<button class="asiento"></button></td>
+                            <asp:Label ID="lbl_A7" runat="server" Text="7"></asp:Label><asp:Button ID="Btn_A7" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            8<button class="asiento"></button></td>
+                            <asp:Label ID="lbl_A8" runat="server" Text="8"></asp:Label><asp:Button ID="Btn_A8" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            9<button class="asiento"></button></td>
+                            <asp:Label ID="lbl_A9" runat="server" Text="9"></asp:Label><asp:Button ID="Btn_A9" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            10<button class="asiento"></button></td>
+                            <asp:Label ID="lbl_A10" runat="server" Text="10"></asp:Label><asp:Button ID="Btn_A10" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            11<button class="asiento"></button></td>
+                            <asp:Label ID="lbl_A11" runat="server" Text="11"></asp:Label><asp:Button ID="Btn_A11" runat="server" class="asiento" /></td>
                         <td class="auto-style15">
-                            12<button class="asiento"></button></td>
+                            <asp:Label ID="lbl_A12" runat="server" Text="12"></asp:Label><asp:Button ID="Btn_A12" runat="server" class="asiento" /></td>
                         <td class="auto-style15">&nbsp;</td>
                         <td class="auto-style11"></td>
                         <td class="auto-style13"></td>
