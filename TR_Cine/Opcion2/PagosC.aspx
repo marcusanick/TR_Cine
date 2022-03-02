@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Opcion2/PagInicio.Master" AutoEventWireup="true" CodeBehind="PagosC.aspx.cs" Inherits="TR_Cine.Opcion2.PagosC" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenido" runat="server">
@@ -9,27 +10,37 @@
             <div class="datosFinales">
                 <div class="infoCompra">
                     <h2>Tu compra</h2>
-                    <h4>Pelicula</h4>
-                    <h4>Sucursal</h4>
-                    <h4>Detalle del boleto</h4>
-                    <h4>Valor Total</h4>
+                    <h3>Pelicula:
+                        <asp:Label ID="lbl_pelicula" runat="server" Text=" "></asp:Label></h3>
+                    <h3 class="info">Ciudad:
+                        <asp:Label ID="lbl_ddlc" runat="server" Text=" "></asp:Label></h3>
+                    <h3 class="info">Sucursal:
+                        <asp:Label ID="lbl_ddls" runat="server" Text=" "></asp:Label>
+                    </h3>
+                    <h3 class="info">Función:
+                        <asp:Label ID="lbl_ddlh" runat="server" Text=" "></asp:Label></h3>
+                    <h3>Detalle del boleto: </h3>
+                    <h3 class="info">Butacas escogidas:
+                        <asp:Label ID="lbl_contadorbut" runat="server" Text="0"></asp:Label></h3>
+                    <h3 class="info">Precio Total:
+                        <asp:Label ID="lbl_precio" runat="server" Text=" "></asp:Label></h3>
                 </div>
                 <div class="infoPersonal">
                     <h3>Datos Personales</h3>
                     <div class="input-container">
-                        <input class="inputFinal" placeholder="Cédula" type="text">
-                        <input class="inputFinal" placeholder="Nombre" type="text">
+                        <asp:TextBox ID="txtCedula" placeholder="Cédula" CssClass="inputFinal" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNombre" placeholder="Nombre" CssClass="inputFinal" runat="server"></asp:TextBox>
                     </div>
                     <div class="input-container">
-                        <input class="inputFinal" placeholder="Correo electrónico" type="text">
-                        <input class="inputFinal" placeholder="Telefono" type="text">
+                        <asp:TextBox ID="txtCorreo" CssClass="inputFinal" placeholder="Correo electrónico" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtTelefono" CssClass="inputFinal" placeholder="Telefono" runat="server"></asp:TextBox>
                     </div>
-                    <input class="inputFinal" placeholder="No. Tarjeta" type="text">
+                    <asp:TextBox ID="txtTarjeta" CssClass="inputFinal" placeholder="No. Tarjeta" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="aside-bottom">
-                <button class="button-step"><a href="SnackC.aspx">Anterior</a></button>
-                <button class="button-step"><a href="Index.aspx">Finalizar</a></button>
+                <asp:Button ID="Btn_Anterior" runat="server" CssClass="button-step" ForeColor="White" Text="Anterior" OnClick="Btn_Anterior_Click" />
+                <asp:Button ID="Btn_Siguiente" runat="server" CssClass="button-step" ForeColor="White" Text="Finalizar" OnClick="Btn_Siguiente_Click" />
             </div>
         </div>
     </div>
