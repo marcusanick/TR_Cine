@@ -2,6 +2,8 @@
 using Capa_Negocios;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 
 namespace TR_Cine.Mantenimientos
 {
@@ -23,6 +25,14 @@ namespace TR_Cine.Mantenimientos
                         txt_titulo.Text = usuarioin.pel_titulo.ToString();
                         txt_idioma.Text = usuarioin.pel_idioma.ToString();
                         ddl_gen.SelectedValue = usuarioin.gen_id.ToString();
+                        //cargar imagen
+                        #region imagen2
+                        byte[] img = (byte[])usuarioin.pel_img.ToArray();
+
+                        string imagenDataURL64 = "data:/image/jpg;base64," + Convert.ToBase64String(img);
+                        img_preview.ImageUrl = imagenDataURL64;
+                        #endregion
+
                         // img_s.ImageUrl= usuarioin.gen_id.ToString();
                         txt_sinop.Text = usuarioin.pel_sinopsis.ToString();
                         txt_url.Text = usuarioin.pel_url.ToString();
@@ -105,17 +115,41 @@ namespace TR_Cine.Mantenimientos
         {
             try
             {
-                if (txt_titulo.Text==String.Empty || txt_idioma.Text==String.Empty || txt_sinop.Text==String.Empty
-                    || txt_url.Text==String.Empty)
+                if (txt_titulo.Text == String.Empty || txt_idioma.Text == String.Empty || txt_sinop.Text == String.Empty
+                    || txt_url.Text == String.Empty || fuploadImage.HasFile == false)
                 {
+                    lbl_mensaje.Visible = true;
                     lbl_mensaje.Text = "Llenar todos los campos por favor";
                 }
                 else
                 {
+                    if (lbl_mensaje.Visible == true)
+                    {
+                        lbl_mensaje.Visible = false;
+                    }
                     usuarioin = new tbl_Pelicula();
                     usuarioin.pel_titulo = txt_titulo.Text;
                     usuarioin.pel_idioma = txt_idioma.Text;
                     //    usuarioin.pel_img = img_s.ImageAlig;
+
+                    #region imagen
+                    //obtener datos de la imagen
+                    int tamanio = fuploadImage.PostedFile.ContentLength;
+                    byte[] ImagenOriginal = new byte[tamanio];
+
+                    fuploadImage.PostedFile.InputStream.Read(ImagenOriginal, 0, tamanio);
+                    Bitmap ImagenOriginalBinaria = new Bitmap(fuploadImage.PostedFile.InputStream);
+
+                    //insertarla a la base de datos
+                    usuarioin.pel_img = ImagenOriginal;
+
+                    //cargarla en la img_preview
+                    string imagenDataURL64 = "data:/image/jpg;base64," + Convert.ToBase64String(ImagenOriginal);
+                    img_preview.ImageUrl = imagenDataURL64;
+
+
+                    #endregion
+
                     usuarioin.pel_sinopsis = txt_sinop.Text;
                     usuarioin.pel_url = txt_url.Text;
 
@@ -171,6 +205,17 @@ namespace TR_Cine.Mantenimientos
         protected void lnk_regresar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Mantenimientos/Listar_Pel.aspx");
+        }
+
+        public System.Drawing.Image RedimensionarImagen(System.Drawing.Image ImagenOriginal, int alto)
+        {
+            var radio = (double)alto / ImagenOriginal.Height;
+            var nuevoAncho = (int)(ImagenOriginal.Width * radio);
+            var nuevoAlto = (int)(ImagenOriginal.Height * radio);
+            var ImagenRedimensionada = new Bitmap(nuevoAncho, nuevoAlto);
+            var g = Graphics.FromImage(ImagenRedimensionada);
+            g.DrawImage(ImagenOriginal, 0, 0, nuevoAncho, nuevoAlto);
+            return ImagenRedimensionada;
         }
     }
 }

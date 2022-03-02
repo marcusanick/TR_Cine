@@ -24,15 +24,6 @@ namespace TR_Cine.Mantenimientos
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// Control UpdatePanel1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
         /// Control Timer1.
         /// </summary>
         /// <remarks>
@@ -96,22 +87,22 @@ namespace TR_Cine.Mantenimientos
         protected global::System.Web.UI.WebControls.LinkButton lnk_regresar;
 
         /// <summary>
-        /// Control img_s.
+        /// Control img_preview.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_s;
+        protected global::System.Web.UI.WebControls.Image img_preview;
 
         /// <summary>
-        /// Control FuploadImage.
+        /// Control fuploadImage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FuploadImage;
+        protected global::System.Web.UI.WebControls.FileUpload fuploadImage;
 
         /// <summary>
         /// Control txt_titulo.

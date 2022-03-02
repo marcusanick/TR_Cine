@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.Linq;
 
 namespace TR_Cine.Mantenimientos
 {
