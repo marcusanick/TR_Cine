@@ -25,16 +25,16 @@
             </div>
             <div class="funciones">
                 <div class="filtro">
-                    <asp:DropDownList ID="ddl_Ciudad" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddl_Ciudad_SelectedIndexChanged"></asp:DropDownList>
-                    <asp:DropDownList ID="ddl_sucursal" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddl_sucursal_SelectedIndexChanged"></asp:DropDownList>                    
+                    <asp:DropDownList ID="ddl_Ciudad" AutoPostBack="true" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddl_Ciudad_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="ddl_sucursal" AutoPostBack="true" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddl_sucursal_SelectedIndexChanged"></asp:DropDownList>                    
                 </div>
                 <h3 class="info">Horarios:</h3>
                 <p>
-                    <asp:DropDownList ID="ddl_hora" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddl_hora" runat="server" CssClass="form-select"></asp:DropDownList>
                 </p>
             </div>
             <div class="aside-bottom">
-                <asp:Button ID="Btn_siguiente" runat="server" CssClass="button-step" Text="Siguiente" OnClick="Btn_siguiente_Click" />
+                <asp:Button ID="Btn_siguiente" runat="server" CssClass="button-step" ForeColor="White" Text="Siguiente" OnClick="Btn_siguiente_Click" />
             </div>
         </div>
     </div>

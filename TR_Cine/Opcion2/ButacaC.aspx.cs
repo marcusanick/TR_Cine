@@ -39,7 +39,7 @@ namespace TR_Cine.Opcion2
             }
 
             int totalboletos = (int)Session["totalboletos"];
-            int Preciototal = (int)Session["preciototal"];            
+            int Preciototal = (int)Session["preciototal"];          
 
             lbl_precio.Text = Convert.ToString(Preciototal);
             lbl_butco.Text = Convert.ToString(totalboletos);
@@ -488,6 +488,7 @@ namespace TR_Cine.Opcion2
         protected void Btn_siguiente_Click(object sender, EventArgs e)
         {
             validarCantidadComprada();
+            Response.Redirect("PagosC.aspx");
         }
 
         protected void Btn_A7_Click(object sender, EventArgs e)
