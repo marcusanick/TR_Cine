@@ -12,8 +12,7 @@
     <link href="css/estilosp.css" rel="stylesheet">
     <link href="css/estiloh.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-    <style>
-        /*Esto lo hice yo :D no te creas 28/11/2021 Jose Quiña*/
+    <style>        
         .button {            
             width: 87%;
             font-size: 20px;
