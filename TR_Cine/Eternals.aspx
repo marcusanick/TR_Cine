@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenido" runat="server">
+    
     <link href="Opcion2/css/estilos.css" rel="stylesheet">
     <link href="Opcion2/css/contenido.css" rel="stylesheet">
     <div class="container mt-2 container-movies">

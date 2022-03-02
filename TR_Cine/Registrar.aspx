@@ -86,6 +86,7 @@
                         </div>
                         <div class="control">
                             <center>
+                                <br />
                                 <asp:LinkButton ID="lnk_regresar" class="link" runat="server" OnClick="lnk_regresar_Click">Regresar</asp:LinkButton>
                             </center>
                         </div>
