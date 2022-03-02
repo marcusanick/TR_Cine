@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenido" runat="server">
+    
     <link href="Opcion2/css/estilos.css" rel="stylesheet">
     <link href="Opcion2/css/contenido.css" rel="stylesheet">
     <div class="container mt-2 container-movies">
@@ -24,6 +25,7 @@
                 </p>
             </div>
             <div class="funciones">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
                 <div class="filtro">
                     <asp:DropDownList ID="ddl_Ciudad" AutoPostBack="true" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddl_Ciudad_SelectedIndexChanged"></asp:DropDownList>
                     <asp:DropDownList ID="ddl_sucursal" AutoPostBack="true" runat="server" CssClass="form-select" OnSelectedIndexChanged="ddl_sucursal_SelectedIndexChanged"></asp:DropDownList>                    
@@ -32,6 +34,7 @@
                 <p>
                     <asp:DropDownList ID="ddl_hora" runat="server" CssClass="form-select"></asp:DropDownList>
                 </p>
+                </ContentTemplate></asp:UpdatePanel>
             </div>
             <div class="aside-bottom">
                 <asp:Button ID="Btn_siguiente" runat="server" CssClass="button-step" ForeColor="White" Text="Siguiente" OnClick="Btn_siguiente_Click" />

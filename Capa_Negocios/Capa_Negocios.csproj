@@ -50,6 +50,7 @@
     <Compile Include="Funcion_Logica.cs" />
     <Compile Include="Genero_Logica.cs" />
     <Compile Include="Hora_Logica.cs" />
+    <Compile Include="Logica_Butaca.cs" />
     <Compile Include="Mail.cs" />
     <Compile Include="Pelicula_Logica.cs" />
     <Compile Include="Promocion_Logica.cs" />

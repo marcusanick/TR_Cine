@@ -55,6 +55,7 @@
                             <asp:Button ID="btn_ingresar" CssClass="button" runat="server" Text="Ingresar" OnClick="btn_ingresar_Click" />
                             <asp:Button ID="btn_desbloquear" class="button" Visible="false" runat="server" Text="Desbloquear Contraseña" OnClick="btn_desbloquear_Click" />
                         </div>
+                        <br /><br />
                         <p>¿No tienes una cuenta?
                             <asp:LinkButton ID="lnk_registrar" class="link" runat="server" OnClick="lnk_registrar_Click">Registrate</asp:LinkButton></p>
                         <asp:LinkButton ID="lnk_regresar" visible="false" runat="server" OnClick="lnk_regresar_Click">Regresar</asp:LinkButton>
