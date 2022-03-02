@@ -11,7 +11,7 @@ namespace TR_Cine.Opcion2
 
         SqlConnection con = new SqlConnection("Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Security Info=True;User ID=marcusanick_SQLLogin_1;Password=7x5orgwf9j");
         int contador = 0;
-        int contadorbut = 1;                
+        int contadorbut = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
             int ddl_c = Convert.ToInt32((string)(Session["ddl_c"]));
@@ -61,12 +61,9 @@ namespace TR_Cine.Opcion2
             {
                 Response.Write("<script>alert('Numero de boletos excede el numero de asientos disponibles');</script>");
                 Response.Redirect("BoletosC.aspx");                
-            }
-
+            }                       
             Session["Ini"] = Session["Inic"];            
-        }
-        
-        
+        }                
         private void Verificar_ButacasS1()
         {
             con.Open();
@@ -367,6 +364,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A2.BackColor = Color.Blue;
                 Btn_A2.Text = "2";
+                string buta2 = "A2";
+                Session["A2"] = buta2;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -374,6 +373,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A2.BackColor = Color.LimeGreen;
                 Btn_A2.Text = "";
+                string buta2 = "";
+                Session["A2"] = buta2;
                 lbl_contadorbut.Text = ((Convert.ToInt32(Session["Ini"])) - contadorbut).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -401,6 +402,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A4.BackColor = Color.Blue;
                 Btn_A4.Text = "4";
+                string buta4 = "A4";
+                Session["A4"] = buta4;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -414,11 +417,13 @@ namespace TR_Cine.Opcion2
         }
 
         protected void Btn_A1_Click(object sender, EventArgs e)
-        {
+        {            
             if (Btn_A1.Text.Equals(""))
             {
                 Btn_A1.BackColor = Color.Blue;
-                Btn_A1.Text = "1";                
+                Btn_A1.Text = "1";
+                string buta1 = "A1";
+                Session["A1"] = buta1;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -437,6 +442,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A3.BackColor = Color.Blue;
                 Btn_A3.Text = "3";
+                string buta3 = "A3";
+                Session["A3"] = buta3;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -444,6 +451,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A3.BackColor = Color.LimeGreen;
                 Btn_A3.Text = "";
+                string buta3 = "";
+                Session["A3"] = buta3;
                 lbl_contadorbut.Text = ((Convert.ToInt32(Session["Ini"])) - contadorbut).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -455,6 +464,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A5.BackColor = Color.Blue;
                 Btn_A5.Text = "5";
+                string buta5 = "A5";
+                Session["A5"] = buta5;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -480,6 +491,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A6.BackColor = Color.LimeGreen;
                 Btn_A6.Text = "";
+                string buta6 = "A6";
+                Session["A6"] = buta6;
                 lbl_contadorbut.Text = ((Convert.ToInt32(Session["Ini"])) - contadorbut).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -487,6 +500,121 @@ namespace TR_Cine.Opcion2
 
         protected void Btn_siguiente_Click(object sender, EventArgs e)
         {
+            string butA1 = (string)Session["A1"];
+            string butA2 = (string)Session["A2"];
+            string butA3 = (string)Session["A3"];
+            string butA4 = (string)Session["A4"];
+            string butA5 = (string)Session["A5"];
+            string butA6 = (string)Session["A6"];
+            string butA7 = (string)Session["A7"];
+            string butA8 = (string)Session["A8"];
+            string butA9 = (string)Session["A9"];
+            string butA10 = (string)Session["A10"];
+            string butA11 = (string)Session["A11"];
+            string butA12 = (string)Session["A12"];
+
+            //idea para llevar butacas escogidas a pagina pago
+            Session["A1"] = butA1;
+            Session["A2"] = butA2;
+            Session["A3"] = butA3;
+            Session["A4"] = butA4;
+            Session["A5"] = butA5;
+            Session["A6"] = butA6;
+            Session["A7"] = butA7;
+            Session["A8"] = butA3;
+            Session["A9"] = butA4;
+            Session["A10"] = butA5;
+            Session["A11"] = butA6;
+            Session["A12"] = butA7;
+            //endidea:(
+            if (butA1 != "")
+            {               
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA1 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }            
+            if (butA2 != "")
+            {               
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA2 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA3 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA3 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA4 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA4 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA5 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA5 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA6 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA6 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA7 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA7 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA8 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA8 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+            //
+
+            if (butA9 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA9 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA10 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA10 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA11 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA11 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA12 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA12 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
             validarCantidadComprada();
             Response.Redirect("PagosC.aspx");
         }
@@ -497,6 +625,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A7.BackColor = Color.Blue;
                 Btn_A7.Text = "7";
+                string buta7 = "A7";
+                Session["A7"] = buta7;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -515,6 +645,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A8.BackColor = Color.Blue;
                 Btn_A8.Text = "8";
+                string buta8 = "A8";
+                Session["A8"] = buta8;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -533,6 +665,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A9.BackColor = Color.Blue;
                 Btn_A9.Text = "9";
+                string buta9 = "A9";
+                Session["A9"] = buta9;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -551,6 +685,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A10.BackColor = Color.Blue;
                 Btn_A10.Text = "10";
+                string buta10 = "A10";
+                Session["A10"] = buta10;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -569,6 +705,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A11.BackColor = Color.Blue;
                 Btn_A11.Text = "11";
+                string buta11 = "A11";
+                Session["A11"] = buta11;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -576,6 +714,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A11.BackColor = Color.LimeGreen;
                 Btn_A11.Text = "";
+                string buta11 = "";
+                Session["A11"] = buta11;
                 lbl_contadorbut.Text = ((Convert.ToInt32(Session["Ini"])) - contadorbut).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -587,6 +727,8 @@ namespace TR_Cine.Opcion2
             {
                 Btn_A12.BackColor = Color.Blue;
                 Btn_A12.Text = "12";
+                string buta12 = "A12";
+                Session["A12"] = buta12;
                 lbl_contadorbut.Text = (contadorbut + (Convert.ToInt32(Session["Ini"]))).ToString();
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
@@ -851,5 +993,15 @@ namespace TR_Cine.Opcion2
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
         }
+
+        private void BloqBut(string but)
+        {
+            SqlConnection con = new SqlConnection("Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Security Info=True;User ID=marcusanick_SQLLogin_1;Password=7x5orgwf9j");
+            SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '"+but+"'  ");
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close(); 
+        }
+
     }
 }
