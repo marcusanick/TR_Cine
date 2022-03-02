@@ -23,5 +23,22 @@ namespace Capa_Negocios
                 throw;
             }
         }
+
+        public static tbl_Sucursal Obtner_sucXId(int codigo_sucursal)
+        {
+            try
+            {
+                var sucursal = dc.tbl_Sucursal.FirstOrDefault(data => data.suc_estado == 'A'
+                                        && data.suc_id.Equals(codigo_sucursal));
+                return sucursal;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message);
+            }
+
+        }
+
     }
 }

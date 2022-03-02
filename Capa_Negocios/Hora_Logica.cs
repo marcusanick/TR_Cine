@@ -21,5 +21,21 @@ namespace Capa_Negocios
                 throw;
             }
         }
+
+        public static tbl_Hora Obtner_horXId(int codigo_hora)
+        {
+            try
+            {
+                var hora = dc.tbl_Hora.FirstOrDefault(data => data.hor_estado == 'A'
+                                        && data.hor_id.Equals(codigo_hora));
+                return hora;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message);
+            }
+
+        }
     }
 }

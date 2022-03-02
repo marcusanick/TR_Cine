@@ -23,5 +23,22 @@ namespace Capa_Negocios
                 throw;
             }
         }
+
+        public static tbl_Ciudad Obtner_ciuXId(int codigo_ciudad)
+        {
+            try
+            {
+                var ciudad = dc.tbl_Ciudad.FirstOrDefault(data => data.ciu_estado == 'A'
+                                        && data.ciu_id.Equals(codigo_ciudad));
+                return ciudad;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message);
+            }
+
+        }
+
     }
 }

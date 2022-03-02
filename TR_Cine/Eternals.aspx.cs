@@ -36,9 +36,9 @@ namespace TR_Cine
             }
         }
 
+        int eternos = 1;
         private void cargar_eternos()
-        {
-            int eternos = 1;
+        {            
             tbl_Pelicula pelicula = new tbl_Pelicula();
             pelicula = Capa_Negocios.Pelicula_Logica.Obtner_perXId(eternos);
             if (pelicula != null)
@@ -110,6 +110,26 @@ namespace TR_Cine
             if (ddl_sucursal.SelectedIndex > 0)
             {
                 Cargar_Hora(int.Parse(ddl_Ciudad.SelectedValue.ToString()));
+            }
+        }
+
+        protected void Btn_siguiente_Click(object sender, EventArgs e)
+        {
+            string ddl_c = ddl_Ciudad.SelectedValue.ToString();
+            string ddl_s = ddl_sucursal.SelectedValue.ToString();
+            string ddl_h = ddl_hora.SelectedValue.ToString();
+
+            if (ddl_c != "0" && ddl_s != "0" && ddl_h != "0")
+            {
+                Session["ddl_c"] = ddl_c;
+                Session["ddl_s"] = ddl_s;
+                Session["ddl_h"] = ddl_h;
+                Session["id_eternos"] = eternos;
+                Response.Redirect("~/Opcion2/BoletosC.aspx");
+            }
+            else
+            {
+                Response.Redirect("Index.aspx");
             }
         }
     }
