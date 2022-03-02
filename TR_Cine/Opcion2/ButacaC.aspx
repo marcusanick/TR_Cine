@@ -181,7 +181,7 @@
             </div>
             <hr>
             <div class="aside-bottom">
-                <button class="button-step"><a href="BoletosC.aspx">Anterior</a></button>
+                <asp:Button ID="Btn_anterior" runat="server" CssClass="button-step" ForeColor="White" Text="Anterior" OnClick="Btn_anterior_Click" />
                 <asp:Button ID="Btn_siguiente" runat="server" CssClass="button-step" ForeColor="White" Text="Siguiente" OnClick="Btn_siguiente_Click" />
             </div>
         </div>

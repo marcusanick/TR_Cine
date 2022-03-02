@@ -30,7 +30,7 @@ namespace TR_Cine.Opcion2
                 lbl_ddls.Text = sucursal.suc_descripcion;
                 lbl_ddlh.Text = hora.hor_descripcion;
                 lbl_contadorbut.Text = Convert.ToString(totalboletos);
-                lbl_precio.Text = Convert.ToString(Preciototal);
+                lbl_precio.Text = Convert.ToString(Preciototal) + "$";
             }
             else
             {
@@ -53,7 +53,16 @@ namespace TR_Cine.Opcion2
 
         protected void Btn_Siguiente_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Index.aspx");
+            if (txtCedula.Text==String.Empty || txtCorreo.Text==String.Empty || txtNombre.Text==String.Empty
+                || txtTarjeta.Text==String.Empty || txtTelefono.Text==String.Empty)
+            {
+
+            }
+            else
+            {
+                Response.Write("<script>alert('Compra exitosa, revisar su correo para encontrar su QR');</script>");
+                Response.Redirect("~/Index.aspx");
+            }
         }
     }
 }

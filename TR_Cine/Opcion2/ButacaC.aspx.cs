@@ -851,5 +851,10 @@ namespace TR_Cine.Opcion2
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
         }
+
+        protected void Btn_anterior_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BoletosC.aspx");
+        }
     }
 }

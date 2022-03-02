@@ -582,6 +582,15 @@ namespace TR_Cine.Opcion2
         protected global::System.Web.UI.WebControls.Button Btn_B14;
 
         /// <summary>
+        /// Control Btn_anterior.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_anterior;
+
+        /// <summary>
         /// Control Btn_siguiente.
         /// </summary>
         /// <remarks>

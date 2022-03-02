@@ -29,7 +29,7 @@
                     <h3>Datos Personales</h3>
                     <div class="input-container">
                         <asp:TextBox ID="txtCedula" placeholder="Cédula" CssClass="inputFinal" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="txtNombre" placeholder="Nombre" CssClass="inputFinal" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNombre" placeholder="Nombre Completo" CssClass="inputFinal" runat="server"></asp:TextBox>
                     </div>
                     <div class="input-container">
                         <asp:TextBox ID="txtCorreo" CssClass="inputFinal" placeholder="Correo electrónico" runat="server"></asp:TextBox>
