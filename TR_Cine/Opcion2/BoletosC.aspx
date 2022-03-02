@@ -9,6 +9,11 @@
             <div class="img-movie">
                 <img src="img/portadaeternasl.png">
             </div>
+            <h3 class="info">Datos Pelicula</h3>
+            <h3 class="info">Pelicula: <asp:Label ID="lbl_pelicula" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Idioma: <asp:Label ID="lbl_idioma" runat="server" Text=" "></asp:Label></h3>
+            <h3 class="info">Genero: <asp:Label ID="lbl_genero" runat="server" Text=" "></asp:Label> </h3>
+            <h3 class="info">Estado: <asp:Label ID="lbl_estado" runat="server" Text=" "></asp:Label></h3>
             <h3 class="info">Datos de Compra</h3>
             <h3 class="info">Ciudad: <asp:Label ID="lbl_ddlc" runat="server" Text=" "></asp:Label></h3>
             <h3 class="info">Sucursal: <asp:Label ID="lbl_ddls" runat="server" Text=" "></asp:Label> </h3>

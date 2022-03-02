@@ -31,6 +31,17 @@ namespace TR_Cine.Opcion2
             {
                 Response.Redirect("~/Eternals.aspx");
             }
+
+            int eternos = (int)(Session["id_eternos"]);
+            tbl_Pelicula pelicula = new tbl_Pelicula();
+            pelicula = Capa_Negocios.Pelicula_Logica.Obtner_perXId(eternos);
+            if (pelicula != null)
+            {
+                lbl_pelicula.Text = pelicula.pel_titulo;
+                lbl_idioma.Text = pelicula.pel_idioma;
+                lbl_genero.Text = pelicula.tbl_Genero.gen_descripcion;
+                lbl_estado.Text = Convert.ToString(pelicula.pel_estado);                
+            }
         }       
 
         protected void Btn_Anterior_Click(object sender, EventArgs e)
@@ -52,9 +63,11 @@ namespace TR_Cine.Opcion2
                 string ddl_c = (string)Session["ddl_c"];
                 string ddl_s = (string)Session["ddl_s"];
                 string ddl_h = (string)Session["ddl_h"];
+                int eternos = (int)(Session["id_eternos"]);
                 Session["ddl_c"] = ddl_c;
                 Session["ddl_s"] = ddl_s;
                 Session["ddl_h"] = ddl_h;
+                Session["id_eternos"] = eternos;
                 Session["totalboletos"] = sumaboletos;
                 Session["preciototal"] = sumatotal;
                 Response.Redirect("ButacaC.aspx");

@@ -36,9 +36,9 @@ namespace TR_Cine
             }
         }
 
+        int eternos = 1;
         private void cargar_eternos()
-        {
-            int eternos = 1;
+        {            
             tbl_Pelicula pelicula = new tbl_Pelicula();
             pelicula = Capa_Negocios.Pelicula_Logica.Obtner_perXId(eternos);
             if (pelicula != null)
@@ -124,6 +124,7 @@ namespace TR_Cine
                 Session["ddl_c"] = ddl_c;
                 Session["ddl_s"] = ddl_s;
                 Session["ddl_h"] = ddl_h;
+                Session["id_eternos"] = eternos;
                 Response.Redirect("~/Opcion2/BoletosC.aspx");
             }
             else
