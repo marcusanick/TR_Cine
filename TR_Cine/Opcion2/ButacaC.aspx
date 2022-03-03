@@ -128,44 +128,6 @@
                         <td class="auto-style13"></td>
                         <td class="auto-style3">B</td>
                     </tr>
-                    <%--<tr id="butaca">
-                        <td class="auto-style3">C</td>
-                        <td>&nbsp;</td>
-                        <td class="auto-style5">&nbsp;</td>
-                        <td class="auto-style15">
-                            1<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            2<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            3<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            4<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            5<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            6<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            7<button class="asiento"></button></td>
-                        <td class="auto-style15">&nbsp;</td>
-                        <td class="auto-style15">&nbsp;</td>
-                        <td class="auto-style15">
-                            8<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            9<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            10<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            11<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            12<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            13<button class="asiento"></button></td>
-                        <td class="auto-style15">
-                            14<button class="asiento"></button></td>
-                        <td class="auto-style11"></td>
-                        <td class="auto-style13"></td>
-                        <td class="auto-style3">C</td>
-                    </tr>--%>
                 </table>
                 <div class="tipoButacas">
                     <p>Ocupado
@@ -194,7 +156,7 @@
                 </div>          
             <div class="aside-bottom">
                 <asp:Button ID="Btn_anterior" runat="server" CssClass="button-step" ForeColor="White" Text="Anterior" OnClick="Btn_anterior_Click" />
-                <asp:Button ID="Btn_siguiente" runat="server" CssClass="button-step" ForeColor="White" Text="Siguiente" OnClick="Btn_siguiente_Click" />
+                <asp:Button ID="Btn_siguiente" runat="server" CssClass="button-step" ForeColor="White" Text="Finalizar" OnClick="Btn_siguiente_Click" />
             </div>
         </div>
     </div>

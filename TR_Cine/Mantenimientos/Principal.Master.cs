@@ -31,7 +31,7 @@ namespace TR_Cine.Mantenimientos
         protected void lnk_salir_Click(object sender, EventArgs e)
         {
             Session.RemoveAll();
-            Response.Redirect("~/Opcion2/paginaPrincipal.aspx");
+            Response.Redirect("~/Index.aspx");
         }
 
         protected void lnk_admin_Click(object sender, EventArgs e)

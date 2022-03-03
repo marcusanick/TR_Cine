@@ -48,6 +48,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BD_Cine.cs">
+      <DependentUpon>BD_Cine.dbml</DependentUpon>
+    </Compile>
     <Compile Include="BD_Cine.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

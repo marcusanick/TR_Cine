@@ -39,9 +39,6 @@ namespace Capa_Datos
     partial void Inserttbl_Combo(tbl_Combo instance);
     partial void Updatetbl_Combo(tbl_Combo instance);
     partial void Deletetbl_Combo(tbl_Combo instance);
-    partial void Inserttbl_Factura(tbl_Factura instance);
-    partial void Updatetbl_Factura(tbl_Factura instance);
-    partial void Deletetbl_Factura(tbl_Factura instance);
     partial void Inserttbl_Genero(tbl_Genero instance);
     partial void Updatetbl_Genero(tbl_Genero instance);
     partial void Deletetbl_Genero(tbl_Genero instance);
@@ -75,6 +72,9 @@ namespace Capa_Datos
     partial void Inserttbl_Usuario(tbl_Usuario instance);
     partial void Updatetbl_Usuario(tbl_Usuario instance);
     partial void Deletetbl_Usuario(tbl_Usuario instance);
+    partial void Inserttbl_Factura(tbl_Factura instance);
+    partial void Updatetbl_Factura(tbl_Factura instance);
+    partial void Deletetbl_Factura(tbl_Factura instance);
     #endregion
 		
 		public BD_CineDataContext() : 
@@ -136,14 +136,6 @@ namespace Capa_Datos
 			get
 			{
 				return this.GetTable<tbl_Combo>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_Factura> tbl_Factura
-		{
-			get
-			{
-				return this.GetTable<tbl_Factura>();
 			}
 		}
 		
@@ -232,6 +224,14 @@ namespace Capa_Datos
 			get
 			{
 				return this.GetTable<tbl_Usuario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Factura> tbl_Factura
+		{
+			get
+			{
+				return this.GetTable<tbl_Factura>();
 			}
 		}
 	}
@@ -459,7 +459,7 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_beb_img", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_beb_img", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary beb_img
 		{
 			get
@@ -703,8 +703,6 @@ namespace Capa_Datos
 		
 		private System.Nullable<char> _com_estado;
 		
-		private EntitySet<tbl_Factura> _tbl_Factura;
-		
 		private EntityRef<tbl_Bebida> _tbl_Bebida;
 		
 		private EntityRef<tbl_Sanck> _tbl_Sanck;
@@ -731,7 +729,6 @@ namespace Capa_Datos
 		
 		public tbl_Combo()
 		{
-			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
 			this._tbl_Bebida = default(EntityRef<tbl_Bebida>);
 			this._tbl_Sanck = default(EntityRef<tbl_Sanck>);
 			OnCreated();
@@ -797,7 +794,7 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_com_img", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_com_img", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary com_img
 		{
 			get
@@ -885,19 +882,6 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Combo_tbl_Factura", Storage="_tbl_Factura", ThisKey="com_id", OtherKey="com_id")]
-		public EntitySet<tbl_Factura> tbl_Factura
-		{
-			get
-			{
-				return this._tbl_Factura;
-			}
-			set
-			{
-				this._tbl_Factura.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Bebida_tbl_Combo", Storage="_tbl_Bebida", ThisKey="beb_id", OtherKey="beb_id", IsForeignKey=true)]
 		public tbl_Bebida tbl_Bebida
 		{
@@ -962,364 +946,6 @@ namespace Capa_Datos
 						this._snac_id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("tbl_Sanck");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tbl_Factura(tbl_Factura entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_Combo = this;
-		}
-		
-		private void detach_tbl_Factura(tbl_Factura entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_Combo = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Factura")]
-	public partial class tbl_Factura : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _fac_id;
-		
-		private System.Nullable<System.DateTime> _fac_fecha;
-		
-		private System.Nullable<int> _fun_id;
-		
-		private System.Nullable<int> _usu_id;
-		
-		private System.Nullable<int> _com_id;
-		
-		private System.Nullable<int> _suc_id;
-		
-		private EntityRef<tbl_Combo> _tbl_Combo;
-		
-		private EntityRef<tbl_Funcion> _tbl_Funcion;
-		
-		private EntityRef<tbl_Sucursal> _tbl_Sucursal;
-		
-		private EntityRef<tbl_Usuario> _tbl_Usuario;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onfac_idChanging(int value);
-    partial void Onfac_idChanged();
-    partial void Onfac_fechaChanging(System.Nullable<System.DateTime> value);
-    partial void Onfac_fechaChanged();
-    partial void Onfun_idChanging(System.Nullable<int> value);
-    partial void Onfun_idChanged();
-    partial void Onusu_idChanging(System.Nullable<int> value);
-    partial void Onusu_idChanged();
-    partial void Oncom_idChanging(System.Nullable<int> value);
-    partial void Oncom_idChanged();
-    partial void Onsuc_idChanging(System.Nullable<int> value);
-    partial void Onsuc_idChanged();
-    #endregion
-		
-		public tbl_Factura()
-		{
-			this._tbl_Combo = default(EntityRef<tbl_Combo>);
-			this._tbl_Funcion = default(EntityRef<tbl_Funcion>);
-			this._tbl_Sucursal = default(EntityRef<tbl_Sucursal>);
-			this._tbl_Usuario = default(EntityRef<tbl_Usuario>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fac_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int fac_id
-		{
-			get
-			{
-				return this._fac_id;
-			}
-			set
-			{
-				if ((this._fac_id != value))
-				{
-					this.Onfac_idChanging(value);
-					this.SendPropertyChanging();
-					this._fac_id = value;
-					this.SendPropertyChanged("fac_id");
-					this.Onfac_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fac_fecha", DbType="Date")]
-		public System.Nullable<System.DateTime> fac_fecha
-		{
-			get
-			{
-				return this._fac_fecha;
-			}
-			set
-			{
-				if ((this._fac_fecha != value))
-				{
-					this.Onfac_fechaChanging(value);
-					this.SendPropertyChanging();
-					this._fac_fecha = value;
-					this.SendPropertyChanged("fac_fecha");
-					this.Onfac_fechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fun_id", DbType="Int")]
-		public System.Nullable<int> fun_id
-		{
-			get
-			{
-				return this._fun_id;
-			}
-			set
-			{
-				if ((this._fun_id != value))
-				{
-					if (this._tbl_Funcion.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onfun_idChanging(value);
-					this.SendPropertyChanging();
-					this._fun_id = value;
-					this.SendPropertyChanged("fun_id");
-					this.Onfun_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_id", DbType="Int")]
-		public System.Nullable<int> usu_id
-		{
-			get
-			{
-				return this._usu_id;
-			}
-			set
-			{
-				if ((this._usu_id != value))
-				{
-					if (this._tbl_Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onusu_idChanging(value);
-					this.SendPropertyChanging();
-					this._usu_id = value;
-					this.SendPropertyChanged("usu_id");
-					this.Onusu_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_com_id", DbType="Int")]
-		public System.Nullable<int> com_id
-		{
-			get
-			{
-				return this._com_id;
-			}
-			set
-			{
-				if ((this._com_id != value))
-				{
-					if (this._tbl_Combo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Oncom_idChanging(value);
-					this.SendPropertyChanging();
-					this._com_id = value;
-					this.SendPropertyChanged("com_id");
-					this.Oncom_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_suc_id", DbType="Int")]
-		public System.Nullable<int> suc_id
-		{
-			get
-			{
-				return this._suc_id;
-			}
-			set
-			{
-				if ((this._suc_id != value))
-				{
-					if (this._tbl_Sucursal.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onsuc_idChanging(value);
-					this.SendPropertyChanging();
-					this._suc_id = value;
-					this.SendPropertyChanged("suc_id");
-					this.Onsuc_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Combo_tbl_Factura", Storage="_tbl_Combo", ThisKey="com_id", OtherKey="com_id", IsForeignKey=true)]
-		public tbl_Combo tbl_Combo
-		{
-			get
-			{
-				return this._tbl_Combo.Entity;
-			}
-			set
-			{
-				tbl_Combo previousValue = this._tbl_Combo.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_Combo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_Combo.Entity = null;
-						previousValue.tbl_Factura.Remove(this);
-					}
-					this._tbl_Combo.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_Factura.Add(this);
-						this._com_id = value.com_id;
-					}
-					else
-					{
-						this._com_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tbl_Combo");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Funcion_tbl_Factura", Storage="_tbl_Funcion", ThisKey="fun_id", OtherKey="fun_id", IsForeignKey=true)]
-		public tbl_Funcion tbl_Funcion
-		{
-			get
-			{
-				return this._tbl_Funcion.Entity;
-			}
-			set
-			{
-				tbl_Funcion previousValue = this._tbl_Funcion.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_Funcion.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_Funcion.Entity = null;
-						previousValue.tbl_Factura.Remove(this);
-					}
-					this._tbl_Funcion.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_Factura.Add(this);
-						this._fun_id = value.fun_id;
-					}
-					else
-					{
-						this._fun_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tbl_Funcion");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Factura", Storage="_tbl_Sucursal", ThisKey="suc_id", OtherKey="suc_id", IsForeignKey=true)]
-		public tbl_Sucursal tbl_Sucursal
-		{
-			get
-			{
-				return this._tbl_Sucursal.Entity;
-			}
-			set
-			{
-				tbl_Sucursal previousValue = this._tbl_Sucursal.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_Sucursal.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_Sucursal.Entity = null;
-						previousValue.tbl_Factura.Remove(this);
-					}
-					this._tbl_Sucursal.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_Factura.Add(this);
-						this._suc_id = value.suc_id;
-					}
-					else
-					{
-						this._suc_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tbl_Sucursal");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Usuario_tbl_Factura", Storage="_tbl_Usuario", ThisKey="usu_id", OtherKey="usu_id", IsForeignKey=true)]
-		public tbl_Usuario tbl_Usuario
-		{
-			get
-			{
-				return this._tbl_Usuario.Entity;
-			}
-			set
-			{
-				tbl_Usuario previousValue = this._tbl_Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_Usuario.Entity = null;
-						previousValue.tbl_Factura.Remove(this);
-					}
-					this._tbl_Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_Factura.Add(this);
-						this._usu_id = value.usu_id;
-					}
-					else
-					{
-						this._usu_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("tbl_Usuario");
 				}
 			}
 		}
@@ -1501,8 +1127,6 @@ namespace Capa_Datos
 		
 		private System.Nullable<char> _fun_estado;
 		
-		private EntitySet<tbl_Factura> _tbl_Factura;
-		
 		private EntityRef<tbl_Hora> _tbl_Hora;
 		
 		private EntityRef<tbl_Pelicula> _tbl_Pelicula;
@@ -1529,7 +1153,6 @@ namespace Capa_Datos
 		
 		public tbl_Funcion()
 		{
-			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
 			this._tbl_Hora = default(EntityRef<tbl_Hora>);
 			this._tbl_Pelicula = default(EntityRef<tbl_Pelicula>);
 			this._tbl_Sala = default(EntityRef<tbl_Sala>);
@@ -1668,19 +1291,6 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Funcion_tbl_Factura", Storage="_tbl_Factura", ThisKey="fun_id", OtherKey="fun_id")]
-		public EntitySet<tbl_Factura> tbl_Factura
-		{
-			get
-			{
-				return this._tbl_Factura;
-			}
-			set
-			{
-				this._tbl_Factura.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Hora_tbl_Funcion", Storage="_tbl_Hora", ThisKey="hor_id", OtherKey="hor_id", IsForeignKey=true)]
 		public tbl_Hora tbl_Hora
 		{
@@ -1801,18 +1411,6 @@ namespace Capa_Datos
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_tbl_Factura(tbl_Factura entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_Funcion = this;
-		}
-		
-		private void detach_tbl_Factura(tbl_Factura entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_Funcion = null;
 		}
 	}
 	
@@ -2246,7 +1844,7 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pel_img", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pel_img", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary pel_img
 		{
 			get
@@ -2666,7 +2264,7 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pro_imagen", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pro_imagen", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary pro_imagen
 		{
 			get
@@ -3127,7 +2725,7 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_snac_img", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_snac_img", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary snac_img
 		{
 			get
@@ -3227,9 +2825,9 @@ namespace Capa_Datos
 		
 		private System.Nullable<char> _suc_estado;
 		
-		private EntitySet<tbl_Factura> _tbl_Factura;
-		
 		private EntitySet<tbl_Hora> _tbl_Hora;
+		
+		private EntitySet<tbl_Factura> _tbl_Factura;
 		
 		private EntityRef<tbl_Ciudad> _tbl_Ciudad;
 		
@@ -3249,8 +2847,8 @@ namespace Capa_Datos
 		
 		public tbl_Sucursal()
 		{
-			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
 			this._tbl_Hora = new EntitySet<tbl_Hora>(new Action<tbl_Hora>(this.attach_tbl_Hora), new Action<tbl_Hora>(this.detach_tbl_Hora));
+			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
 			this._tbl_Ciudad = default(EntityRef<tbl_Ciudad>);
 			OnCreated();
 		}
@@ -3339,19 +2937,6 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Factura", Storage="_tbl_Factura", ThisKey="suc_id", OtherKey="suc_id")]
-		public EntitySet<tbl_Factura> tbl_Factura
-		{
-			get
-			{
-				return this._tbl_Factura;
-			}
-			set
-			{
-				this._tbl_Factura.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Hora", Storage="_tbl_Hora", ThisKey="suc_id", OtherKey="suc_id")]
 		public EntitySet<tbl_Hora> tbl_Hora
 		{
@@ -3362,6 +2947,19 @@ namespace Capa_Datos
 			set
 			{
 				this._tbl_Hora.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Factura", Storage="_tbl_Factura", ThisKey="suc_id", OtherKey="suc_id")]
+		public EntitySet<tbl_Factura> tbl_Factura
+		{
+			get
+			{
+				return this._tbl_Factura;
+			}
+			set
+			{
+				this._tbl_Factura.Assign(value);
 			}
 		}
 		
@@ -3419,18 +3017,6 @@ namespace Capa_Datos
 			}
 		}
 		
-		private void attach_tbl_Factura(tbl_Factura entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_Sucursal = this;
-		}
-		
-		private void detach_tbl_Factura(tbl_Factura entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_Sucursal = null;
-		}
-		
 		private void attach_tbl_Hora(tbl_Hora entity)
 		{
 			this.SendPropertyChanging();
@@ -3438,6 +3024,18 @@ namespace Capa_Datos
 		}
 		
 		private void detach_tbl_Hora(tbl_Hora entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Sucursal = null;
+		}
+		
+		private void attach_tbl_Factura(tbl_Factura entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Sucursal = this;
+		}
+		
+		private void detach_tbl_Factura(tbl_Factura entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_Sucursal = null;
@@ -3472,8 +3070,6 @@ namespace Capa_Datos
 		
 		private string _usu_cel;
 		
-		private EntitySet<tbl_Factura> _tbl_Factura;
-		
 		private EntityRef<tbl_Rol> _tbl_Rol;
 		
     #region Definiciones de métodos de extensibilidad
@@ -3506,7 +3102,6 @@ namespace Capa_Datos
 		
 		public tbl_Usuario()
 		{
-			this._tbl_Factura = new EntitySet<tbl_Factura>(new Action<tbl_Factura>(this.attach_tbl_Factura), new Action<tbl_Factura>(this.detach_tbl_Factura));
 			this._tbl_Rol = default(EntityRef<tbl_Rol>);
 			OnCreated();
 		}
@@ -3735,19 +3330,6 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Usuario_tbl_Factura", Storage="_tbl_Factura", ThisKey="usu_id", OtherKey="usu_id")]
-		public EntitySet<tbl_Factura> tbl_Factura
-		{
-			get
-			{
-				return this._tbl_Factura;
-			}
-			set
-			{
-				this._tbl_Factura.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Rol_tbl_Usuario", Storage="_tbl_Rol", ThisKey="rol_id", OtherKey="rol_id", IsForeignKey=true)]
 		public tbl_Rol tbl_Rol
 		{
@@ -3801,17 +3383,180 @@ namespace Capa_Datos
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Factura")]
+	public partial class tbl_Factura : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		private void attach_tbl_Factura(tbl_Factura entity)
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _fac_id;
+		
+		private System.Nullable<System.DateTime> _fac_fecha;
+		
+		private System.Nullable<int> _suc_id;
+		
+		private System.Data.Linq.Binary _fac_qr;
+		
+		private EntityRef<tbl_Sucursal> _tbl_Sucursal;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onfac_idChanging(int value);
+    partial void Onfac_idChanged();
+    partial void Onfac_fechaChanging(System.Nullable<System.DateTime> value);
+    partial void Onfac_fechaChanged();
+    partial void Onsuc_idChanging(System.Nullable<int> value);
+    partial void Onsuc_idChanged();
+    partial void Onfac_qrChanging(System.Data.Linq.Binary value);
+    partial void Onfac_qrChanged();
+    #endregion
+		
+		public tbl_Factura()
 		{
-			this.SendPropertyChanging();
-			entity.tbl_Usuario = this;
+			this._tbl_Sucursal = default(EntityRef<tbl_Sucursal>);
+			OnCreated();
 		}
 		
-		private void detach_tbl_Factura(tbl_Factura entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fac_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int fac_id
 		{
-			this.SendPropertyChanging();
-			entity.tbl_Usuario = null;
+			get
+			{
+				return this._fac_id;
+			}
+			set
+			{
+				if ((this._fac_id != value))
+				{
+					this.Onfac_idChanging(value);
+					this.SendPropertyChanging();
+					this._fac_id = value;
+					this.SendPropertyChanged("fac_id");
+					this.Onfac_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fac_fecha", DbType="Date")]
+		public System.Nullable<System.DateTime> fac_fecha
+		{
+			get
+			{
+				return this._fac_fecha;
+			}
+			set
+			{
+				if ((this._fac_fecha != value))
+				{
+					this.Onfac_fechaChanging(value);
+					this.SendPropertyChanging();
+					this._fac_fecha = value;
+					this.SendPropertyChanged("fac_fecha");
+					this.Onfac_fechaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_suc_id", DbType="Int")]
+		public System.Nullable<int> suc_id
+		{
+			get
+			{
+				return this._suc_id;
+			}
+			set
+			{
+				if ((this._suc_id != value))
+				{
+					if (this._tbl_Sucursal.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onsuc_idChanging(value);
+					this.SendPropertyChanging();
+					this._suc_id = value;
+					this.SendPropertyChanged("suc_id");
+					this.Onsuc_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fac_qr", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary fac_qr
+		{
+			get
+			{
+				return this._fac_qr;
+			}
+			set
+			{
+				if ((this._fac_qr != value))
+				{
+					this.Onfac_qrChanging(value);
+					this.SendPropertyChanging();
+					this._fac_qr = value;
+					this.SendPropertyChanged("fac_qr");
+					this.Onfac_qrChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Sucursal_tbl_Factura", Storage="_tbl_Sucursal", ThisKey="suc_id", OtherKey="suc_id", IsForeignKey=true)]
+		public tbl_Sucursal tbl_Sucursal
+		{
+			get
+			{
+				return this._tbl_Sucursal.Entity;
+			}
+			set
+			{
+				tbl_Sucursal previousValue = this._tbl_Sucursal.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Sucursal.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_Sucursal.Entity = null;
+						previousValue.tbl_Factura.Remove(this);
+					}
+					this._tbl_Sucursal.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Factura.Add(this);
+						this._suc_id = value.suc_id;
+					}
+					else
+					{
+						this._suc_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("tbl_Sucursal");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

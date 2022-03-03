@@ -116,40 +116,11 @@
                                 <asp:DropDownList ID="ddl_gen" runat="server" CssClass="form-select"></asp:DropDownList>
                             </td>
                         </tr>
-                        <form id="form1" runat="server">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    Imagen Agregada:
-                    <br />
-                    <asp:Image ID="Image1" width="200" ImageUrl="https://cdn-icons-png.flaticon.com/512/16/16410.png" runat="server" />
-                    <br />
-                    <br />
-                    Archivo:
-                    <asp:FileUpload ID="FileUpload1" accept=".jpg" runat="server" CssClass="form-control"/>
-                    <br />
-                    <br />
-                    Titulo:
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
-                    <br />
-                    sinopsis:
-                    <asp:TextBox ID="txt_sinopsis" runat="server" CssClass="form-control"></asp:TextBox>
-                    <br />
-                    url:
-                    <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
-                    <br />
-                    <asp:Button ID="btn_subir" runat="server" Text="Adjuntar" CssClass="btn btn-success" OnClick="btn_subir_Click"/>
-                </div>
-            </div>
-        </div>
-    </form>
                     </table>
                 </td>
             </tr>
         </table>
     </div>
-
-
     <%--</ContentTemplate>
     </asp:UpdatePanel>--%>
 </asp:Content>

@@ -1,15 +1,18 @@
 ﻿using Capa_Datos;
+using QRCoder;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using Capa_Negocios;
 
 namespace TR_Cine.Opcion2
 {
     public partial class ButacaC : System.Web.UI.Page
     {
 
-        SqlConnection con = new SqlConnection("Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Security Info=True;User ID=marcusanick_SQLLogin_1;Password=7x5orgwf9j");
+        private SqlConnection con = new SqlConnection("Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Security Info=True;User ID=marcusanick_SQLLogin_1;Password=7x5orgwf9j");
+        private tbl_Factura facturas = new tbl_Factura();
         int contador = 0;
         int contadorbut = 1;
         protected void Page_Load(object sender, EventArgs e)
@@ -21,13 +24,13 @@ namespace TR_Cine.Opcion2
             if (ddl_c != 0 && ddl_s != 0 && ddl_h != 0)
             {
                 tbl_Ciudad ciudad = new tbl_Ciudad();
-                ciudad = Capa_Negocios.Ciudad_Logica.Obtner_ciuXId(ddl_c);
+                ciudad = Ciudad_Logica.Obtner_ciuXId(ddl_c);
 
                 tbl_Sucursal sucursal = new tbl_Sucursal();
-                sucursal = Capa_Negocios.Sucursal_Logica.Obtner_sucXId(ddl_s);
+                sucursal = Sucursal_Logica.Obtner_sucXId(ddl_s);
 
                 tbl_Hora hora = new tbl_Hora();
-                hora = Capa_Negocios.Hora_Logica.Obtner_horXId(ddl_h);
+                hora = Hora_Logica.Obtner_horXId(ddl_h);
 
                 lbl_ddlc.Text = ciudad.ciu_descripcion;
                 lbl_ddls.Text = sucursal.suc_descripcion;
@@ -39,14 +42,14 @@ namespace TR_Cine.Opcion2
             }
 
             int totalboletos = (int)Session["totalboletos"];
-            int Preciototal = (int)Session["preciototal"];          
+            int Preciototal = (int)Session["preciototal"];
 
             lbl_precio.Text = Convert.ToString(Preciototal);
             lbl_butco.Text = Convert.ToString(totalboletos);
 
             int eternos = (int)(Session["id_eternos"]);
             tbl_Pelicula pelicula = new tbl_Pelicula();
-            pelicula = Capa_Negocios.Pelicula_Logica.Obtner_perXId(eternos);
+            pelicula = Pelicula_Logica.Obtner_perXId(eternos);
             if (pelicula != null)
             {
                 lbl_pelicula.Text = pelicula.pel_titulo;
@@ -60,18 +63,19 @@ namespace TR_Cine.Opcion2
             if (totalboletos > contador)
             {
                 Response.Write("<script>alert('Numero de boletos excede el numero de asientos disponibles');</script>");
-                Response.Redirect("BoletosC.aspx");                
-            }                       
-            Session["Ini"] = Session["Inic"];            
-        }                
+                Response.Redirect("BoletosC.aspx");
+            }
+            Session["Ini"] = Session["Inic"];
+        }
         private void Verificar_ButacasS1()
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select but_estado from tbl_butaca ORDER BY but_id ASC ", con);            
+            SqlCommand cmd = new SqlCommand("select but_estado from tbl_butaca ORDER BY but_id ASC ", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             con.Close();
+            #region Validacion Butacas
             if (dt.Rows[0]["but_estado"].ToString() == "I")
             {
                 Btn_A1.BackColor = Color.Red;
@@ -337,9 +341,9 @@ namespace TR_Cine.Opcion2
             {
                 contador++;
             }
-
+            #endregion
         }
-        
+
         private void validarCantidadComprada()
         {
             int nbutco = Convert.ToInt32(lbl_butco.Text);
@@ -395,6 +399,7 @@ namespace TR_Cine.Opcion2
             //}
         }
 
+        #region Butacas
         protected void Btn_A4_Click(object sender, EventArgs e)
         {
 
@@ -505,9 +510,10 @@ namespace TR_Cine.Opcion2
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
         }
+        #endregion
 
         protected void Btn_siguiente_Click(object sender, EventArgs e)
-        {            
+        {
             string butA1 = (string)Session["A1"];
             string butA2 = (string)Session["A2"];
             string butA3 = (string)Session["A3"];
@@ -521,7 +527,8 @@ namespace TR_Cine.Opcion2
             string butA11 = (string)Session["A11"];
             string butA12 = (string)Session["A12"];
 
-            //idea para llevar butacas escogidas a pagina pago
+
+            #region idea para llevar butacas escogidas a pagina pago
             Session["A1"] = butA1;
             Session["A2"] = butA2;
             Session["A3"] = butA3;
@@ -539,102 +546,142 @@ namespace TR_Cine.Opcion2
             Session["Cedula"] = txtCedula.Text;
             Session["Telefono"] = txtTelefono.Text;
             Session["Tarjeta"] = txtTarjeta.Text;
-            //endidea:(                                          
+            #endregion
 
-            if (txtNombre.Text =="" || txtCedula.Text =="" || txtCorreo.Text == "" || txtTelefono.Text == "" || txtTarjeta.Text =="")
+            if (txtNombre.Text == String.Empty || txtCedula.Text == String.Empty || txtCorreo.Text == String.Empty || 
+                txtTelefono.Text == String.Empty || txtTarjeta.Text == String.Empty)
             {
-                Response.Redirect("ButacaC.aspx");
+                string contenido = "Nombre: '" + txtNombre.Text + "'\nCedula: '" + txtCedula.Text + "'\nCorreo: '" 
+                    + txtCorreo.Text + "'\nPelicula: '" + lbl_pelicula.Text + "'\nButacas: '" + lbl_butco.Text + "'" + "'\nValor total: '" + lbl_precio.Text + "$'";
+                QRCodeGenerator qrgenerador = new QRCodeGenerator();
+                QRCodeData qrDatos = qrgenerador.CreateQrCode(contenido, QRCodeGenerator.ECCLevel.H);
+                QRCode qrCodigo = new QRCode(qrDatos);
+
+                Bitmap qrImagen = qrCodigo.GetGraphic(5, Color.Black, Color.White, true);
+
+                System.Drawing.Image imtThumbnail;
+                int TamanioThumbnail = 200;
+                imtThumbnail = RedimencionaImagen(qrImagen, TamanioThumbnail);
+                byte[] bImagenThumbnail = new byte[TamanioThumbnail];
+
+                ImageConverter Convertidor = new ImageConverter();
+                bImagenThumbnail = (byte[])Convertidor.ConvertTo(imtThumbnail, typeof(byte[]));
+
+                facturas.fac_qr = bImagenThumbnail;
+
+                string ImagenDataURL64 = "data:image/jpg;base64," + Convert.ToBase64String(bImagenThumbnail);
+                //ImagePreview.ImageUrl = ImagenDataURL64;
+
+                Factura_Logica.Guardar(facturas);
+
+                Response.Write("<script>alert('Compra exitosa');</script>");
+                Response.Redirect("PagosC.aspx");
             }
-                if (butA1 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA1 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA2 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA2 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA3 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA3 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA4 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA4 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA5 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA5 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA6 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA6 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA7 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA7 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA8 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA8 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-
-                //
-
-                if (butA9 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA9 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA10 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA10 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA11 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA11 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                if (butA12 != "")
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA12 + "'", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            validarCantidadComprada();                            
+            else
+            {
+                Response.Write("<script>alert('Ingresar todos los campos para completar el proceso');</script>");
+            }
+            #region ifsButacas
+            if (butA1 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA1 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA2 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA2 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA3 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA3 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA4 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA4 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA5 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA5 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA6 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA6 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA7 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA7 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA8 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA8 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA9 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA9 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA10 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA10 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA11 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA11 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            if (butA12 != "")
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA12 + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            #endregion
+            validarCantidadComprada();
         }
 
+        public System.Drawing.Image RedimencionaImagen(System.Drawing.Image ImagenOriginal, int Alto)
+        {
+            var Radio = (double)Alto / ImagenOriginal.Height;
+            var NuevoAncho = (int)(ImagenOriginal.Width * Radio);
+            var NuevoAlto = (int)(ImagenOriginal.Height * Radio);
+            var NuevaImagenRedimencionada = new Bitmap(NuevoAncho, NuevoAlto);
+            var g = Graphics.FromImage(NuevaImagenRedimencionada);
+            g.DrawImage(ImagenOriginal, 0, 0, NuevoAncho, NuevoAlto);
+            return NuevaImagenRedimencionada;
+        }
+
+        #region butacas2
         protected void Btn_A7_Click(object sender, EventArgs e)
         {
             if (Btn_A7.Text.Equals(""))
@@ -1019,14 +1066,14 @@ namespace TR_Cine.Opcion2
                 Session["Inic"] = lbl_contadorbut.Text.ToString();
             }
         }
-
+        #endregion
         private void BloqBut(string but)
         {
             SqlConnection con = new SqlConnection("Data Source=BoleteriaPm.mssql.somee.com;Initial Catalog=BoleteriaPm;Persist Security Info=True;User ID=marcusanick_SQLLogin_1;Password=7x5orgwf9j");
-            SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '"+but+"'  ");
+            SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + but + "'  ");
             con.Open();
             cmd.ExecuteNonQuery();
-            con.Close(); 
+            con.Close();
         }
 
         protected void Btn_anterior_Click(object sender, EventArgs e)
