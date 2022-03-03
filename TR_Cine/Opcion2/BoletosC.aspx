@@ -13,7 +13,7 @@
             <h3 class="info">Datos Pelicula</h3>
             <h3 class="info">Pelicula:
                 <asp:Label ID="lbl_pelicula" runat="server" Text=" "></asp:Label></h3>
-            <h3 class="info">Idioma:
+            <h3 class="info">Idioma: 
                 <asp:Label ID="lbl_idioma" runat="server" Text=" "></asp:Label></h3>
             <h3 class="info">Genero:
                 <asp:Label ID="lbl_genero" runat="server" Text=" "></asp:Label>
