@@ -180,6 +180,18 @@
                 </div>
             </div>
             <hr>
+            <div class="infoPersonal">
+                    <h3>Datos Personales</h3>
+                    <div class="input-container">
+                        <asp:TextBox ID="txtCedula" placeholder="Cédula" CssClass="inputFinal" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtNombre" placeholder="Nombre" CssClass="inputFinal" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="input-container">
+                        <asp:TextBox ID="txtCorreo" CssClass="inputFinal" placeholder="Correo electrónico" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtTelefono" CssClass="inputFinal" placeholder="Telefono" runat="server"></asp:TextBox>
+                    </div>
+                    <asp:TextBox ID="txtTarjeta" CssClass="inputFinal" placeholder="No. Tarjeta" runat="server"></asp:TextBox>
+                </div>          
             <div class="aside-bottom">
                 <asp:Button ID="Btn_anterior" runat="server" CssClass="button-step" ForeColor="White" Text="Anterior" OnClick="Btn_anterior_Click" />
                 <asp:Button ID="Btn_siguiente" runat="server" CssClass="button-step" ForeColor="White" Text="Siguiente" OnClick="Btn_siguiente_Click" />
