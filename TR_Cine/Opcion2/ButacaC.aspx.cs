@@ -346,15 +346,15 @@ namespace TR_Cine.Opcion2
             int nbutes = Convert.ToInt32(lbl_contadorbut.Text);
             if (nbutes > nbutco)
             {
-                Response.Write("<script>alert('La cantidad de butacas escogidas no corresponden al numero de butacas compradas');</script>");
+                Response.Redirect("ButacaC.aspx");
             }
             else if (nbutes < nbutco)
             {
-                Response.Write("<script>alert('Butacas restantes por escoger');</script>");
+                Response.Redirect("ButacaC.aspx");
             }
             else
             {
-                Response.Write("<script>alert('Compra Completada');</script>");
+                Response.Redirect("PagosC.aspx");
             }
         }
 
@@ -507,7 +507,7 @@ namespace TR_Cine.Opcion2
         }
 
         protected void Btn_siguiente_Click(object sender, EventArgs e)
-        {
+        {            
             string butA1 = (string)Session["A1"];
             string butA2 = (string)Session["A2"];
             string butA3 = (string)Session["A3"];
@@ -539,15 +539,12 @@ namespace TR_Cine.Opcion2
             Session["Cedula"] = txtCedula.Text;
             Session["Telefono"] = txtTelefono.Text;
             Session["Tarjeta"] = txtTarjeta.Text;
-            //endidea:(
+            //endidea:(                                          
 
-            if (txtNombre.Text == "" || txtCorreo.Text == "" || txtCedula.Text == "" || txtTelefono.Text == "" || txtTarjeta.Text == "")
+            if (txtNombre.Text =="" || txtCedula.Text =="" || txtCorreo.Text == "" || txtTelefono.Text == "" || txtTarjeta.Text =="")
             {
-                Response.Write("<script>alert('Digite la informacion para realizar la compra');</script>");
+                Response.Redirect("ButacaC.aspx");
             }
-            else
-            {
-                validarCantidadComprada();
                 if (butA1 != "")
                 {
                     SqlCommand cmd = new SqlCommand("UPDATE tbl_butaca SET but_estado = 'I' WHERE but_descripcion = '" + butA1 + "'", con);
@@ -635,8 +632,7 @@ namespace TR_Cine.Opcion2
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
-                Response.Redirect("PagosC.aspx");
-            }
+            validarCantidadComprada();                            
         }
 
         protected void Btn_A7_Click(object sender, EventArgs e)

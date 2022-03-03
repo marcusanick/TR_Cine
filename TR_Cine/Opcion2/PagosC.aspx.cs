@@ -14,6 +14,11 @@ namespace TR_Cine.Opcion2
             int ddl_h = Convert.ToInt32((string)(Session["ddl_h"]));
             int totalboletos = (int)Session["totalboletos"];
             int Preciototal = (int)Session["preciototal"];
+            //DatosPersonales
+            string nombre = (string)Session["Nombre"];
+            string correo = (string)Session["Correo"];
+            string cedula = (string)Session["Cedula"];
+            string telefono = (string)Session["Telefono"];
 
             if (ddl_c != 0 && ddl_s != 0 && ddl_h != 0 && totalboletos!= 0 && Preciototal != 0)
             {
@@ -31,6 +36,10 @@ namespace TR_Cine.Opcion2
                 lbl_ddlh.Text = hora.hor_descripcion;
                 lbl_contadorbut.Text = Convert.ToString(totalboletos);
                 lbl_precio.Text = Convert.ToString(Preciototal) + "$";
+                lbl_cedula.Text = cedula;
+                lbl_nombre.Text = nombre;
+                lbl_correo.Text = correo;
+                lbl_telefono.Text = telefono;
             }
             else
             {
@@ -52,17 +61,9 @@ namespace TR_Cine.Opcion2
         }
 
         protected void Btn_Siguiente_Click(object sender, EventArgs e)
-        {
-            if (txtCedula.Text==String.Empty || txtCorreo.Text==String.Empty || txtNombre.Text==String.Empty
-                || txtTarjeta.Text==String.Empty || txtTelefono.Text==String.Empty)
-            {
-
-            }
-            else
-            {
+        {                                   
                 Response.Write("<script>alert('Compra exitosa, revisar su correo para encontrar su QR');</script>");
-                Response.Redirect("~/Index.aspx");
-            }
+                Response.Redirect("~/Index.aspx");            
         }
     }
 }

@@ -28,14 +28,18 @@
                 <div class="infoPersonal">
                     <h3>Datos Personales</h3>
                     <div class="input-container">
-                        <asp:TextBox ID="txtCedula" placeholder="Cédula" CssClass="inputFinal" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="txtNombre" placeholder="Nombre Completo" CssClass="inputFinal" runat="server"></asp:TextBox>
-                    </div>
+                        <h3 class="info">Cedula:
+                        <asp:Label ID="lbl_cedula" runat="server" Text=" "></asp:Label></h3>
+                        <h3 class="info">Nombre:
+                        <asp:Label ID="lbl_nombre" runat="server" Text=" "></asp:Label></h3>
+                    </div>                                   
                     <div class="input-container">
-                        <asp:TextBox ID="txtCorreo" CssClass="inputFinal" placeholder="Correo electrónico" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="txtTelefono" CssClass="inputFinal" placeholder="Telefono" runat="server"></asp:TextBox>
+                        <h3 class="info">Correo:
+                        <asp:Label ID="lbl_correo" runat="server" Text=" "></asp:Label></h3>
+                        <h3 class="info">Telefono:
+                        <asp:Label ID="lbl_telefono" runat="server" Text=" "></asp:Label></h3>
+                    </div>                    
                     </div>
-                    <asp:TextBox ID="txtTarjeta" CssClass="inputFinal" placeholder="No. Tarjeta" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="aside-bottom">
