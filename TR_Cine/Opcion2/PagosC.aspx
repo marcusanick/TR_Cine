@@ -42,6 +42,9 @@
                     </div>
                 </div>
             </div>
+        <div>
+            <asp:Image ID="ImagePreview" Width="200" ImageUrl="https://cdn-icons-png.flaticon.com/512/16/16410.png" runat="server" />
+        </div>
             <div class="aside-bottom">
                 <asp:Button ID="Btn_Anterior" runat="server" CssClass="button-step" ForeColor="White" Text="Anterior" OnClick="Btn_Anterior_Click" />
                 <asp:Button ID="Btn_Siguiente" runat="server" CssClass="button-step" ForeColor="White" Text="Finalizar" OnClick="Btn_Siguiente_Click" />

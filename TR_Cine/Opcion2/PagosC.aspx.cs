@@ -1,7 +1,9 @@
 ﻿using Capa_Datos;
+using QRCoder;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace TR_Cine.Opcion2
 {
@@ -53,6 +55,38 @@ namespace TR_Cine.Opcion2
             {
                 lbl_pelicula.Text = pelicula.pel_titulo;
             }
+
+            //prueba qr
+            string contenido = "Nombre: '"+nombre+"' Cedula: '"+cedula+"' Correo: '"+correo+"' Pelicula: '"+lbl_pelicula.Text+"' Butacas: '"+totalboletos+"'";
+            QRCodeGenerator qrgenerador = new QRCodeGenerator();
+            QRCodeData qrDatos = qrgenerador.CreateQrCode(contenido, QRCodeGenerator.ECCLevel.H);
+            QRCode qrCodigo = new QRCode(qrDatos);
+
+            Bitmap qrImagen = qrCodigo.GetGraphic(5, Color.Black, Color.White, true);
+
+
+            System.Drawing.Image imtThumbnail;
+            int TamanioThumbnail = 200;
+            imtThumbnail = RedimencionaImagen(qrImagen, TamanioThumbnail);
+            byte[] bImagenThumbnail = new byte[TamanioThumbnail];
+
+            ImageConverter Convertidor = new ImageConverter();
+            bImagenThumbnail = (byte[])Convertidor.ConvertTo(imtThumbnail, typeof(byte[]));
+
+            string ImagenDataURL64 = "data:image/jpg;base64," + Convert.ToBase64String(bImagenThumbnail);
+
+            ImagePreview.ImageUrl = ImagenDataURL64;
+        }
+
+        public System.Drawing.Image RedimencionaImagen(System.Drawing.Image ImagenOriginal, int Alto)
+        {
+            var Radio = (double)Alto / ImagenOriginal.Height;
+            var NuevoAncho = (int)(ImagenOriginal.Width * Radio);
+            var NuevoAlto = (int)(ImagenOriginal.Height * Radio);
+            var NuevaImagenRedimencionada = new Bitmap(NuevoAncho, NuevoAlto);
+            var g = Graphics.FromImage(NuevaImagenRedimencionada);
+            g.DrawImage(ImagenOriginal, 0, 0, NuevoAncho, NuevoAlto);
+            return NuevaImagenRedimencionada;
         }
 
         protected void Btn_Anterior_Click(object sender, EventArgs e)
